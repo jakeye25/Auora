@@ -8,7 +8,7 @@ class Question(db.Model):
     cotent = db.Column(db.String(1000), nullable=False)
     userId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     topicId = db.Column(db.Integer, db.ForeignKey('topics.id'), nullable=False)
-    image = db.Column(db.String(1000))
+    questionimage = db.Column(db.String(1000))
     createdAt = db.Column(db.DateTime, nullable=False)
     updatedAt = db.Column(db.DateTime, nullable=False)
 
@@ -24,7 +24,7 @@ class Question(db.Model):
             'content': self.content,
             'userId':self.userId,
             'topicId':self.userId,
-            'image':self.image,
+            'questionimage ':self.questionimage ,
             'createdAt':self.createdAt,
             'updatedAt':self.updatedAt,
             'answers': [answer.to_dict() for answer in self.answers]
