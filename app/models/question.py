@@ -1,0 +1,31 @@
+from .db import db
+from sqlalchemy.types  import DateTime, Date
+
+class Question(db.Model):
+    __tablename__ = 'questions'
+
+    id = db.Column(db.Integer, primary_key=True)
+    cotent = db.Column(db.String(1000), nullable=False)
+    userId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    topicId = db.Column(db.Integer, db.ForeignKey('topics.id'), nullable=False)
+    image = db.Column(db.String(1000))
+    createdAt = db.Column(db.DateTime, nullable=False)
+    updatedAt = db.Column(db.DateTime, nullable=False)
+
+    answers = db.relationship('Answer', back_populates='question', cascade = 'all, delete')
+    topics = db.relationship('Topic', back_populates='question', cascade='all, delete')
+    user = db.relationship('User', back_populates='questions')
+
+
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'content': self.content,
+            'userId':self.userId,
+            'topicId':self.userId,
+            'image':self.image,
+            'createdAt':self.createdAt,
+            'updatedAt':self.updatedAt,
+            'answers': [answer.to_dict() for answer in self.answers]
+        }
