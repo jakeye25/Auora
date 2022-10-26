@@ -27,5 +27,7 @@ class Question(db.Model):
             'questionimage ':self.questionimage ,
             'createdAt':self.createdAt,
             'updatedAt':self.updatedAt,
-            'answers': [answer.to_dict() for answer in self.answers]
+            'answers': [answer.to_dict() for answer in self.answers],
+            'username': self.user.username if self.user else None,
+            'avatar': self.user.avatar if self.user else None
         }
