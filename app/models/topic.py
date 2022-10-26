@@ -1,4 +1,3 @@
-from app.models import question
 from .db import db
 from sqlalchemy.types  import DateTime, Date
 
