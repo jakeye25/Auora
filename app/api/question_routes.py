@@ -72,7 +72,7 @@ def update_question(id):
     if form.validate_on_submit():
         edit_question = Question.query.get(id)
         edit_question.questioncotent = form.data['questioncotent']
-        edit_question.TopicId = form.data['topicId']
+        edit_question.topicId = form.data['topicId']
         edit_question.questionimage = form.data['questionimage']
         # edit_product.userId = current_user.id
         # edit_product.createdAt = now,
@@ -89,6 +89,9 @@ def update_question(id):
 def delete_question(id):
 
     delete_question = Question.query.get(id)
+
+    if delete_question is None:
+        return {"errors": "No such question."}
 
     if delete_question.userId != current_user.id:
         return {"errors" : "You don't have the right to delete the question"}, 403

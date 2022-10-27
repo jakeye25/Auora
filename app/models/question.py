@@ -13,7 +13,7 @@ class Question(db.Model):
     updatedAt = db.Column(db.DateTime, nullable=False)
 
     answers = db.relationship('Answer', back_populates='question', cascade = 'all, delete')
-    topics = db.relationship('Topic', back_populates='question', cascade='all, delete')
+    topic = db.relationship('Topic', back_populates='question')
     user = db.relationship('User', back_populates='questions')
 
 
@@ -23,7 +23,7 @@ class Question(db.Model):
             'id': self.id,
             'questioncotent': self.questioncotent,
             'userId':self.userId,
-            'topicId':self.userId,
+            'topicId':self.topicId,
             'questionimage':self.questionimage,
             'createdAt':self.createdAt,
             'updatedAt':self.updatedAt,

@@ -10,7 +10,7 @@ class Topic(db.Model):
     createdAt = db.Column(db.DateTime, nullable=False)
     updatedAt = db.Column(db.DateTime, nullable=False)
 
-    question = db.relationship('Question', back_populates='topics')
+    questions = db.relationship('Question', back_populates='topics')
 
 
     def to_dict(self):
@@ -20,4 +20,5 @@ class Topic(db.Model):
             'topicimage ':self.topicimage ,
             'createdAt':self.createdAt,
             'updatedAt':self.updatedAt,
+            "questions": [question.to_dict() for question in self.questions]
         }
