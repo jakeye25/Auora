@@ -29,7 +29,7 @@ def question(id):
 @login_required
 def currentuser_question():
     currentuserid = current_user.id
-    questions = Question.query.filter(question.userId == currentuserid)
+    questions = Question.query.filter(Question.userId == currentuserid)
     return {'questions': [question.to_dict() for question in questions]}
 
 

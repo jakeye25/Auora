@@ -24,7 +24,7 @@ class Question(db.Model):
             'questioncotent': self.questioncotent,
             'userId':self.userId,
             'topicId':self.userId,
-            'questionimage ':self.questionimage ,
+            'questionimage':self.questionimage,
             'createdAt':self.createdAt,
             'updatedAt':self.updatedAt,
             'answers': [answer.to_dict() for answer in self.answers],

@@ -1,7 +1,8 @@
+from typing import Optional
 from flask_wtf import FlaskForm
 from wtforms import StringField, IntegerField
 from app.models import Question
-from wtforms.validators import DataRequired, Email, ValidationError
+from wtforms.validators import DataRequired, Email, ValidationError, Optional
 
 def imageURL_validation(form, field):
     img = field.data
@@ -11,4 +12,5 @@ def imageURL_validation(form, field):
 
 class QuestionForm(FlaskForm):
     questioncotent = StringField("Question Content", validators= [DataRequired()])
-    questionimage = StringField("Image URL", validators= [imageURL_validation])
+    questionimage = StringField("Image URL", validators= [Optional(), imageURL_validation])
+    topicId = IntegerField('Topic Id', validators=[DataRequired()])
