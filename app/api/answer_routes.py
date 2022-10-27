@@ -1,5 +1,6 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
+from app.forms.answer_form import AnswerForm
 from app.models import Answer, db
 from app.api.auth_routes import validation_errors_to_error_messages
 from datetime import datetime
@@ -30,3 +31,57 @@ def currentuser_answer():
     currentuserid = current_user.id
     answers = Answer.query.filter(answer.userId == currentuserid)
     return {'answers': [answer.to_dict() for answer in answers]}
+
+#create an answer
+@answer_routes.route('/questions/<int:id>', methods=['POST'])
+@login_required
+def create_answer(id):
+  form = AnswerForm()
+  form['csrf_token'].data = request.cookies['csrf_token']
+  if form.validate_on_submit():
+    data = form.data
+    newanswer = Answer(
+       answercotent = data['answercotent'],
+       answerimage = data['answerimage'],
+       questionId = id,
+       userId = current_user.id,
+       createdAt = now,
+       updatedAt = now
+    )
+    db.session.add(newanswer)
+    db.session.commit()
+    return newanswer.to_dict()
+  else:
+    return {'errors': validation_errors_to_error_messages(form.errors)},400
+
+#update an answer
+@answer_routes.route('/<int:answerId>', methods=['PUT'])
+@login_required
+def update_product_review(answerId):
+    # print(reviewId)
+    form = AnswerForm()
+    form['csrf_token'].data=request.cookies['csrf_token']
+    if form.validate_on_submit():
+      updatedanswer= Answer.query.get(answerId)
+      if updatedanswer:
+         updatedanswer.answercotent = form.data['answercotent']
+         updatedanswer.answerimage = form.data['answerimage']
+
+         db.session.commit()
+         return updatedanswer.to_dict()
+      else:
+        return {'message': 'Answer not found'}, 404
+    else:
+      return {'errors': validation_errors_to_error_messages(form.errors)}, 400
+
+#delete an answer
+@answer_routes.route('/<int:id>', methods=['DELETE'])
+@login_required
+def delete_answer(id):
+   answer = Answer.query.get(id)
+   if answer:
+     db.session.delete(answer)
+     db.session.commit()
+     return {'message': 'Successfully Deleted'}
+   else:
+     return {'message': "Answer cant not be found"}
