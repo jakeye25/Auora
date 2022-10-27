@@ -10,7 +10,7 @@ class Topic(db.Model):
     createdAt = db.Column(db.DateTime, nullable=False)
     updatedAt = db.Column(db.DateTime, nullable=False)
 
-    questions = db.relationship('Question', back_populates='topics')
+    questions = db.relationship('Question', back_populates='topic')
 
 
     def to_dict(self):
