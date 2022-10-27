@@ -98,4 +98,4 @@ def delete_question(id):
 
     db.session.delete(delete_question)
     db.session.commit()
-    return ("Successfully deleted!")
+    return {"message":"Successfully deleted!"}
