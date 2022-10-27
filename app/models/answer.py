@@ -22,7 +22,7 @@ class Answer(db.Model):
             'answercotent': self.answercotent,
             'questionId':self.questionId,
             'userId':self.userId,
-            'answerimg':self.answerimg,
+            'answerimage':self.answerimage,
             'createdAt':self.createdAt,
             'updatedAt':self.updatedAt,
             'username': self.user.username if self.user else None,
