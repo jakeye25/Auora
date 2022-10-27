@@ -41,7 +41,7 @@ def create_answer(id):
   if form.validate_on_submit():
     data = form.data
     newanswer = Answer(
-       answercotent = data['answercotent'],
+       answercontent = data['answercontent'],
        answerimage = data['answerimage'],
        questionId = id,
        userId = current_user.id,
@@ -64,7 +64,7 @@ def update_product_review(answerId):
     if form.validate_on_submit():
       updatedanswer= Answer.query.get(answerId)
       if updatedanswer:
-         updatedanswer.answercotent = form.data['answercotent']
+         updatedanswer.answercontent = form.data['answercontent']
          updatedanswer.answerimage = form.data['answerimage']
 
          db.session.commit()

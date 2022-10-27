@@ -5,7 +5,7 @@ class Question(db.Model):
     __tablename__ = 'questions'
 
     id = db.Column(db.Integer, primary_key=True)
-    questioncotent = db.Column(db.String(1000), nullable=False)
+    questioncontent = db.Column(db.String(1000), nullable=False)
     userId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     topicId = db.Column(db.Integer, db.ForeignKey('topics.id'), nullable=False)
     questionimage = db.Column(db.String(1000))
@@ -21,7 +21,7 @@ class Question(db.Model):
     def to_dict(self):
         return {
             'id': self.id,
-            'questioncotent': self.questioncotent,
+            'questioncontent': self.questioncontent,
             'userId':self.userId,
             'topicId':self.topicId,
             'questionimage':self.questionimage,

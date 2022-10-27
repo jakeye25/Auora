@@ -41,7 +41,7 @@ def add_product():
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         new_question = Question(
-            questioncotent = form.data['questioncotent'],
+            questioncontent = form.data['questioncontent'],
             questionimage = form.data['questionimage'],
             userId = current_user.id,
             topicId = form.data['topicId'],
@@ -71,7 +71,7 @@ def update_question(id):
 
     if form.validate_on_submit():
         edit_question = Question.query.get(id)
-        edit_question.questioncotent = form.data['questioncotent']
+        edit_question.questioncontent = form.data['questioncontent']
         edit_question.topicId = form.data['topicId']
         edit_question.questionimage = form.data['questionimage']
         # edit_product.userId = current_user.id

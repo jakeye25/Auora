@@ -1,7 +1,7 @@
 """empty message
 
 Revision ID: fbc799a7cd92
-Revises: 
+Revises:
 Create Date: 2022-10-27 12:56:44.611843
 
 """
@@ -38,7 +38,7 @@ def upgrade():
     )
     op.create_table('questions',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('questioncotent', sa.String(length=1000), nullable=False),
+    sa.Column('questioncontent', sa.String(length=1000), nullable=False),
     sa.Column('userId', sa.Integer(), nullable=False),
     sa.Column('topicId', sa.Integer(), nullable=False),
     sa.Column('questionimage', sa.String(length=1000), nullable=True),
@@ -50,7 +50,7 @@ def upgrade():
     )
     op.create_table('answers',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('answercotent', sa.String(length=1000), nullable=False),
+    sa.Column('answercontent', sa.String(length=1000), nullable=False),
     sa.Column('questionId', sa.Integer(), nullable=False),
     sa.Column('userId', sa.Integer(), nullable=False),
     sa.Column('answerimage', sa.String(length=1000), nullable=True),

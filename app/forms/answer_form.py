@@ -10,5 +10,5 @@ def imageURL_validation(form, field):
         raise ValidationError("Input must be a valid Image Url")
 
 class AnswerForm(FlaskForm):
-    answercotent = StringField("Answer Content", validators= [DataRequired()])
+    answercontent = StringField("Answer Content", validators= [DataRequired()])
     answerimage = StringField("Image URL", validators= [imageURL_validation])
