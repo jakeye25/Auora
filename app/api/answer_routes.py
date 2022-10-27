@@ -29,7 +29,7 @@ def answer(id):
 @login_required
 def currentuser_answer():
     currentuserid = current_user.id
-    answers = Answer.query.filter(answer.userId == currentuserid)
+    answers = Answer.query.filter(Answer.userId == currentuserid)
     return {'answers': [answer.to_dict() for answer in answers]}
 
 #create an answer
