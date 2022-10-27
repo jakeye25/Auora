@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
-from app.models import Question, db, question
+from app.models import Question, db
 from app.api.auth_routes import validation_errors_to_error_messages
 from datetime import datetime
 
@@ -10,7 +10,7 @@ question_routes = Blueprint('questions', __name__)
 
 #get all questions
 @question_routes.route('/')
-def products():
+def questions():
     questions = Question.query.all()
     return {'questions': [question.to_dict() for question in questions]}
 
@@ -30,4 +30,3 @@ def currentuser_question():
     currentuserid = current_user.id
     questions = Question.query.filter(question.userId == currentuserid)
     return {'questions': [question.to_dict() for question in questions]}
-
