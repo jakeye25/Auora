@@ -41,5 +41,58 @@
 #loginpage-middle{
     display: flex;
     flex-direction: row;
-    
+}
+
+#loginpage-middleleft{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    justify-items: center;
+    height:20em;
+    border-right: 1px solid rgba(128, 128, 128, 0.5);
+    margin-left: 1.5em;
+    padding-right: 1.5em;
+}
+
+#loginpage-middleright{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    justify-items: center;
+    height:20em;
+    margin-right: 1.5em;
+    padding-left: 1.5em;
+}
+
+
+#loginpage-bottom{
+    background-color: #f1f2f2;
+    border-top: rgba(128, 128, 128, 0.5);
+    display: flex;
+    padding-left: 3em;
+    padding-right: 3em;
+    height: 2.1em;
+    justify-items: center;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#loginpage-logodiv{
+    font-weight: bolder;
+    font-size: 50px;
+    color: #1916cc;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 3px;
+}
+
+.more_info_text{
+    text-decoration: none;
+
 }
