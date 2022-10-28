@@ -50,3 +50,17 @@ const actionDeleteQuestion = (id) => {
         id
     }
 }
+
+
+export const thunkGetAllQuestion = () => async dispatch => {
+    const response = await fetch("/api/questions/", {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+      });
+
+      if (response.ok) {
+        const data = await response.json()
+        dispatch(actionGetAllQuestion(data))
+
+    }
+}
