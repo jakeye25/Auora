@@ -8,6 +8,9 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
+import LoginPage from './components/Loginpage';
+
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -29,7 +32,7 @@ function App() {
       {currentUser ? <NavBar /> : <></>}
       <Switch>
         <Route path='/' exact={true}>
-          <LoginForm />
+          <LoginPage />
         </Route>
         {/* <Route path='/sign-up' exact={true}>
           <SignUpForm />
