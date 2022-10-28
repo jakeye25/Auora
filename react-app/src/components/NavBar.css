@@ -1,0 +1,16 @@
+#navbar-container{
+    display: flex;
+    flex-direction: row;
+    padding-left: 20%;
+    padding-right: 20%;
+    height: 3em;
+    justify-content: space-around;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+    justify-items: center;
+    align-items: center;
+
+}
+
+#navbar-container Navlink{
+    text-decoration: none;
+}
