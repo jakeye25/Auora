@@ -1,23 +1,28 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Redirect } from 'react-router-dom';
-import { signUp } from '../../store/session';
+import { Redirect, useHistory } from 'react-router-dom';
+import { signUp } from '../../../store/session';
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
+  const [avatar, setAvatar] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+  const history = useHistory()
+
 
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, email, password));
+      const data = await dispatch(signUp(username, email, password, avatar));
       if (data) {
         setErrors(data)
+      } else {
+        history.push('/home')
       }
     }
   };
@@ -30,6 +35,10 @@ const SignUpForm = () => {
     setEmail(e.target.value);
   };
 
+  const updateAvatar = (e) => {
+    setAvatar(e.target.value);
+  };
+
   const updatePassword = (e) => {
     setPassword(e.target.value);
   };
@@ -38,8 +47,11 @@ const SignUpForm = () => {
     setRepeatPassword(e.target.value);
   };
 
+
+
+
   if (user) {
-    return <Redirect to='/' />;
+    return <Redirect to='/home' />;
   }
 
   return (
@@ -65,6 +77,15 @@ const SignUpForm = () => {
           name='email'
           onChange={updateEmail}
           value={email}
+        ></input>
+      </div>
+      <div>
+        <label>Avatar</label>
+        <input
+          type='text'
+          name='avatar'
+          onChange={updateAvatar}
+          value={avatar}
         ></input>
       </div>
       <div>
