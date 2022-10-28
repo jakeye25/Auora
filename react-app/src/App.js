@@ -9,6 +9,7 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import LoginPage from './components/Loginpage';
+import QuestionList from './components/Questions/QuestionList';
 
 
 
@@ -33,6 +34,9 @@ function App() {
       <Switch>
         <Route path='/' exact={true}>
           <LoginPage />
+        </Route>
+        <Route path='/home' exact={true}>
+          <QuestionList />
         </Route>
         {/* <Route path='/sign-up' exact={true}>
           <SignUpForm />
