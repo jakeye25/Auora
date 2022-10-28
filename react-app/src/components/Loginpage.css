@@ -20,9 +20,10 @@
 
 
 #login_container{
-    background-color: aliceblue;
+    background-color: #ffffff;
     width: 40em;
     height: 30em;
+    border-radius: 4px;
 }
 
 #loginpage-logo {
@@ -35,4 +36,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+#loginpage-middle{
+    display: flex;
+    flex-direction: row;
+    
 }

@@ -16,9 +16,19 @@ const LoginPage = () => {
                         alt='logo'></img>
                         <h3>A place to share knowledge and better understand the world</h3>
                     </div>
-                    <SignupFormModal/>
-                    <LoginForm/>
-                    <Demouser/>
+                    <div id='loginpage-middle'>
+                        <div id='loginpage-middleleft'>
+                            <Demouser/>
+                            <SignupFormModal/>
+                        </div>
+                        <div id='loginpage-middleleft'>
+                            <div></div>
+                            <LoginForm/>
+                        </div>
+                    </div>
+                    <div id='loginpage-bottom'>
+
+                    </div>
                 </div>
             </body>
         </>
