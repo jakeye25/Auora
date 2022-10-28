@@ -64,3 +64,23 @@ export const thunkGetAllQuestion = () => async dispatch => {
 
     }
 }
+
+
+const initialState = {}
+
+const questionReducer = (state = initialState, action) => {
+    let newState = {...state}
+    switch (action.type) {
+        case getAllQuestion:
+          newState = {};
+          action.questions.questions.forEach((question) => {
+            newState[question.id] = question;
+          });
+          return newState;
+          default:
+        return state;
+    }
+}
+
+
+export default questionReducer;
