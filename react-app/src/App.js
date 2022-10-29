@@ -10,6 +10,7 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import LoginPage from './components/Loginpage';
 import QuestionList from './components/Questions/QuestionList';
+import QuestionDetailPage from './components/Questions/QuestionDetailPage';
 
 
 
@@ -39,7 +40,7 @@ function App() {
           <QuestionList />
         </Route>
         <Route exact path="/questions/:id">
-            {/* <QuestionDetailPage /> */}
+            <QuestionDetailPage />
         </Route>
 
         {/* <Route path='/sign-up' exact={true}>

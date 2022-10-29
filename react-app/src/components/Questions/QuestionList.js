@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import { thunkGetAllQuestion } from "../../store/question";
 import './QuestionList.css'
 
@@ -9,6 +9,12 @@ function QuestionList () {
 
     const questions = useSelector((state) => state.question)
     const dispatch = useDispatch()
+    const user = useSelector((state)=> state.session.user)
+    const history = useHistory()
+
+    if(!user){
+        history.push('/')
+    }
 
     let allquestions = Object.values(questions)
 
