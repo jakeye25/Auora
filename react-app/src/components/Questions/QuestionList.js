@@ -8,13 +8,30 @@ import './QuestionList.css'
 function QuestionList () {
 
     const questions = useSelector((state) => state.question)
+    const dispatch = useDispatch()
 
+    let allquestions = Object.values(questions)
+
+    useEffect(() => {
+        dispatch(thunkGetAllQuestion())
+    }, [dispatch])
 
     return(
         <>
-            <h1>Welcome</h1>
-            <div id="questionlist-container">
 
+            <div id="questionlist-container">
+                {allquestions &&
+                    allquestions.map((question) => (
+                    <div key = {question.id}>
+                        <NavLink
+                        to = {`/questions/${question.id}`}
+                        >
+                            <div>
+                                {question.questioncontent}
+                            </div>
+                        </NavLink>
+                        </div>
+                ))}
             </div>
         </>
     )

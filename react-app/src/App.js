@@ -38,6 +38,10 @@ function App() {
         <Route path='/home' exact={true}>
           <QuestionList />
         </Route>
+        <Route exact path="/questions/:id">
+            {/* <QuestionDetailPage /> */}
+        </Route>
+
         {/* <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
