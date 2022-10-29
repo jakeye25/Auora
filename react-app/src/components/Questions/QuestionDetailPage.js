@@ -21,8 +21,8 @@ function QuestionDetailPage() {
 
     return (
         <>
-            <h1>Testing question detail page</h1>
 
+            <div>{question?.questioncontent}</div>
 
         </>
     )
