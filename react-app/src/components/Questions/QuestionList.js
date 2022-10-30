@@ -8,7 +8,7 @@ import QuestionCreate from "./QuestionCreateFormModal/QuestionCreate";
 import QuestionDelete from "./QuestionDelete";
 import QuestionEditDeleteBtn from "./QuestionEditDeleteBtn";
 import './QuestionList.css'
-import QuestionUpdate from "./QuestionUpdate";
+import QuestionUpdate from "./QuestionEditFormModal/QuestionUpdate";
 
 
 

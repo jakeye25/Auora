@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector} from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import { thunkUpdateQuestion } from "../../store/question";
-import { thunkGetAllTopic } from "../../store/topic";
+import { thunkUpdateQuestion } from "../../../store/question";
+import { thunkGetAllTopic } from "../../../store/topic";
 
 
 

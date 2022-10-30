@@ -2,7 +2,8 @@ import React, { useState, useEffect} from "react";
 import { useDispatch } from 'react-redux';
 import { NavLink, Link, useHistory } from "react-router-dom";
 import QuestionDelete from "./QuestionDelete";
-import QuestionUpdate from "./QuestionUpdate";
+import QuestionUpdateFormModal from "./QuestionEditFormModal";
+import QuestionUpdate from "./QuestionEditFormModal/QuestionUpdate";
 
 
 function QuestionEditDeleteBtn ({user, question}) {
@@ -24,7 +25,7 @@ function QuestionEditDeleteBtn ({user, question}) {
             </div>
             {user?  showMenu && (
                 <div>
-                    <div><QuestionUpdate question={question} /></div>
+                    <div><QuestionUpdateFormModal question={question} /></div>
                     <div><QuestionDelete question={question} /></div>
                 </div>
             )
