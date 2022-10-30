@@ -2,7 +2,11 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory } from "react-router-dom";
 import { thunkGetAllQuestion } from "../../store/question";
+import QuestionCreate from "./QuestionCreate";
+import QuestionDelete from "./QuestionDelete";
 import './QuestionList.css'
+import QuestionUpdate from "./QuestionUpdate";
+
 
 
 function QuestionList () {
@@ -38,6 +42,16 @@ function QuestionList () {
                         </NavLink>
                         </div>
                 ))}
+
+                <div>
+                    <QuestionCreate/>
+                </div>
+                <div>
+                    <QuestionUpdate/>
+                </div>
+                <div>
+                    <QuestionDelete/>
+                </div>
             </div>
         </>
     )
