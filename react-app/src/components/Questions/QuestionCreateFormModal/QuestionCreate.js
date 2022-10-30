@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { thunkCreateQuestion } from "../../store/question";
-import { thunkGetAllTopic } from "../../store/topic";
+import { thunkCreateQuestion } from "../../../store/question";
+import { thunkGetAllTopic } from "../../../store/topic";
 
 
 function QuestionCreate () {

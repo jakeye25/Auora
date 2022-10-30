@@ -2,7 +2,9 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory } from "react-router-dom";
 import { thunkGetAllQuestion } from "../../store/question";
-import QuestionCreate from "./QuestionCreate";
+import TopicList from "../Topics/TopicList";
+import QuestionCreateFormModal from "./QuestionCreateFormModal";
+import QuestionCreate from "./QuestionCreateFormModal/QuestionCreate";
 import QuestionDelete from "./QuestionDelete";
 import './QuestionList.css'
 import QuestionUpdate from "./QuestionUpdate";
@@ -30,6 +32,10 @@ function QuestionList () {
         <>
 
             <div id="questionlist-container">
+                <div>
+                    <TopicList/>
+                </div>
+                <div>
                 {allquestions &&
                     allquestions.map((question) => (
                     <div key = {question.id}>
@@ -50,9 +56,9 @@ function QuestionList () {
 
 
                 ))}
-
+                </div>
                 <div>
-                    <QuestionCreate/>
+                    <QuestionCreateFormModal/>
                 </div>
                 {/* <div>
                     <QuestionUpdate/>
