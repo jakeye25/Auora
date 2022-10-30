@@ -17,9 +17,9 @@ function QuestionCreate () {
     const [validations, setValidations] = useState([])
 
     const topicsObj = useSelector((state) => state.topic)
-    console.log('questionlisttopic', topicsObj)
+    // console.log('questionlisttopic', topicsObj)
     let topicsObjArr = Object.values(topicsObj)
-    console.log('questionlisttopicarr', topicsObjArr)
+    // console.log('questionlisttopicarr', topicsObjArr)
 
     useEffect(() => {
       dispatch(thunkGetAllTopic())
