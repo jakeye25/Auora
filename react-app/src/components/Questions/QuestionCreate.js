@@ -2,18 +2,30 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { thunkCreateQuestion } from "../../store/question";
+import { thunkGetAllTopic } from "../../store/topic";
 
 
 function QuestionCreate () {
     const history = useHistory()
     const dispatch = useDispatch()
 
+
+
     const [questioncontent, setQuestioncontent] = useState('')
     const [questionimage, setQuestionimage] = useState('')
     const [topicId, settopicId] = useState('')
     const [validations, setValidations] = useState([])
 
-    // const topicsObj = useSelector((state) => state.topic)
+    const topicsObj = useSelector((state) => state.topic)
+    console.log('questionlisttopic', topicsObj)
+    let topicsObjArr = Object.values(topicsObj)
+    console.log('questionlisttopicarr', topicsObjArr)
+
+    useEffect(() => {
+      dispatch(thunkGetAllTopic())
+    },[dispatch])
+
+    const currentuser = useSelector((state) => state.session.user)
 
     useEffect(() => {
         const errors =[]
@@ -73,9 +85,10 @@ function QuestionCreate () {
                 ></input>
               </div>
             </div>
-            {/* <div className="create_product_input">
+
+            <div className="create_product_input">
               <div className="create_product_text_box">
-                <div>Category</div>
+                <div>Topic</div>
                 <div className="create_product_small_text">
                   Type a two word description to get category suggestions that
                   will help buyers find when they want.
@@ -84,22 +97,23 @@ function QuestionCreate () {
               <div>
                 <select
                   required
-                  name="category"
-                  value={category}
-                  onChange={(event) => setCategory(event.target.value)}
+                  name="TopicId"
+                  value={topicId}
+                  onChange={(event) => settopicId(event.target.value)}
                   className="create_product_input_inner"
                 >
                   <option value="" disabled>
-                    Select a category
+                    Select a topic
                   </option>
-                  {Categories_Choices.map((category) => (
-                    <option key={category} value={category}>
-                      {category}
+                  {topicsObjArr?.map((topic) => (
+                    <option key={topic?.id} value={topic?.id}>
+                      {topic?.name}
                     </option>
                   ))}
                 </select>
               </div>
-            </div> */}
+            </div>
+
             <div className="create_product_input">
               <div className="create_product_text_box">
                 <div>Image</div>
