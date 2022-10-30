@@ -65,54 +65,15 @@ function QuestionCreate () {
               <div>
                 <input
                   type="text"
-                  name="name"
-                  value={name}
+                  name="questioncontent"
+                  value={questioncontent}
                   className="create_product_input_inner"
-                  onChange={(event) => setName(event.target.value)}
+                  onChange={(event) => setQuestioncontent(event.target.value)}
                   required
                 ></input>
               </div>
             </div>
-            <div className="create_product_input">
-              <div className="create_product_text_box">
-                <div>Description</div>
-                <div className="create_product_small_text">
-                  Start with a brief summary that describes your product's
-                  features.
-                </div>
-              </div>
-              <div>
-                <textarea
-                  type="text-area"
-                  name="description"
-                  value={description}
-                  className="create_product_input_inner_descript"
-                  onChange={(event) => setDescription(event.target.value)}
-                  required
-                ></textarea>
-              </div>
-            </div>
-            <div className="create_product_input">
-              <div className="create_product_text_box">
-                <div>Price</div>
-                <div className="create_product_small_text">
-                  Remember to factor in labor, cost of material, etc. Shipping
-                  is free to all customers.
-                </div>
-              </div>
-              <div>
-                <input
-                  type="number"
-                  name="price"
-                  value={price}
-                  className="create_product_input_inner"
-                  onChange={(event) => setPrice(event.target.value)}
-                  min="1"
-                  max="1000000"
-                ></input>
-              </div>
-            </div>
-            <div className="create_product_input">
+            {/* <div className="create_product_input">
               <div className="create_product_text_box">
                 <div>Category</div>
                 <div className="create_product_small_text">
@@ -138,33 +99,7 @@ function QuestionCreate () {
                   ))}
                 </select>
               </div>
-            </div>
-            <div className="create_product_input">
-              <div className="create_product_text_box">
-                <div>Highlight</div>
-                <div className="create_product_small_text">
-                  One word that represents the best feature of the product.
-                </div>
-              </div>
-              <div>
-                <select
-                  required
-                  name="highlight"
-                  value={highlight}
-                  onChange={(event) => setHighlight(event.target.value)}
-                  className="create_product_input_inner"
-                >
-                  <option value="" disabled>
-                    Select a topic
-                  </option>
-                  {Highlight_Choices.map((highlight) => (
-                    <option key={highlight} value={highlight}>
-                      {highlight}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            </div>
+            </div> */}
             <div className="create_product_input">
               <div className="create_product_text_box">
                 <div>Image</div>
