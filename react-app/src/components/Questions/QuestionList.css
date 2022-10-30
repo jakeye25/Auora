@@ -1,4 +1,21 @@
 #questionlist-container{
     padding-left: 20%;
     padding-right: 20%;
+    display: flex;
+
+}
+
+#qlist-topic-container{
+    width: 30%;
+    padding-top: 30px;
+    padding-right: 30px;
+}
+
+.qlist-questionimg{
+    width: 30px;
+    height: 30px;
+}
+
+#qlist-middle-container-middle{
+    padding-top: 20px;
 }

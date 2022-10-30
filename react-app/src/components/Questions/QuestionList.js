@@ -11,14 +11,14 @@ import QuestionUpdate from "./QuestionUpdate";
 
 
 
-function QuestionList () {
+function QuestionList() {
 
     const questions = useSelector((state) => state.question)
     const dispatch = useDispatch()
-    const user = useSelector((state)=> state.session.user)
+    const user = useSelector((state) => state.session.user)
     const history = useHistory()
 
-    if(!user){
+    if (!user) {
         history.push('/')
     }
 
@@ -28,44 +28,41 @@ function QuestionList () {
         dispatch(thunkGetAllQuestion())
     }, [dispatch])
 
-    return(
+    return (
         <>
 
             <div id="questionlist-container">
-                <div>
-                    <TopicList/>
+                <div id="qlist-topic-container">
+                    <TopicList />
                 </div>
-                <div>
-                {allquestions &&
-                    allquestions.map((question) => (
-                    <div key = {question.id}>
-                        <NavLink
-                        to = {`/questions/${question?.id}`}
-                        >
-                            <div>
-                                {question?.questioncontent}
-                            </div>
-                        </NavLink>
-                        {question.questionimage? <div><img
-                        src={question?.questionimage}
-                        alt="img"></img></div> :<div></div>}
+                <div id="qlist-middle-container">
+                    <div id="qlist-middle-container-top">
+                        <QuestionCreateFormModal />
+                    </div>
+                    <div id='qlist-middle-container-middle'>
+                        {allquestions &&
+                            allquestions.map((question) => (
+                                <div key={question.id}>
+                                    <NavLink
+                                        to={`/questions/${question?.id}`}
+                                    >
+                                        <div>
+                                            {question?.questioncontent}
+                                        </div>
+                                    </NavLink>
+                                    {question.questionimage ? <div><img
+                                        className="qlist-questionimg"
+                                        src={question?.questionimage}
+                                        alt="img"></img></div> : <div></div>}
 
-                        <div><QuestionUpdate question ={question}/></div>
-                        <div><QuestionDelete question ={question}/></div>
-                        </div>
+                                    <div><QuestionUpdate question={question} /></div>
+                                    <div><QuestionDelete question={question} /></div>
+                                </div>
 
+                            ))}
+                    </div>
+                </div>
 
-                ))}
-                </div>
-                <div>
-                    <QuestionCreateFormModal/>
-                </div>
-                {/* <div>
-                    <QuestionUpdate/>
-                </div>
-                <div>
-                    <QuestionDelete/>
-                </div> */}
             </div>
         </>
     )

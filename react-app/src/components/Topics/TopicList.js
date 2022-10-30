@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory } from "react-router-dom";
 import { thunkGetAllTopic } from "../../store/topic";
-
+import './TopicList.css'
 
 function TopicList() {
     const topics = useSelector((state) => state.topic)
@@ -16,20 +16,23 @@ function TopicList() {
     },[dispatch])
 
     return(
-        <div>
+        <div id="topic-container">
             {alltopics &&
                     alltopics.map((topic) => (
-                    <div key = {topic.id}>
-                        <NavLink
+                    <div key = {topic.id} className='indtopic-container'>
+                        <NavLink className='topiclink'
                         to = {`/topics/${topic?.id}`}
                         >
-                            <div>
-                                {topic?.name}
-                            </div>
-                        </NavLink>
                         {topic?.topicimage? <div><img
+                        className="topicimg"
                         src={topic?.topicimage}
                         alt="img"></img></div> :<div></div>}
+                            <br></br>
+
+                            <div className="topicname">
+                                &nbsp; {topic?.name}
+                            </div>
+                        </NavLink>
                         </div>
                 ))}
         </div>

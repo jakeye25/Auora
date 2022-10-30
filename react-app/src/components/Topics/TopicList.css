@@ -1,0 +1,19 @@
+.topicimg{
+    width: 20px;
+    height: 20px;
+}
+
+.topiclink{
+    text-decoration: none;
+    display: flex;
+}
+
+#topic-container{
+    display: flex;
+    flex-direction: column;
+}
+
+/* .indtopic-container{
+    display: flex;
+    flex-direction: column;
+} */
