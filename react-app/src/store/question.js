@@ -102,7 +102,7 @@ export const thunkCreateQuestion = (payload) => async dispatch => {
     }
 }
 
-export const thunkUpdateProduct = (payload) => async dispatch => {
+export const thunkUpdateQuestion = (payload) => async dispatch => {
     const response = await fetch(`/api/questions/${payload.id}/edit`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
