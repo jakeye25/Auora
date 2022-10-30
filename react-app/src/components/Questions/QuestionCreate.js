@@ -21,10 +21,10 @@ function QuestionCreate () {
             errors.push('Please enter a valid Question')
         }
         if(questionimage &&
-            (!previewImage.includes("jpg") &&
-            !previewImage.includes("png") &&
-            !previewImage.includes("jpeg") &&
-            !previewImage.includes("svg"))
+            (!questionimage.includes("jpg") &&
+            !questionimage.includes("png") &&
+            !questionimage.includes("jpeg") &&
+            !questionimage.includes("svg"))
             )
             errors.push("Please enter a valid url image");
         setValidations(errors)

@@ -11,14 +11,14 @@ const deleteAnswer = '/answer/deleteAnswer'
 const actionCreateAnswer = (answer) => {
     return {
         type: createAnswer,
-        review
+        answer
     }
 }
 
 const actionGetAllQuestionAnswer = (answers) => {
     return {
         type: getAllQuestionAnswer,
-        reviews
+        answers
     }
 }
 

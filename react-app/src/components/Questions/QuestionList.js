@@ -34,24 +34,27 @@ function QuestionList () {
                     allquestions.map((question) => (
                     <div key = {question.id}>
                         <NavLink
-                        to = {`/questions/${question.id}`}
+                        to = {`/questions/${question?.id}`}
                         >
                             <div>
-                                {question.questioncontent}
+                                {question?.questioncontent}
                             </div>
                         </NavLink>
+                        {question.questionimage? <div><img
+                        src={question?.questionimage}
+                        alt="img"></img></div> :<div></div>}
                         </div>
                 ))}
 
                 <div>
                     <QuestionCreate/>
                 </div>
-                <div>
+                {/* <div>
                     <QuestionUpdate/>
                 </div>
                 <div>
                     <QuestionDelete/>
-                </div>
+                </div> */}
             </div>
         </>
     )

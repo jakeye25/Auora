@@ -17,7 +17,7 @@ class Topic(db.Model):
         return {
             'id': self.id,
             'name': self.name,
-            'topicimage ':self.topicimage ,
+            'topicimage':self.topicimage,
             'createdAt':self.createdAt,
             'updatedAt':self.updatedAt,
             "questions": [question.to_dict() for question in self.questions]
