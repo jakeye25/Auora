@@ -11,6 +11,7 @@ import { authenticate } from './store/session';
 import LoginPage from './components/Loginpage';
 import QuestionList from './components/Questions/QuestionList';
 import QuestionDetailPage from './components/Questions/QuestionDetailPage';
+import TopicList from './components/Topics/TopicList';
 
 
 
@@ -41,6 +42,9 @@ function App() {
         </Route>
         <Route exact path="/questions/:id">
             <QuestionDetailPage />
+        </Route>
+        <Route exact path="/topics">
+            <TopicList />
         </Route>
 
         {/* <Route path='/sign-up' exact={true}>
