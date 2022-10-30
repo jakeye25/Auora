@@ -43,7 +43,12 @@ function QuestionList () {
                         {question.questionimage? <div><img
                         src={question?.questionimage}
                         alt="img"></img></div> :<div></div>}
+
+                        <div><QuestionUpdate question ={question}/></div>
+                        <div><QuestionDelete question ={question}/></div>
                         </div>
+
+
                 ))}
 
                 <div>

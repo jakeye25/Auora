@@ -2,15 +2,18 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector} from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { thunkUpdateQuestion } from "../../store/question";
+import { thunkGetAllTopic } from "../../store/topic";
 
-function QuestionUpdate() {
+
+
+function QuestionUpdate({question}) {
     const history = useHistory();
     const dispatch = useDispatch();
 
-    let question = useSelector(state => Object.values(state.question))
+    // let question = useSelector(state => Object.values(state.question))
     const {id} = useParams()
 
-    let editQuestion= question.find(ele => ele.id == id)
+    // let editQuestion= question.find(ele => ele.id == id)
 
     const topicsObj = useSelector((state) => state.topic)
     // console.log('questionlisttopic', topicsObj)
@@ -20,9 +23,9 @@ function QuestionUpdate() {
       dispatch(thunkGetAllTopic())
     },[dispatch])
 
-    const [questioncontent, setQuestioncontent] = useState(editQuestion?.questioncontent)
-    const [questionimage, setQuestionimage] = useState(editQuestion?.questionimage)
-    const [topicId, settopicId] = useState(editQuestion?.topicId)
+    const [questioncontent, setQuestioncontent] = useState(question?.questioncontent)
+    const [questionimage, setQuestionimage] = useState(question?.questionimage)
+    const [topicId, settopicId] = useState(question?.topicId)
     const [validations, setValidations] = useState([])
 
     useEffect(() => {
