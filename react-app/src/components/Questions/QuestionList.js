@@ -6,6 +6,7 @@ import TopicList from "../Topics/TopicList";
 import QuestionCreateFormModal from "./QuestionCreateFormModal";
 import QuestionCreate from "./QuestionCreateFormModal/QuestionCreate";
 import QuestionDelete from "./QuestionDelete";
+import QuestionEditDeleteBtn from "./QuestionEditDeleteBtn";
 import './QuestionList.css'
 import QuestionUpdate from "./QuestionUpdate";
 
@@ -54,9 +55,9 @@ function QuestionList() {
                                         className="qlist-questionimg"
                                         src={question?.questionimage}
                                         alt="img"></img></div> : <div></div>}
-
-                                    <div><QuestionUpdate question={question} /></div>
-                                    <div><QuestionDelete question={question} /></div>
+                                    <div><QuestionEditDeleteBtn user={user} question={question}/></div>
+                                    {/* <div><QuestionUpdate question={question} /></div>
+                                    <div><QuestionDelete question={question} /></div> */}
                                 </div>
 
                             ))}
