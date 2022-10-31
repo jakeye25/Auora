@@ -1,10 +1,17 @@
 
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { NavLink, useHistory } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import './NavBar.css'
+import ProfileButton from './ProfileButton';
+import QuestionCreateFormModal from './Questions/QuestionCreateFormModal';
 
 const NavBar = () => {
+    const history = useHistory()
+    const user=useSelector((state) => state.session.user)
+
+    if(!user) history.push('/')
   return (
     <nav id='navbar-container'>
 
@@ -20,12 +27,17 @@ const NavBar = () => {
             <i class="fa-regular fa-pen-to-square"></i>
           </NavLink>
 
-          <NavLink to='/users' exact={true} activeClassName='active'>
+          {/* <NavLink to='/users' exact={true} activeClassName='active'>
             Users
-          </NavLink>
+          </NavLink> */}
 
-          <LogoutButton />
+          <div>
+            <ProfileButton user={user}/>
+          </div>
 
+          <div>
+            <QuestionCreateFormModal/>
+          </div>
     </nav>
   );
 }

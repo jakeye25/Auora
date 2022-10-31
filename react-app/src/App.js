@@ -52,10 +52,10 @@ function App() {
         <Route exact path="/topics/:topicName">
             <TopicDetail />
         </Route>
-        <Route exact path="/questions/current">
+        <Route exact path="/myquestions">
             <MyQuestionListings />
         </Route>
-        <Route exact path="/answers/current">
+        <Route exact path="/myanswers">
             <MyAnswerListings />
         </Route>
 

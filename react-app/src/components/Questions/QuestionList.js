@@ -43,7 +43,7 @@ function QuestionList() {
                     <div id='qlist-middle-container-middle'>
                         {allquestions &&
                             allquestions.map((question) => (
-                                <div key={question.id}>
+                                <div key={question?.id}>
                                     <NavLink
                                         to={`/questions/${question?.id}`}
                                     >
@@ -51,6 +51,7 @@ function QuestionList() {
                                             {question?.questioncontent}
                                         </div>
                                     </NavLink>
+                                    <div>{question?.answers?.length} &nbsp;answers</div>
                                     {question.questionimage ? <div><img
                                         className="qlist-questionimg"
                                         src={question?.questionimage}
