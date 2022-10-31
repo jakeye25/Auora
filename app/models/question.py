@@ -12,7 +12,7 @@ class Question(db.Model):
     createdAt = db.Column(db.DateTime, nullable=False)
     updatedAt = db.Column(db.DateTime, nullable=False)
 
-    answers = db.relationship('Answer', back_populates='question', cascade = 'all, delete')
+    answers = db.relationship('Answer', back_populates='question', cascade='all, delete')
     topic = db.relationship('Topic', back_populates='questions')
     user = db.relationship('User', back_populates='questions')
 

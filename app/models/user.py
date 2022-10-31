@@ -12,8 +12,8 @@ class User(db.Model, UserMixin):
     hashed_password = db.Column(db.String(255), nullable=False)
     avatar = db.Column(db.String(255))
 
-    questions = db.relationship('Question', back_populates='user', cascade = 'all,delete')
-    answers = db.relationship('Answer', back_populates='user', cascade = 'all,delete')
+    questions = db.relationship('Question', back_populates='user', cascade='all,delete')
+    answers = db.relationship('Answer', back_populates='user', cascade='all,delete')
 
     @property
     def password(self):
