@@ -8,7 +8,8 @@ function AnswerUpdate({answer, setShowModal}) {
     const history = useHistory();
     const dispatch = useDispatch();
 
-    const questionId= answer?.questionId
+    const answerId = answer?.id
+    console.log('answerupdate answereId', answerId)
     const user = useSelector((state) => state.session.user)
 
 
@@ -34,7 +35,7 @@ function AnswerUpdate({answer, setShowModal}) {
     const onSubmit = async (event) => {
         event.preventDefault();
         const payload = {
-            questionId: questionId,
+            id: answerId,
             answercontent,
             answerimage
 
@@ -43,7 +44,7 @@ function AnswerUpdate({answer, setShowModal}) {
         let updatedAnswer = await dispatch(thunkUpdateAnswer(payload))
 
         if (updatedAnswer) {
-            history.push('/home');
+            history.push('/myanswers');
             setShowModal(false)
 
         }

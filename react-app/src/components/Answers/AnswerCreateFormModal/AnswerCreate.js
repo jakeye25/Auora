@@ -7,7 +7,7 @@ function AnswerCreate({ question, setShowModal }) {
     const dispatch = useDispatch()
     const questionId = question?.id
     const history = useHistory()
-    console.log('questionid', questionId)
+    // console.log('questionid', questionId)
     const user = useSelector((state) => state.session.user)
 
     const [answercontent, setAnswercontent] = useState('')

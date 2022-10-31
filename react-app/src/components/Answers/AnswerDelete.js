@@ -12,7 +12,7 @@ function AnswerDelete({answer}) {
 
     const onClick = async (event) => {
         await dispatch(thunkDeleteAnswer(answer?.id))
-        history.push('/home')
+        history.push('/myanswers')
     }
 
     return (
