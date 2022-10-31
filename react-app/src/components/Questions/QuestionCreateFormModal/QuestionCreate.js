@@ -5,10 +5,9 @@ import { thunkCreateQuestion } from "../../../store/question";
 import { thunkGetAllTopic } from "../../../store/topic";
 
 
-function QuestionCreate () {
+function QuestionCreate ({setShowModal}) {
     const history = useHistory()
     const dispatch = useDispatch()
-
 
 
     const [questioncontent, setQuestioncontent] = useState('')
@@ -32,6 +31,9 @@ function QuestionCreate () {
         if(questioncontent.length<5 || questioncontent.length>1000) {
             errors.push('Please enter a valid Question')
         }
+        if(!topicId) {
+          errors.push('Please select a topic')
+        }
         if(questionimage &&
             (!questionimage.includes("jpg") &&
             !questionimage.includes("png") &&
@@ -53,8 +55,10 @@ function QuestionCreate () {
         let createdQuestion = await dispatch(thunkCreateQuestion(payload))
 
         if (createdQuestion) {
-            history.push('/home')
+            history.push('/home');
+
         }
+        // onClick=()=> setShowModal(false)
     }
     return(
         <div className="create_product_main">
