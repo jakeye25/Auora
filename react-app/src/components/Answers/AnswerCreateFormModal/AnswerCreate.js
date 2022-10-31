@@ -1,17 +1,18 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import { thunkCreateAnswer } from "../../store/answer";
+import { thunkCreateAnswer } from "../../../store/answer";
 
 function AnswerCreate({ question }) {
     const dispatch = useDispatch()
-    const questionId = question.id
+    const questionId = question?.id
     const history = useHistory()
-
+    console.log('questionid', questionId)
     const user = useSelector((state) => state.session.user)
 
     const [answercontent, setAnswercontent] = useState('')
-    const [answerimage, setAnaswerimage] = useState('')
+    const [answerimage, setAnswerimage] = useState('')
+    const [validations, setValidations] = useState('')
 
     useEffect(() => {
         const errors = []
@@ -27,7 +28,7 @@ function AnswerCreate({ question }) {
             errors.push("Please enter a valid url image");
         setValidations(errors)
     }, [answercontent, answerimage])
-
+    
     const onSubmit = async (event) => {
         event.preventDefault()
         const payload = {
@@ -53,17 +54,15 @@ function AnswerCreate({ question }) {
             <form className="create_product_form" onSubmit={onSubmit}>
 
                 <div className="create_product_input">
-                    <div className="create_product_text_box">
-                        <div>Name</div>
 
-                    </div>
                     <div>
                         <input
                             type="text"
-                            name="questioncontent"
-                            value={questioncontent}
+                            placeholder="Write your answer"
+                            name="answercontent"
+                            value={answercontent}
                             className="create_product_input_inner"
-                            onChange={(event) => setQuestioncontent(event.target.value)}
+                            onChange={(event) => setAnswercontent(event.target.value)}
                             required
                         ></input>
                     </div>
@@ -72,17 +71,15 @@ function AnswerCreate({ question }) {
                 <div className="create_product_input">
                     <div className="create_product_text_box">
                         <div>Image</div>
-                        <div className="create_product_small_text">
-                            Add a url photo so buyers can see the product
-                        </div>
                     </div>
                     <div>
                         <input
                             type="text"
-                            name="questionimage"
-                            value={questionimage}
+                            placeholder="Add a url image(optional)"
+                            name="answerimage"
+                            value={answerimage}
                             className="create_product_input_inner"
-                            onChange={(event) => setQuestionimage(event.target.value)}
+                            onChange={(event) => setAnswerimage(event.target.value)}
                         ></input>
                     </div>
                 </div>
@@ -114,7 +111,7 @@ function AnswerCreate({ question }) {
                             type="submit"
                             disabled={validations.length > 0}
                         >
-                            Create Question
+                            Create Answer
                         </button>
                     </div>
                 </div>

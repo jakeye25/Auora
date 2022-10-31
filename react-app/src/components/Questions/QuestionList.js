@@ -9,6 +9,8 @@ import QuestionDelete from "./QuestionDelete";
 import QuestionEditDeleteBtn from "./QuestionEditDeleteBtn";
 import './QuestionList.css'
 import QuestionUpdate from "./QuestionEditFormModal/QuestionUpdate";
+import AnswerCreateFormModal from "../Answers/AnswerCreateFormModal";
+import { thunkGetAllQuestionAnswer } from "../../store/answer";
 
 
 
@@ -27,6 +29,7 @@ function QuestionList() {
 
     useEffect(() => {
         dispatch(thunkGetAllQuestion())
+        // dispatch(thunkGetAllQuestionAnswer())
     }, [dispatch])
 
     return (
@@ -52,6 +55,7 @@ function QuestionList() {
                                         </div>
                                     </NavLink>
                                     <div>{question?.answers?.length} &nbsp;answers</div>
+                                    <div><AnswerCreateFormModal question={question}/></div>
                                     {question.questionimage ? <div><img
                                         className="qlist-questionimg"
                                         src={question?.questionimage}
