@@ -34,13 +34,9 @@ function MyQuestionListings() {
                                 <div className="my_question_listing_innerbox">
                                     <div className="my_question_listing_nav">
                                         <NavLink to={`/questions/${question?.id}`}>
-                                            <img
-                                                alt="question"
-                                                src={question?.questionimage}
-                                                className="my_question_listing_img"
-                                            ></img>
-                                        </NavLink>
+
                                         <div className="my_question_listing_name">{question?.questioncontent}</div>
+                                        </NavLink>
                                     </div>
 
                                     <div id="my_question_listing_btn_container">

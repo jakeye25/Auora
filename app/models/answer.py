@@ -25,6 +25,7 @@ class Answer(db.Model):
             'answerimage':self.answerimage,
             'createdAt':self.createdAt,
             'updatedAt':self.updatedAt,
+            'question':self.question.questioncontent,
             'username': self.user.username if self.user else None,
             'avatar': self.user.avatar if self.user else None
         }
