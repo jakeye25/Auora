@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { Link, NavLink, useHistory } from "react-router-dom";
 import { thunkGetCurrentQuestion } from "../../store/question";
+import QuestionDelete from "./QuestionDelete";
 
 function MyQuestionListings() {
     const dispatch = useDispatch()
