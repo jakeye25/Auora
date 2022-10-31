@@ -39,7 +39,7 @@ function MyQuestionListings() {
                                         <div className="my_question_listing_name">{question?.questioncontent}</div>
                                         </NavLink>
                                     </div>
-
+                                    <div>{question?.answers}</div>
                                     <div id="my_question_listing_btn_container">
                                         {/* <Link id="userquestioneditbtn" to={`/questions/${question?.id}/edit`}>
                                             Edit question
