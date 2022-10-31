@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { NavLink, useHistory } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import './NavBar.css'
-import ProfileButton from './ProfileButton';
+import ProfileButton from './ProfileButton/ProfileButton';
 import QuestionCreateFormModal from './Questions/QuestionCreateFormModal';
 
 const NavBar = () => {

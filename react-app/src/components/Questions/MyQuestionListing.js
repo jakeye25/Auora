@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { Link, NavLink, useHistory } from "react-router-dom";
 import { thunkGetCurrentQuestion } from "../../store/question";
 import QuestionDelete from "./QuestionDelete";
+import QuestionUpdateFormModal from "./QuestionEditFormModal";
 
 function MyQuestionListings() {
     const dispatch = useDispatch()
@@ -40,9 +41,10 @@ function MyQuestionListings() {
                                     </div>
 
                                     <div id="my_question_listing_btn_container">
-                                        <Link id="userquestioneditbtn" to={`/questions/${question?.id}/edit`}>
+                                        {/* <Link id="userquestioneditbtn" to={`/questions/${question?.id}/edit`}>
                                             Edit question
-                                        </Link>
+                                        </Link> */}
+                                        <QuestionUpdateFormModal question={question} />
                                         <QuestionDelete question={question} />
                                     </div>
                                 </div>
