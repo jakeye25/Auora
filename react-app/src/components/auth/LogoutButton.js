@@ -13,7 +13,7 @@ const LogoutButton = () => {
     history.push('/')
   };
 
-  return <button id='logoutbtn' onClick={onLogout}>Logout</button>;
+  return <button onClick={onLogout}>Logout</button>;
 };
 
 export default LogoutButton;

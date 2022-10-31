@@ -1,6 +1,7 @@
 import React, { useState, useEffect} from "react";
 import { NavLink, Link, useHistory } from "react-router-dom";
 import LogoutButton from "../auth/LogoutButton";
+import './ProfileButton.css'
 
 function ProfileButton({ user }) {
 
