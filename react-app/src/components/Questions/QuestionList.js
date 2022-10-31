@@ -19,6 +19,7 @@ function QuestionList() {
     const questions = useSelector((state) => state.question)
     const dispatch = useDispatch()
     const user = useSelector((state) => state.session.user)
+    const answers = useSelector((state) => state.answer)
     const history = useHistory()
 
     if (!user) {
@@ -29,8 +30,8 @@ function QuestionList() {
 
     useEffect(() => {
         dispatch(thunkGetAllQuestion())
-        // dispatch(thunkGetAllQuestionAnswer())
-    }, [dispatch])
+        dispatch(thunkGetAllQuestionAnswer())
+    }, [dispatch, answers])
 
     return (
         <>
