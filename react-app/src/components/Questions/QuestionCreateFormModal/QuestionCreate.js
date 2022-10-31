@@ -63,24 +63,15 @@ function QuestionCreate ({setShowModal}) {
     return(
         <div className="create_product_main">
         <div className="create_product_div">
-          <h1>Create a listing</h1>
+          <h1>Add Question</h1>
           <form className="create_product_form" onSubmit={onSubmit}>
-            <div className="create_product_detailtext">
-              <div>Listing details</div>
-              <div className="create_product_small_text">
-                Tell the world all about your item and why they'll buy it.
-              </div>
-            </div>
+
             <div className="create_product_input">
-              <div className="create_product_text_box">
-                <div>Name</div>
-                <div className="create_product_small_text">
-                  Include keywords that would attract buyers
-                </div>
-              </div>
+
               <div>
                 <input
                   type="text"
+                  placeholder="Start your question with 'What', 'How', 'Why', etc."
                   name="questioncontent"
                   value={questioncontent}
                   className="create_product_input_inner"
@@ -93,10 +84,6 @@ function QuestionCreate ({setShowModal}) {
             <div className="create_product_input">
               <div className="create_product_text_box">
                 <div>Topic</div>
-                <div className="create_product_small_text">
-                  Type a two word description to get category suggestions that
-                  will help buyers find when they want.
-                </div>
               </div>
               <div>
                 <select
@@ -121,13 +108,11 @@ function QuestionCreate ({setShowModal}) {
             <div className="create_product_input">
               <div className="create_product_text_box">
                 <div>Image</div>
-                <div className="create_product_small_text">
-                  Add a url photo so buyers can see the product
-                </div>
               </div>
               <div>
                 <input
                   type="text"
+                  placeholder="Add a url image(optional)"
                   name="questionimage"
                   value={questionimage}
                   className="create_product_input_inner"
