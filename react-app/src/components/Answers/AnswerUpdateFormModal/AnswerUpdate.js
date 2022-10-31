@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector} from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import { thunkUpdateAnswer } from "../../store/answer";
+import { thunkUpdateAnswer } from "../../../store/answer";
 
 
-function AnswerUpdate({answer}) {
+function AnswerUpdate({answer, setShowModal}) {
     const history = useHistory();
     const dispatch = useDispatch();
 
     const questionId= answer?.questionId
+    const user = useSelector((state) => state.session.user)
+
 
     const [answercontent, setAnswercontent] = useState(answer?.answercontent)
     const [answerimage, setAnswerimage] = useState(answer?.answerimage)
@@ -42,7 +44,7 @@ function AnswerUpdate({answer}) {
 
         if (updatedAnswer) {
             history.push('/home');
-            // setShowModal(false)
+            setShowModal(false)
 
         }
         // onClick=()=> setShowModal(false)
@@ -51,7 +53,7 @@ function AnswerUpdate({answer}) {
     return (
         <div id="createanswer-container">
             <div>{user?.username}</div>
-            <div>{question?.questioncontent}</div>
+            <div>{answer?.question}</div>
             <form className="create_product_form" onSubmit={onSubmit}>
 
                 <div className="create_product_input">
@@ -112,7 +114,7 @@ function AnswerUpdate({answer}) {
                             type="submit"
                             disabled={validations.length > 0}
                         >
-                            Create Answer
+                            Edit Answer
                         </button>
                     </div>
                 </div>

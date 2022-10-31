@@ -2,8 +2,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { Link, NavLink, useHistory } from "react-router-dom";
 import { thunkGetCurrentAnswer } from "../../store/answer";
-import AnswerUpdate from "./AnswerUpdate";
+import AnswerUpdate from "./AnswerUpdateFormModal/AnswerUpdate";
 import AnswerDelete from "./AnswerDelete";
+import AnswerCUpdateFormModal from "./AnswerUpdateFormModal";
 
 
 function MyAnswerListings() {
@@ -44,7 +45,7 @@ function MyAnswerListings() {
                                         className="qlist-questionimg"
                                         src={answer?.answerimage}
                                         alt="img"></img></div> : <div></div>}
-                                        <div><AnswerUpdate answer={answer}/></div>
+                                        <div><AnswerCUpdateFormModal answer={answer}/></div>
                                         <div><AnswerDelete answer={answer}/></div>
                                     {/* <div id="my_question_listing_btn_container">
                                         <Link id="userquestioneditbtn" to={`/questions/${question?.id}/edit`}>
