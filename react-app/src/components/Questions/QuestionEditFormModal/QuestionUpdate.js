@@ -6,12 +6,12 @@ import { thunkGetAllTopic } from "../../../store/topic";
 
 
 
-function QuestionUpdate({question}) {
+function QuestionUpdate({question, setShowModal}) {
     const history = useHistory();
     const dispatch = useDispatch();
 
     // let question = useSelector(state => Object.values(state.question))
-    const {id} = useParams()
+    const questionId = question.id
 
     // let editQuestion= question.find(ele => ele.id == id)
 
@@ -33,6 +33,9 @@ function QuestionUpdate({question}) {
         if(questioncontent.length<5 || questioncontent.length>1000) {
             errors.push('Please enter a valid Question')
         }
+        if(!topicId) {
+          errors.push('Please select a topic')
+        }
         if(questionimage &&
             (!questionimage.includes("jpg") &&
             !questionimage.includes("png") &&
@@ -41,13 +44,13 @@ function QuestionUpdate({question}) {
             )
             errors.push("Please enter a valid url image");
         setValidations(errors)
-    }, [questioncontent, questionimage])
+    }, [questioncontent, questionimage, topicId])
 
     const onSubmit = async (event) => {
         event.preventDefault();
         // setSubmit(!submit);
         const payload = {
-          id: id,
+          id: questionId,
           questioncontent,
           questionimage,
           topicId,
@@ -63,13 +66,14 @@ function QuestionUpdate({question}) {
         if (updatedQuestion) {
         //   history.push(`/products/${updatedProduct.id}`);
           history.push('/home')
+          setShowModal(false)
         }
       };
 
       return(
         <div className="create_product_main">
         <div className="create_product_div">
-          <h1>Add Question</h1>
+          <h1>Edit Question</h1>
           <form className="create_product_form" onSubmit={onSubmit}>
 
             <div className="create_product_input">

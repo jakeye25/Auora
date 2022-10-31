@@ -12,7 +12,7 @@ function QuestionUpdateFormModal({question}) {
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>
             <div onClick={() => setShowModal(false)}><i class="fa-solid fa-x"></i></div>
-            <QuestionUpdate question={question}/>
+            <QuestionUpdate question={question} setShowModal={setShowModal}/>
           </Modal>
         )}
       </>

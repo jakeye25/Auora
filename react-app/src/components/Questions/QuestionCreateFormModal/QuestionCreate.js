@@ -42,7 +42,7 @@ function QuestionCreate ({setShowModal}) {
             )
             errors.push("Please enter a valid url image");
         setValidations(errors)
-    }, [questioncontent, questionimage])
+    }, [questioncontent, questionimage, topicId])
 
     const onSubmit = async (event) => {
         event.preventDefault()
