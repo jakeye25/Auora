@@ -12,9 +12,9 @@ seed_commands = AppGroup('seed')
 @seed_commands.command('all')
 def seed():
     seed_users()
+    seed_topics()
     seed_questions()
     seed_answers()
-    seed_topics()
     # Add other seed functions here
 
 
