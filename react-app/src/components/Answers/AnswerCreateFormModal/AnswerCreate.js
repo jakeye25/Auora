@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { thunkCreateAnswer } from "../../../store/answer";
 
-function AnswerCreate({ question }) {
+function AnswerCreate({ question, setShowModal }) {
     const dispatch = useDispatch()
     const questionId = question?.id
     const history = useHistory()
@@ -12,7 +12,7 @@ function AnswerCreate({ question }) {
 
     const [answercontent, setAnswercontent] = useState('')
     const [answerimage, setAnswerimage] = useState('')
-    const [validations, setValidations] = useState('')
+    const [validations, setValidations] = useState([])
 
     useEffect(() => {
         const errors = []
@@ -28,7 +28,7 @@ function AnswerCreate({ question }) {
             errors.push("Please enter a valid url image");
         setValidations(errors)
     }, [answercontent, answerimage])
-    
+
     const onSubmit = async (event) => {
         event.preventDefault()
         const payload = {
@@ -42,6 +42,7 @@ function AnswerCreate({ question }) {
 
         if (createdAnswer) {
             history.push('/home');
+            setShowModal(false)
 
         }
         // onClick=()=> setShowModal(false)

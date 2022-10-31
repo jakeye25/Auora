@@ -56,6 +56,7 @@ function QuestionCreate ({setShowModal}) {
 
         if (createdQuestion) {
             history.push('/home');
+            setShowModal(false)
 
         }
         // onClick=()=> setShowModal(false)
