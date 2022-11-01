@@ -1,0 +1,26 @@
+#qdetail-container{
+    padding-left: 22%;
+    padding-right: 22%;
+    display: flex;
+    width:100%;
+    height: 95vh;
+    background-color: #F1F2F2;
+}
+
+#qdetail-indcontainer{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid rgba(128, 128, 128, 0.4);
+    height: fit-content;
+    /* justify-content: flex-start; */
+}
+
+.qdetail-title{
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 29px;
+    color: #282829;
+}

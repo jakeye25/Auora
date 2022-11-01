@@ -17,7 +17,7 @@ function AnswerDelete({answer}) {
 
     return (
         <div>
-            <button className="delete_product_button" onClick={onClick}>Delete Question</button>
+            <button className="delete_product_button" onClick={onClick}>Delete Answer</button>
         </div>
     )
 

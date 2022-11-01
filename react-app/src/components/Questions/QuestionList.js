@@ -72,7 +72,7 @@ function QuestionList() {
                                         {question?.answers?.length} &nbsp;answers</NavLink>
                                     <div className="qlist-indquestion-3rdcontainer">
                                         <div><AnswerCreateFormModal question={question}/></div>
-                                        <div><QuestionEditDeleteBtn user={user} question={question}/></div>
+                                        {/* <div><QuestionEditDeleteBtn user={user} question={question}/></div> */}
                                     </div>
                                     {question.questionimage ? <div><img
                                         className="qlist-questionimg"

@@ -44,17 +44,17 @@ function App() {
         <Route path='/home' exact={true}>
           <QuestionList />
         </Route>
+        <Route exact path="/myquestions">
+            <MyQuestionListings />
+        </Route>
         <Route exact path="/questions/:id">
             <QuestionDetailPage />
-        </Route>
-        <Route exact path="/topics">
-            <TopicList />
         </Route>
         <Route exact path="/topics/:topicName">
             <TopicDetail />
         </Route>
-        <Route exact path="/myquestions">
-            <MyQuestionListings />
+        <Route exact path="/topics">
+            <TopicList />
         </Route>
         <Route exact path="/myanswers">
             <MyAnswerListings />
