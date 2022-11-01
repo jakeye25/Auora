@@ -43,6 +43,7 @@ function QuestionList() {
                 <div id="qlist-middle-container">
                     <div id="qlist-middle-container-top">
                         <img
+                        className="qlist-avatar"
                         src={user?.avatar}
                         alt='pic'
                         ></img>
@@ -70,11 +71,11 @@ function QuestionList() {
                                     <NavLink className="qlist-indquestion-2ndcontainer"
                                      to={`/questions/${question?.id}`}>
                                         {question?.answers?.length ? question?.answers?.length : 'No'}&nbsp;answers</NavLink>
-                                    {question?.userId === user?.id &&
+                                    {/* {question?.userId === user?.id &&
                                     <div className="qlist-indquestion-3rdcontainer">
-                                        <div><AnswerCreateFormModal question={question}/></div>
+                                        <div><AnswerCreateFormModal question={question}/></div> */}
                                         {/* <div><QuestionEditDeleteBtn user={user} question={question}/></div> */}
-                                    </div>}
+                                    {/* </div>} */}
                                     {question.questionimage ? <img
                                         className="qlist-questionimg"
                                         src={question?.questionimage}
