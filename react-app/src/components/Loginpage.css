@@ -41,6 +41,7 @@
 #loginpage-middle{
     display: flex;
     flex-direction: row;
+    margin-bottom: 15px;
 }
 
 #loginpage-middleleft{
@@ -60,8 +61,8 @@
     width: 50%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+    /* justify-content: space-around; */
+    align-items: flex-start;
     justify-items: center;
     height:20em;
     margin-right: 1.5em;

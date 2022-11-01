@@ -24,7 +24,7 @@ const LoginPage = () => {
                             <SignupFormModal/>
                         </div>
                         <div id='loginpage-middleright'>
-                            <div>Log in</div>
+
                             <LoginForm/>
                         </div>
                     </div>

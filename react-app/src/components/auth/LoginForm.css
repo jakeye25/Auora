@@ -1,5 +1,50 @@
-#login-background{
-    background-image: url("https://qph.cf2.quoracdn.net/main-qimg-23aaba82a9c5a692e585b729ebaa035e-c");
-    height: 100%;
+#login-container{
+    /* display: flex;
+    flex-direction: column; */
+    padding-top: 30px;
+    width: 100%;
+}
 
+.login-item{
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+}
+
+#login-title{
+    font-size: 15px;
+    line-height: 21px;
+    color: #282829;
+    font-weight: 500;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+    /* width: 180%; */
+}
+
+
+#login-btn{
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 40px;
+
+}
+
+.login-input{
+    /* padding-top: 20px; */
+    /* width: 180%; */
+}
+
+.loginerror{
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    word-wrap:break-word;
+    justify-content: start;
+    align-items: flex-start;
+    line-height: 10px;
+    height: 10px;
+    color: #FF385C;
+    font-size: small;
+    padding-top: 20px;
+    padding-bottom: 5px;
 }
