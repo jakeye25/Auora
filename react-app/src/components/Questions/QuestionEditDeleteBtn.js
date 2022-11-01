@@ -1,7 +1,8 @@
 import React, { useState, useEffect} from "react";
 import { useDispatch } from 'react-redux';
 import { NavLink, Link, useHistory } from "react-router-dom";
-import QuestionDelete from "./QuestionDelete";
+import QuestionDelete from "./QuestionDeleteFormModal/QuestionDelete";
+
 import QuestionUpdateFormModal from "./QuestionEditFormModal";
 import QuestionUpdate from "./QuestionEditFormModal/QuestionUpdate";
 

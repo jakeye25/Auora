@@ -4,11 +4,9 @@ import { NavLink, useHistory } from "react-router-dom";
 import { thunkGetAllQuestion } from "../../store/question";
 import TopicList from "../Topics/TopicList";
 import QuestionCreateFormModal from "./QuestionCreateFormModal";
-import QuestionCreate from "./QuestionCreateFormModal/QuestionCreate";
-import QuestionDelete from "./QuestionDelete";
 import QuestionEditDeleteBtn from "./QuestionEditDeleteBtn";
 import './QuestionList.css'
-import QuestionUpdate from "./QuestionEditFormModal/QuestionUpdate";
+
 import AnswerCreateFormModal from "../Answers/AnswerCreateFormModal";
 import { thunkGetAllQuestionAnswer } from "../../store/answer";
 

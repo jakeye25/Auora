@@ -2,8 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { Link, NavLink, useHistory } from "react-router-dom";
 import { thunkGetAllQuestion, thunkGetCurrentQuestion } from "../../store/question";
-import QuestionDelete from "./QuestionDelete";
-import QuestionUpdateFormModal from "./QuestionEditFormModal";
+
 import { thunkGetAllQuestionAnswer } from "../../store/answer";
 
 
