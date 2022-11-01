@@ -58,3 +58,8 @@
     word-break: break-word;
     white-space: pre-wrap;
 }
+
+.qdetail-createans{
+    padding-top: 5px;
+    padding-bottom: 10px;
+}

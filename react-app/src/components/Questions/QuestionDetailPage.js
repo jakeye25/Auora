@@ -13,7 +13,7 @@ function QuestionDetailPage() {
     const { id } = useParams();
     const dispatch = useDispatch();
     const history = useHistory();
-
+    const[exist, setExist] =useState(false)
     const user = useSelector((state) => state.session.user)
     const question = useSelector((state) => state.question[id])
     const answer = useSelector((state) => state.answer)
@@ -25,6 +25,9 @@ function QuestionDetailPage() {
     console.log('ansArr', ansArr)
     let useranswered = ansArr.filter((ele) => ele?.userId === user?.id)
     console.log('userans', useranswered)
+
+
+
 
     // if(!user) history.push('/')
 
@@ -38,8 +41,8 @@ function QuestionDetailPage() {
             <div id="qdetail-indcontainer">
                 <div className="qdetail-title">{question?.questioncontent}</div>
                 <div>{question?.answers?.length}&nbsp;answers</div>
-                {question?.userId == user?.id &&
-                <div><AnswerCreateFormModal question={question}/></div>
+                {question?.userId != user?.id && useranswered?.length == 0 &&
+                <div className="qdetail-createans"><AnswerCreateFormModal question={question}/></div>
                 }
             </div>
                 {answerArr &&
@@ -50,7 +53,7 @@ function QuestionDetailPage() {
                             src={ele?.avatar}
                             alt="pic"
                             ></img>
-                            <div>{ele?.username}</div>
+                            <div>&nbsp;&nbsp;{ele?.username}</div>
                         </div>
                         <div className="qdetail-indanswer-content">{ele?.answercontent}</div>
                     </div>
