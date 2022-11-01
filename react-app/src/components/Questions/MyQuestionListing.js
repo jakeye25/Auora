@@ -2,8 +2,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { Link, NavLink, useHistory } from "react-router-dom";
 import { thunkGetCurrentQuestion } from "../../store/question";
-import QuestionDelete from "./QuestionDelete";
 import QuestionUpdateFormModal from "./QuestionEditFormModal";
+
+import './MyQuestionListing.css'
+import QuestionDeleteFormModal from "./QuestionDeleteFormModal";
+
 
 function MyQuestionListings() {
     const dispatch = useDispatch()
@@ -28,8 +31,11 @@ function MyQuestionListings() {
     return (
         <>
             <div id='myquestionlist-container'>
+
                 {questionfilter.length === 0 ? (<h1>You have not questions posted so far</h1>) : (
+
                     <div>
+                        <h1>You have {questionfilter?.length} questions</h1>
                         {questionfilter.map((question, i) => (
                             <div key={i}>
                                 <div className="my_question_listing_innerbox">
@@ -45,7 +51,7 @@ function MyQuestionListings() {
                                             Edit question
                                         </Link> */}
                                         <QuestionUpdateFormModal question={question} />
-                                        <QuestionDelete question={question} />
+                                        <QuestionDeleteFormModal question={question} />
                                     </div>
                                 </div>
                             </div>
