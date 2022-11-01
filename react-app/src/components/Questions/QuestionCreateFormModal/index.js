@@ -7,10 +7,10 @@ function QuestionCreateFormModal() {
 
     return (
       <>
-         <div onClick={() => setShowModal(true)}>Add Question</div>
+         <div onClick={() => setShowModal(true)}><i class="fa-solid fa-clipboard-question"></i>&nbsp;Ask</div>
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>
-            <div onClick={() => setShowModal(false)}><i class="fa-solid fa-x"></i></div>
+
             <QuestionCreate setShowModal={setShowModal} />
           </Modal>
         )}

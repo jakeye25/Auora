@@ -63,6 +63,7 @@ function QuestionCreate ({setShowModal}) {
     }
     return(
         <div className="create_product_main">
+          <div onClick={() => setShowModal(false)}><i class="fa-solid fa-x"></i></div>
         <div className="create_product_div">
           <h1>Add Question</h1>
           <form className="create_product_form" onSubmit={onSubmit}>

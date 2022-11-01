@@ -15,6 +15,7 @@ import TopicList from './components/Topics/TopicList';
 import TopicDetail from './components/Topics/TopicDetail';
 import MyQuestionListings from './components/Questions/MyQuestionListing';
 import MyAnswerListings from './components/Answers/MyAnswerListing';
+import NotMyQuestionListings from './components/Questions/NotMyQuestionListing';
 
 
 
@@ -57,6 +58,9 @@ function App() {
         </Route>
         <Route exact path="/myanswers">
             <MyAnswerListings />
+        </Route>
+        <Route exact path="/answers">
+            <NotMyQuestionListings />
         </Route>
 
         {/* <Route path='/sign-up' exact={true}>
