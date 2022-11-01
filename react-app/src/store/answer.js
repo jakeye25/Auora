@@ -118,7 +118,7 @@ const answerReducer = (state = initialState, action) => {
             return newState
         case getAllQuestionAnswer:
             newState = {};
-            action.answers.answers.forEach((answer) => {
+            action.answers.question_answers.forEach((answer) => {
                 newState[answer.id] = answer;
             });
             return newState

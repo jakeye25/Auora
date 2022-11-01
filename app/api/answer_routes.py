@@ -23,6 +23,13 @@ def answer(id):
         return {'message': "No such answer"}
     return answer.to_dict()
 
+#get answers based on questionId
+@answer_routes.route('/questions/<int:id>')
+def get_question_answers(id):
+  question_answers = Answer.query.filter(Answer.questionId == id).all()
+  return {'question_answers': [answer.to_dict() for answer in question_answers]}
+
+
 
 #get current user question
 @answer_routes.route("/current")

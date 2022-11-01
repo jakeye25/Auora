@@ -20,6 +20,11 @@ function QuestionDetailPage() {
     let answerArr =  question?.answers
     console.log('question', question)
     console.log('user', user)
+    console.log('answer', answer)
+    let ansArr = Object.values(answer)
+    console.log('ansArr', ansArr)
+    let useranswered = ansArr.filter((ele) => ele?.userId === user?.id)
+    console.log('userans', useranswered)
 
     // if(!user) history.push('/')
 
@@ -40,12 +45,14 @@ function QuestionDetailPage() {
                 {answerArr &&
                 answerArr.map((ele) => (
                     <div className="qdetail-indanswer" key={ele.id}>
-                        <img
-                        src={ele?.avatar}
-                        alt="pic"
-                        ></img>
-                        <div>{ele?.username}</div>
-                        <div>{ele?.answercontent}</div>
+                        <div className="qdetail-indanswer-user" >
+                            <img
+                            src={ele?.avatar}
+                            alt="pic"
+                            ></img>
+                            <div>{ele?.username}</div>
+                        </div>
+                        <div className="qdetail-indanswer-content">{ele?.answercontent}</div>
                     </div>
                 ))}
 
