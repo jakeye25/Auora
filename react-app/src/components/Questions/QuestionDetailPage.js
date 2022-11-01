@@ -5,17 +5,23 @@ import { useDispatch, useSelector } from "react-redux";
 import { thunkGetOneQuestion } from "../../store/question";
 import { thunkGetAllQuestionAnswer } from "../../store/answer";
 import './QuestionDetailPage.css'
+import AnswerCreateFormModal from "../Answers/AnswerCreateFormModal";
+
+
 
 function QuestionDetailPage() {
     const { id } = useParams();
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const user = useSelector((state) => state)
+    const user = useSelector((state) => state.session.user)
     const question = useSelector((state) => state.question[id])
     const answer = useSelector((state) => state.answer)
     let answerArr =  question?.answers
-    console.log('question', question?.answers)
+    console.log('question', question)
+    console.log('user', user)
+
+    // if(!user) history.push('/')
 
     useEffect(() => {
         dispatch(thunkGetOneQuestion(id));
@@ -27,14 +33,22 @@ function QuestionDetailPage() {
             <div id="qdetail-indcontainer">
                 <div className="qdetail-title">{question?.questioncontent}</div>
                 <div>{question?.answers?.length}&nbsp;answers</div>
+                {question?.userId == user?.id &&
+                <div><AnswerCreateFormModal question={question}/></div>
+                }
+            </div>
                 {answerArr &&
                 answerArr.map((ele) => (
-                    <div key={ele.id}>
+                    <div className="qdetail-indanswer" key={ele.id}>
+                        <img
+                        src={ele?.avatar}
+                        alt="pic"
+                        ></img>
                         <div>{ele?.username}</div>
                         <div>{ele?.answercontent}</div>
                     </div>
                 ))}
-            </div>
+
 
 
         </div>

@@ -38,12 +38,6 @@ function App() {
     <BrowserRouter>
       {currentUser ? <NavBar /> : <></>}
       <Switch>
-        <Route path='/' exact={true}>
-          <LoginPage />
-        </Route>
-        <Route path='/home' exact={true}>
-          <QuestionList />
-        </Route>
         <Route exact path="/myquestions">
             <MyQuestionListings />
         </Route>
@@ -62,10 +56,16 @@ function App() {
         <Route exact path="/answers">
             <NotMyQuestionListings />
         </Route>
+        <Route path='/home' exact={true}>
+          <QuestionList />
+        </Route>
+        <Route path='/' exact={true}>
+          <LoginPage />
+        </Route>
 
         {/* <Route path='/sign-up' exact={true}>
           <SignUpForm />
-        </Route>
+          </Route>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
         </ProtectedRoute>

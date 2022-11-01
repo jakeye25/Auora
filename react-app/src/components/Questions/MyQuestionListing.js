@@ -28,7 +28,7 @@ function MyQuestionListings() {
     return (
         <>
             <div id='myquestionlist-container'>
-                {questionfilter.length === 0 ? (<h1>You have no products to sell so far</h1>) : (
+                {questionfilter.length === 0 ? (<h1>You have not questions posted so far</h1>) : (
                     <div>
                         {questionfilter.map((question, i) => (
                             <div key={i}>
