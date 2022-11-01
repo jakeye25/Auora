@@ -1,7 +1,8 @@
 #questionlist-container{
-    padding-left: 20%;
-    padding-right: 20%;
+    padding-left: 22%;
+    padding-right: 22%;
     display: flex;
+    background-color: #F1F2F2;
 
 }
 

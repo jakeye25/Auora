@@ -42,6 +42,10 @@ function QuestionList() {
                 </div>
                 <div id="qlist-middle-container">
                     <div id="qlist-middle-container-top">
+                        <div><img
+                        src={user?.avatar}
+                        alt='pic'
+                        ></img></div>
                         <QuestionCreateFormModal />
                     </div>
                     <div id='qlist-middle-container-middle'>
