@@ -63,21 +63,22 @@ function QuestionList() {
                                     <NavLink
                                         to={`/questions/${question?.id}`}
                                     >
-                                        <div>
+                                        <div className="qlist-questioncontent">
                                             {question?.questioncontent}
                                         </div>
                                     </NavLink>
                                     <NavLink className="qlist-indquestion-2ndcontainer"
                                      to={`/questions/${question?.id}`}>
-                                        {question?.answers?.length} &nbsp;answers</NavLink>
+                                        {question?.answers?.length ? question?.answers?.length : 'No'}&nbsp;answers</NavLink>
+                                    {question?.userId === user?.id &&
                                     <div className="qlist-indquestion-3rdcontainer">
                                         <div><AnswerCreateFormModal question={question}/></div>
                                         {/* <div><QuestionEditDeleteBtn user={user} question={question}/></div> */}
-                                    </div>
-                                    {question.questionimage ? <div><img
+                                    </div>}
+                                    {question.questionimage ? <img
                                         className="qlist-questionimg"
                                         src={question?.questionimage}
-                                        alt="img"></img></div> : <div></div>}
+                                        alt="img"></img> : <div></div>}
                                     {/* <div><QuestionUpdate question={question} /></div>
                                     <div><QuestionDelete question={question} /></div> */}
                                 </div>
