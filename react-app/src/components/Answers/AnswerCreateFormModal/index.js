@@ -11,7 +11,7 @@ function AnswerCreateFormModal({question}) {
          <div id='create-ansbtn' onClick={() => setShowModal(true)}><i class="fa-regular fa-pen-to-square"></i>&nbsp;Answer</div>
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>
-            <div onClick={() => setShowModal(false)}><i class="fa-solid fa-x"></i></div>
+           
             <AnswerCreate question={question} setShowModal={setShowModal} />
           </Modal>
         )}

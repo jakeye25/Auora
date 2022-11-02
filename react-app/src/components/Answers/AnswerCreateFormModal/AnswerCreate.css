@@ -12,3 +12,20 @@
     cursor: pointer;
     padding: 10px;
 }
+
+.createanswer-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.createanswer-profile{
+    display: flex;
+
+}
+
+.createanswer-question{
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 25px;
+    color: #282829;
+}

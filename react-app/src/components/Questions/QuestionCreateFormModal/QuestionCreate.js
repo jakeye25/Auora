@@ -112,7 +112,7 @@ function QuestionCreate({ setShowModal }) {
             <div>
               <input
                 type="text"
-                placeholder="Add a url image(optional)"
+                placeholder="Add an image url (optional)"
                 name="questionimage"
                 value={questionimage}
                 className="create_question_input_inner"
