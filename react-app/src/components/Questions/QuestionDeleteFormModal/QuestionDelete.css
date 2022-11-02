@@ -1,6 +1,12 @@
 #del-quesbtn{
     color: red;
     cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+#del-quesbtn:hover{
+    background-color: rgba(128,128,128,0.2);
 }
 
 .del-modal-container{
