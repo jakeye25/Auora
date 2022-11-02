@@ -50,7 +50,7 @@ function AnswerCreate({ question, setShowModal }) {
 
     return (
         <div className="createanswer-container">
-            <div onClick={() => setShowModal(false)}><i class="fa-solid fa-x"></i></div>
+            <div className='createanswer-cross' onClick={() => setShowModal(false)}><i class="fa-solid fa-x"></i></div>
             <div className="createanswer-profile">
                 <img
                 src={user?.avatar}
