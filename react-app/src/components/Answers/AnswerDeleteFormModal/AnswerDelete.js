@@ -1,10 +1,11 @@
 import { useHistory } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
-import { thunkDeleteAnswer } from "../../store/answer"
+import { thunkDeleteAnswer } from "../../../store/answer"
 
 
 
-function AnswerDelete({answer}) {
+
+function AnswerDelete({answer, setShowModal}) {
     const dispatch = useDispatch()
     const history = useHistory()
 
@@ -16,7 +17,7 @@ function AnswerDelete({answer}) {
     }
 
     return (
-        <div>
+        <div><div onClick={() => setShowModal(false)}>Cancel</div>
             <button className="delete_product_button" onClick={onClick}>Delete Answer</button>
         </div>
     )
