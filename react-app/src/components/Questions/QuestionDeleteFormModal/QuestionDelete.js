@@ -16,9 +16,12 @@ function QuestionDelete({question, setShowModal}) {
     }
 
     return (
-        <div >
-            <div onClick={() => setShowModal(false)}>Cancel</div>
-            <button className="delete_product_button" onClick={onClick}>Delete</button>
+        <div className="del-modal-container">
+            <div className="del-modal-container-top">Are you sure you want to continue your action?</div>
+            <div className="del-modal-container-bot">
+                <div className="delete-modal-item" onClick={() => setShowModal(false)}>Cancel</div>
+                <div className="delete-modal-item" onClick={onClick}>Delete</div>
+            </div>
         </div>
     )
 

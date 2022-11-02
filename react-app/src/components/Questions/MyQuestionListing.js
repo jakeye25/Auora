@@ -19,7 +19,7 @@ function MyQuestionListings() {
     const currentQuestionArr = Object.values(currentQuestion)
 
     const questionfilter = currentQuestionArr.filter(question => question?.userId === user?.id);
-
+    console.log('quesfilter', questionfilter)
     useEffect(() => {
         // dispatch(thunkGetAllProduct())
         dispatch(thunkGetCurrentQuestion())
@@ -44,21 +44,26 @@ function MyQuestionListings() {
 
                                         {question?.questioncontent}
                                         </NavLink>
-                                        <div className="my_question_listing_len">{question?.answers?.length} answers</div>
                                     </div>
-                                    <div className="my_question_listing_btn_container">
-                                        {/* <Link id="userquestioneditbtn" to={`/questions/${question?.id}/edit`}>
-                                            Edit question
-                                        </Link> */}
-                                        <div className="my_question_listing_btn">
-                                            <QuestionUpdateFormModal question={question} />
-                                        </div>
-                                        <div className="my_question_listing_btn">
-                                            <QuestionDeleteFormModal question={question} />
+                                    <div className="myquestion-bottom">
+                                        <div className="my_question_listing_len">{question?.answers?.length} answers</div>
+                                        <div className="my_question_listing_btn_container">
+                                            <div className="my_question_listing_btn">
+                                                <QuestionUpdateFormModal question={question} />
+                                            </div>
+                                            <div className="my_question_listing_btn">
+                                                <QuestionDeleteFormModal question={question} />
+                                            </div>
                                         </div>
                                     </div>
 
+                                {question?.questionimage && <img
+                                    className="myquestionimg"
+                                    src={question?.questionimage}
+                                    alt='pic'></img>}
+
                             </div>
+
                         ))}
                     </div>
 

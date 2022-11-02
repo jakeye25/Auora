@@ -13,7 +13,7 @@
 
 .myquestionlisting-top{
     margin-top: 20px;
-    padding: 10px;
+    padding: 20px;
     border: 1px solid rgba(128, 128, 128, 0.4);
     height: fit-content;
     width: 550px;
@@ -21,13 +21,14 @@
 }
 
 .my_question_listing_innerbox{
-    padding: 10px;
+    padding: 20px;
     border: 1px solid rgba(128, 128, 128, 0.4);
     height: fit-content;
     width: 550px;
     background-color: white;
     margin-top: 20px;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
 }
 
@@ -35,7 +36,7 @@
     display: flex;
     flex-direction: column;
     justify-items: center;
-    align-items: center;
+    /* align-items: center; */
     justify-content: space-between;
     max-height: max-content;
     height: max-content;
@@ -44,7 +45,10 @@
 .my_question_listing_nav{
     display: flex;
     flex-direction: column;
-    width: 400px;
+
+    text-overflow: ellipsis;
+    word-break: break-word;
+    white-space: pre-wrap;
 }
 
 .my_question_listing_link{
@@ -54,6 +58,11 @@
     word-break: break-word;
     white-space: pre-wrap;
     padding-bottom: 20px;
+}
+
+.myquestion-bottom{
+    display: flex;
+    justify-content: space-between;
 }
 
 .my_question_listing_len{
@@ -77,4 +86,11 @@
     text-overflow: ellipsis;
     word-break: break-word;
     white-space: pre-wrap;
+}
+
+.myquestionimg{
+    margin-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 20px;
 }
