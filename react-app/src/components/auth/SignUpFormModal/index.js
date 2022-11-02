@@ -8,7 +8,7 @@ function SignupFormModal() {
 
     return (
       <>
-         <div onClick={() => setShowModal(true)}>Sign Up with email</div>
+         <div id='signuptrigger' onClick={() => setShowModal(true)}>Sign Up with email</div>
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>
             {/* <div onClick={() => setShowModal(false)}><i class="fa-solid fa-x"></i></div> */}

@@ -58,7 +58,7 @@ const SignUpForm = ({setShowModal}) => {
 
   return (
     <div id='signupform-container'>
-      <div onClick={() => setShowModal(false)}><i class="fa-solid fa-x"></i></div>
+      <div  onClick={() => setShowModal(false)}><i class="fa-solid fa-x"></i></div>
       <h3>Sign up</h3>
         <form onSubmit={onSignUp} >
           <div className='signupform-item'>
@@ -112,13 +112,13 @@ const SignUpForm = ({setShowModal}) => {
               required={true}
             ></input>
           </div> */}
-          <div>
+          <div >
             {errors.map((error, ind) => (
-              <div key={ind}>{error}</div>
+              <div className='signuperror' key={ind}>{error}</div>
             ))}
           </div>
           <div id='signupbtn-container'>
-              <button type='submit'>Sign Up</button>
+              <button className='signupbtn' type='submit'>Sign Up</button>
           </div>
         </form>
     </div>

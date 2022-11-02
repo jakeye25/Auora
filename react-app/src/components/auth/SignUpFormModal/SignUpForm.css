@@ -1,3 +1,7 @@
+#signuptrigger{
+    cursor: pointer;
+}
+
 #signupform-container{
     padding: 25px;
     width: 590px;
@@ -17,4 +21,27 @@
     display: flex;
     justify-content: flex-end;
     padding-top: 5px;
+}
+
+.fa-solid.fa-x{
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 500px;
+}
+
+.fa-solid.fa-x:hover{
+    background-color: rgba(128, 128, 128, 0.2);
+}
+
+.signuperror{
+    color: red;
+}
+
+.signupbtn{
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 10px;
+    border: none;
+    background-color: rgba(28, 25, 180, 0.5);
+    color: white;
 }
