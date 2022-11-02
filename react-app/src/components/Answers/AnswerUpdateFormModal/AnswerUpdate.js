@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector} from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { thunkUpdateAnswer } from "../../../store/answer";
-
+import '../AnswerCreateFormModal/AnswerCreate.css'
 
 function AnswerUpdate({answer, setShowModal}) {
     const history = useHistory();
@@ -52,12 +52,18 @@ function AnswerUpdate({answer, setShowModal}) {
     }
 
     return (
-        <div id="createanswer-container">
-            <div>{user?.username}</div>
-            <div>{answer?.question}</div>
-            <form className="create_product_form" onSubmit={onSubmit}>
+        <div className="createanswer-container">
+            <div className='createanswer-cross' onClick={() => setShowModal(false)}><i class="fa-solid fa-x"></i></div>
+            <div className="createanswer-profile">
+                <img
+                src={user?.avatar}
+                alt='pic'></img>
+                <div>{user?.username}</div>
+            </div>
+            <div className="createanswer-question">{answer?.question}</div>
+            <form className="create_answer_form" onSubmit={onSubmit}>
 
-                <div className="create_product_input">
+                <div className="create_answer_input">
 
                     <div>
                         <input
@@ -65,59 +71,57 @@ function AnswerUpdate({answer, setShowModal}) {
                             placeholder="Write your answer"
                             name="answercontent"
                             value={answercontent}
-                            className="create_product_input_inner"
+                            className="create_answer_input_inner"
                             onChange={(event) => setAnswercontent(event.target.value)}
                             required
                         ></input>
                     </div>
                 </div>
 
-                <div className="create_product_input">
-                    <div className="create_product_text_box">
-                        <div>Image</div>
-                    </div>
+                <div className="create_answer_input">
+
                     <div>
                         <input
                             type="text"
                             placeholder="Add a url image(optional)"
                             name="answerimage"
                             value={answerimage}
-                            className="create_product_input_inner"
+                            className="create_answer_input_inner"
                             onChange={(event) => setAnswerimage(event.target.value)}
                         ></input>
                     </div>
                 </div>
                 {validations.length > 0 ? (
-                    <div className="create_product_empty">
-                        <div className="create_product_error">
+                    <div className="create_answer_empty">
+                        <div className="create_answer_error">
                             {validations.map((error, i) => (
                                 <div key={i}>{error}</div>
                             ))}
                         </div>
                     </div>
                 ) : (
-                    <div className="create_product_empty"></div>
+                    <div className="create_answer_empty"></div>
                 )}
-                <div className="create_product_footer">
-                    <div className="create_product_footer2">
-                        <div>
+                <div className="create_answer_footer">
+
+
                             <button
-                                className="create_product_cancel"
+                                className="create_answer_cancel"
                                 onClick={(event) => history.push("/home")}
                             >
                                 Cancel
                             </button>
-                        </div>
-                    </div>
-                    <div className="create_product_rightside">
+
+
+
                         <button
-                            className="create_product_button"
+                            className="create_answer_button"
                             type="submit"
                             disabled={validations.length > 0}
                         >
-                            Edit Answer
+                            Post
                         </button>
-                    </div>
+
                 </div>
             </form>
 
