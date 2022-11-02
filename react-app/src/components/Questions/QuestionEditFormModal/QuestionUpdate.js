@@ -3,7 +3,7 @@ import { useDispatch, useSelector} from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { thunkUpdateQuestion } from "../../../store/question";
 import { thunkGetAllTopic } from "../../../store/topic";
-
+import '../QuestionCreateFormModal/QuestionCreate.css'
 
 
 function QuestionUpdate({question, setShowModal}) {
@@ -71,12 +71,15 @@ function QuestionUpdate({question, setShowModal}) {
       };
 
       return(
-        <div className="create_product_main">
-        <div className="create_product_div">
-          <h1>Edit Question</h1>
-          <form className="create_product_form" onSubmit={onSubmit}>
+        <div className="create_question_main">
+        <div className="create-question-top">
+          <div onClick={() => setShowModal(false)}><i class="fa-solid fa-x"></i></div>
+          <div className="create-question-top-title">Add Question</div>
+        </div>
 
-            <div className="create_product_input">
+          <form className="create_question_form" onSubmit={onSubmit}>
+
+            <div className="create_question_input">
 
               <div>
                 <input
@@ -84,30 +87,28 @@ function QuestionUpdate({question, setShowModal}) {
                   placeholder="Start your question with 'What', 'How', 'Why', etc."
                   name="questioncontent"
                   value={questioncontent}
-                  className="create_product_input_inner"
+                  className="create_question_input_inner"
                   onChange={(event) => setQuestioncontent(event.target.value)}
                   required
                 ></input>
               </div>
             </div>
 
-            <div className="create_product_input">
-              <div className="create_product_text_box">
-                <div>Topic</div>
-              </div>
+            <div className="create_question_input">
+
               <div>
                 <select
                   required
                   name="TopicId"
                   value={topicId}
                   onChange={(event) => settopicId(event.target.value)}
-                  className="create_product_input_inner"
+                  className="create_question_input_inner"
                 >
-                  <option value="" disabled>
+                  <option className="create_question_input_inner" value="" disabled>
                     Select a topic
                   </option>
                   {topicsObjArr?.map((topic) => (
-                    <option key={topic?.id} value={topic?.id}>
+                    <option className="create_question_input_inner" key={topic?.id} value={topic?.id}>
                       {topic?.name}
                     </option>
                   ))}
@@ -115,55 +116,51 @@ function QuestionUpdate({question, setShowModal}) {
               </div>
             </div>
 
-            <div className="create_product_input">
-              <div className="create_product_text_box">
-                <div>Image</div>
-              </div>
+            <div className="create_question_input">
+
               <div>
                 <input
                   type="text"
                   placeholder="Add a url image(optional)"
                   name="questionimage"
                   value={questionimage}
-                  className="create_product_input_inner"
+                  className="create_question_input_inner"
                   onChange={(event) => setQuestionimage(event.target.value)}
                 ></input>
               </div>
             </div>
             {validations.length > 0 ? (
-              <div className="create_product_empty">
-                <div className="create_product_error">
+              <div className="create_question_empty">
+                <div className="create_question_error">
                   {validations.map((error, i) => (
                     <div key={i}>{error}</div>
                   ))}
                 </div>
               </div>
             ) : (
-              <div className="create_product_empty"></div>
+              <div className="create_question_empty"></div>
             )}
-            <div className="create_product_footer">
-              <div className="create_product_footer2">
-                <div>
+            <div className="create_question_footer">
+
+
                   <button
-                    className="create_product_cancel"
-                    onClick={(event) => history.push("/home")}
+                    className="create_question_cancel"
+                    onClick={() => setShowModal(false)}
                   >
                     Cancel
                   </button>
-                </div>
-              </div>
-              <div className="create_product_rightside">
+
                 <button
-                  className="create_product_button"
+                  className="create_question_button"
                   type="submit"
                   disabled={validations.length > 0}
                 >
                   Edit Question
                 </button>
-              </div>
+
             </div>
           </form>
-        </div>
+
       </div>
     )
 

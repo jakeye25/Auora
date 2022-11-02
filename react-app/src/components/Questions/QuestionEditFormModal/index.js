@@ -11,7 +11,6 @@ function QuestionUpdateFormModal({question}) {
          <div id='edit-quesbtn' onClick={() => setShowModal(true)}><i class="fa-regular fa-pen-to-square"></i>&nbsp;Edit question</div>
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>
-            <div onClick={() => setShowModal(false)}><i class="fa-solid fa-x"></i></div>
             <QuestionUpdate question={question} setShowModal={setShowModal}/>
           </Modal>
         )}
