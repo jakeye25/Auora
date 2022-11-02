@@ -42,7 +42,15 @@ function QuestionDetailPage() {
                 <div className="qdetail-title">{question?.questioncontent}</div>
                 <div>{question?.answers?.length}&nbsp;answers</div>
                 {question?.userId != user?.id && useranswered?.length == 0 &&
-                <div className="qdetail-createans"><AnswerCreateFormModal question={question}/></div>
+                <div className="qdetail-anscontainer">
+                    <img
+                    src={user?.avatar}
+                    alt='pic'
+                    ></img>
+                    <div>{user?.username}, can you answer this question?</div>
+                    <div>People are searching for a better answer to this question.</div>
+                    <div className="qdetail-createans"><AnswerCreateFormModal question={question}/></div>
+                </div>
                 }
             </div>
                 {answerArr &&

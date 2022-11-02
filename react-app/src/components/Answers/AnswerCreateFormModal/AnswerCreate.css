@@ -1,12 +1,14 @@
 #create-ansbtn{
-    width: 100px;
+    width: 90px;
     display: flex;
     justify-items: center;
     align-items: center;
     text-align: center;
     padding: 5px;
-    background-color: rgba(128, 128, 128, 0.5);
+    background-color: white;
     border-radius: 10px;
-    border: 1px solid rgba(128, 128, 128, 0.4);
+    border: 1px solid rgba(28, 25, 180, 0.4);
+    color: rgba(28, 25, 180, 0.8);
     cursor: pointer;
+    padding: 10px;
 }

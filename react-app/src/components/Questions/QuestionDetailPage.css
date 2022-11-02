@@ -63,3 +63,19 @@
     padding-top: 5px;
     padding-bottom: 10px;
 }
+
+.qdetail-anscontainer{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;column-gap: 1px;
+    margin-top: 15px;
+}
+
+.qdetail-anscontainer img{
+    border-radius: 500px;
+    width: 70px;
+    height: 70px;
+    border: 1px solid rgba(128, 128, 128, 0.3);
+
+}
