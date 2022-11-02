@@ -17,7 +17,7 @@
     background-color: white;
     border: 1px solid rgba(128, 128, 128, 0.4);
     height: fit-content;
-    width: 700px;
+    width: 600px;
     /* justify-content: flex-start; */
 }
 
@@ -36,7 +36,7 @@
     margin-top: 20px;
     background-color: white;
     border: 1px solid rgba(128, 128, 128, 0.4);
-    width: 700px;
+    width: 600px;
 }
 
 .qdetail-indanswer-user{

@@ -5,7 +5,7 @@ import { thunkGetCurrentAnswer } from "../../store/answer";
 import AnswerUpdate from "./AnswerUpdateFormModal/AnswerUpdate";
 import AnswerDelete from "./AnswerDelete";
 import AnswerCUpdateFormModal from "./AnswerUpdateFormModal";
-
+import './MyAnswerListing.css'
 
 function MyAnswerListings() {
 
@@ -31,16 +31,29 @@ function MyAnswerListings() {
         <div id="myanswer-container">
                 {answerfilter.length === 0 ? (<h1>You have no answer so far</h1>) : (
                     <div>
+                        <h1 className="myanswerlisting-top">You have {answerfilter?.length} answers</h1>
                         {answerfilter.map((answer, i) => (
-                            <div key={i}>
-                                <div className="my_question_listing_innerbox">
-                                    <div className="my_question_listing_nav">
-                                        <NavLink to={`/questions/${answer?.questionId}`}>
+                            <div key={i} className="my_answer_listing_innerbox">
 
-                                        <div className="my_question_listing_name">{answer?.question}</div>
+                                    <div className="my_answer_listing_nav">
+                                        <NavLink
+                                        className='my_answer_listing_link'
+                                        to={`/questions/${answer?.questionId}`}>
+
+                                        {answer?.question}
                                         </NavLink>
                                     </div>
-                                    <div>{answer?.answercontent}</div>
+                                    <div className="my_answer_listing_profile">
+                                        <img
+                                        src={answer?.avatar}
+                                        alt='pic'
+                                        ></img>
+                                        <div className="my_answer_listing_profile-right">
+                                            <div>{user?.username}</div>
+                                            <div>{answer?.createdAt.slice(7, 16)}</div>
+                                        </div>
+                                    </div>
+                                        <div>{answer?.answercontent}</div>
                                     {answer.answerimage ? <div><img
                                         className="qlist-questionimg"
                                         src={answer?.answerimage}
@@ -53,7 +66,7 @@ function MyAnswerListings() {
                                         </Link>
                                         <QuestionDelete question={question} />
                                     </div> */}
-                                </div>
+
                             </div>
                         ))}
                     </div>

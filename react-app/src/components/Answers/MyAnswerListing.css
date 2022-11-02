@@ -1,4 +1,4 @@
-#myquestionlist-container{
+#myanswer-container{
     padding-left: 29%;
     padding-right: 22%;
     display: flex;
@@ -7,46 +7,41 @@
 
     min-height: 95vh;
     background-color: #F1F2F2;
-    margin-bottom: 20px;
+    padding-bottom: 20px;
 }
 
-.myquestionlisting-top{
+
+.myanswerlisting-top{
     margin-top: 20px;
     padding: 10px;
+    padding-right: 20px;
     border: 1px solid rgba(128, 128, 128, 0.4);
     height: fit-content;
     width: 600px;
     background-color: white;
 }
 
-.my_question_listing_innerbox{
+.my_answer_listing_innerbox{
     padding: 10px;
+    padding-left: 20px;
     border: 1px solid rgba(128, 128, 128, 0.4);
     height: fit-content;
     width: 600px;
     background-color: white;
     margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.my_question_listing_btn_container{
     display: flex;
     flex-direction: column;
-    justify-items: center;
-    align-items: center;
     justify-content: space-between;
-    max-height: max-content;
-    height: max-content;
 }
 
-.my_question_listing_nav{
+
+.my_answer_listing_nav{
     display: flex;
     flex-direction: column;
     width: 400px;
 }
 
-.my_question_listing_link{
+.my_answer_listing_link{
     font-weight: bold;
     text-decoration: none;
     text-overflow: ellipsis;
@@ -55,25 +50,23 @@
     padding-bottom: 20px;
 }
 
-.my_question_listing_len{
-    padding-top: 20px;
+.my_answer_listing_profile{
+    display: flex;
+    margin-bottom: 20px;
 }
 
-.my_question_listing_btn{
-    padding: 5px;
+.my_answer_listing_profile img{
+    border-radius: 500px;
+    width: 45px;
+    height: 45px;
+    border: 1px solid rgba(128, 128, 128, 0.4);
+
 }
 
+.my_answer_listing_profile-right{
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
 
-.my_question_listing_ansbtn{
-    padding: 5px;
-    padding-top: 20px;
-}
-
-.tryanswerlink{
-    text-decoration: none;
-    padding-top: 20px;
-
-    text-overflow: ellipsis;
-    word-break: break-word;
-    white-space: pre-wrap;
+    /* align-items: center; */
 }
