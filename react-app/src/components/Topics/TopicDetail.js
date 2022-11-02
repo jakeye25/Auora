@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory, useParams } from "react-router-dom";
 import { thunkGetAllTopic } from "../../store/topic";
-
+import './TopicDetail.css'
+import TopicList from "./TopicList";
 
 
 function TopicDetail() {
@@ -18,14 +19,14 @@ function TopicDetail() {
     let alltopics = Object.values(topics)
     console.log("topics ", alltopics)
 
-    let a = alltopics.filter(element => element.name==topicName)
-    console.log('topicname', a)
+    let topicArr = alltopics.filter(element => element.name==topicName)
+    console.log('topicarr', topicArr)
+
+    let indTopic = topicArr[0]
+    let indTopicques = topicArr[0]?.questions
 
 
-    let b = a[0]?.questions
-    console.log('questionsArr', b)
-
-    if(!b){
+    if(!indTopicques){
         return(
             <h1>No such questions</h1>
         )
@@ -33,23 +34,41 @@ function TopicDetail() {
 
 
     return(
-        <div id="topic-container">
-            {b &&
-                    b?.map((topic) => (
+        <div id="indtopic-container">
+            <div className="indtopic-topiclist-container">
+                <TopicList/>
+            </div>
+            <div>
+                <img
+                src={indTopic?.topicimage}
+                alt='pic'></img>
+                <div>{indTopic?.name}</div>
+            </div>
+            {indTopicques &&
+                    indTopicques?.map((topic) => (
                     <div key = {topic.id} className='indtopic-container'>
                         <NavLink className='topiclink'
                         to = {`/questions/${topic?.id}`}
                         >
-                        {/* {topic?.topicimage? <div><img
-                        className="topicimg"
-                        src={topic?.topicimage}
-                        alt="img"></img></div> :<div></div>} */}
-                            <br></br>
-
                             <div className="topicname">
-                                &nbsp; {topic?.questioncontent}
+                                {topic?.questioncontent}
                             </div>
                         </NavLink>
+                        <NavLink className='topiclink'
+                        to = {`/questions/${topic?.id}`}
+                        >
+                            <div className="topicname">
+                                {topic?.answers.length} answers
+                            </div>
+                        </NavLink>
+                        {topic?.questionimage &&(<NavLink className='topiclink'
+                        to = {`/questions/${topic?.id}`}
+                        >
+                            <img src={topic?.questionimage}
+                            alt='pic'></img>
+
+
+                        </NavLink>)}
                         </div>
                 ))}
         </div>
