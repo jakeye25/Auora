@@ -41,6 +41,8 @@
 }
 
 .my_question_listing_nav{
+    display: flex;
+    flex-direction: column;
     width: 500px;
 }
 
@@ -59,4 +61,19 @@
 
 .my_question_listing_btn{
     padding: 5px;
+}
+
+
+.my_question_listing_ansbtn{
+    padding: 5px;
+    padding-top: 20px;
+}
+
+.tryanswerlink{
+    text-decoration: none;
+    padding-top: 20px;
+
+    text-overflow: ellipsis;
+    word-break: break-word;
+    white-space: pre-wrap;
 }
