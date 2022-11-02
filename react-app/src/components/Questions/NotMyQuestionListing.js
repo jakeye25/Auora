@@ -53,7 +53,13 @@ function NotMyQuestionListings() {
                                         <NavLink className='my_question_listing_link' to={`/questions/${question?.id}`}>
                                             {question?.questioncontent}
                                         </NavLink>
-                                    <div className="my_question_listing_len" >{question?.answers?.length} answers</div>
+                                        <div className="my_question_listing_len" >{question?.answers?.length} answers</div>
+                                        {question?.questionimage && (
+                                            <NavLink to={`/questions/${question?.id}`}
+                                            ><img className="notmyquestionimg" src={question?.questionimage}
+                                               alt='pic' ></img>
+                                            </NavLink>
+                                        )}
                                     </div>
                                     {/* <div id="my_question_listing_btn_container">
                                         <QuestionUpdateFormModal question={question} />

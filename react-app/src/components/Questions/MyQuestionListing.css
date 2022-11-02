@@ -93,4 +93,12 @@
     padding-left: 20px;
     padding-right: 20px;
     margin-bottom: 20px;
+    max-width: 500px;
+    max-height: auto;
+}
+
+.notmyquestionimg{
+    max-width: 500px;
+    max-height: auto;
+    margin-top: 10px;
 }
