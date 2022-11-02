@@ -25,7 +25,7 @@
 
 .fa-solid.fa-x{
     cursor: pointer;
-    padding: 5px;
+    padding: 15px;
     border-radius: 500px;
 }
 
@@ -44,4 +44,8 @@
     border: none;
     background-color: rgba(28, 25, 180, 0.5);
     color: white;
+}
+
+.signupbtn:hover{
+    background-color: rgba(28, 25, 180, 0.8);
 }
