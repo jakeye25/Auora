@@ -17,8 +17,11 @@
     padding-right: 20px;
     border: 1px solid rgba(128, 128, 128, 0.4);
     height: fit-content;
-    width: 600px;
+    width: 550px;
     background-color: white;
+    text-overflow: ellipsis;
+    word-break: break-word;
+    white-space: pre-wrap;
 }
 
 .my_answer_listing_innerbox{
@@ -26,7 +29,7 @@
     padding-left: 20px;
     border: 1px solid rgba(128, 128, 128, 0.4);
     height: fit-content;
-    width: 600px;
+    width: 550px;
     background-color: white;
     margin-top: 20px;
     display: flex;
@@ -38,7 +41,7 @@
 .my_answer_listing_nav{
     display: flex;
     flex-direction: column;
-    width: 400px;
+    /* width: 400px; */
 }
 
 .my_answer_listing_link{
@@ -48,6 +51,16 @@
     word-break: break-word;
     white-space: pre-wrap;
     padding-bottom: 20px;
+}
+
+.myanswers-userbtn-container{
+    display: flex;
+    justify-content: space-between;
+}
+.myanswer-btn{
+    display: flex;
+    flex-direction: column;
+    padding-right: 25px;
 }
 
 .my_answer_listing_profile{
@@ -69,4 +82,21 @@
     padding-left: 10px;
 
     /* align-items: center; */
+}
+
+.myanswerimg{
+    object-fit:none;
+}
+
+.myanswer-content{
+    text-overflow: ellipsis;
+    word-break: break-word;
+    white-space: pre-wrap;
+    margin-bottom: 20px;
+}
+
+.myanswer-btn{
+    margin-top: 10px;
+    display: flex;
+
 }

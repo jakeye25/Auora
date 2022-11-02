@@ -30,7 +30,7 @@ function MyAnswerListings() {
 
     return (
         <div id="myanswer-container">
-                {answerfilter.length === 0 ? (<h1>You have no answer so far</h1>) : (
+                {answerfilter.length === 0 ? (<h1 className="myanswerlisting-top">You have no answer so far</h1>) : (
                     <div>
                         <h1 className="myanswerlisting-top">You have {answerfilter?.length} answers</h1>
                         {answerfilter.map((answer, i) => (
@@ -44,29 +44,27 @@ function MyAnswerListings() {
                                         {answer?.question}
                                         </NavLink>
                                     </div>
-                                    <div className="my_answer_listing_profile">
-                                        <img
-                                        src={answer?.avatar}
-                                        alt='pic'
-                                        ></img>
-                                        <div className="my_answer_listing_profile-right">
-                                            <div>{user?.username}</div>
-                                            <div>{answer?.createdAt.slice(7, 16)}</div>
+                                    <div className="myanswers-userbtn-container">
+                                        <div className="my_answer_listing_profile">
+                                            <img
+                                            src={answer?.avatar}
+                                            alt='pic'
+                                            ></img>
+                                            <div className="my_answer_listing_profile-right">
+                                                <div>{user?.username}</div>
+                                                <div>{answer?.createdAt.slice(7, 16)}</div>
+                                            </div>
+                                        </div>
+                                        <div className="myanswer-btn">
+                                            <div><AnswerUpdateFormModal answer={answer}/></div>
+                                            <div><AnswerDeleteFormModal answer={answer}/></div>
                                         </div>
                                     </div>
-                                        <div>{answer?.answercontent}</div>
+                                        <div className="myanswer-content">{answer?.answercontent}</div>
                                     {answer.answerimage ? <div><img
-                                        className="qlist-questionimg"
+                                        className="myanswerimg"
                                         src={answer?.answerimage}
                                         alt="img"></img></div> : <div></div>}
-                                        <div><AnswerUpdateFormModal answer={answer}/></div>
-                                        <div><AnswerDeleteFormModal answer={answer}/></div>
-                                    {/* <div id="my_question_listing_btn_container">
-                                        <Link id="userquestioneditbtn" to={`/questions/${question?.id}/edit`}>
-                                            Edit question
-                                        </Link>
-                                        <QuestionDelete question={question} />
-                                    </div> */}
 
                             </div>
                         ))}

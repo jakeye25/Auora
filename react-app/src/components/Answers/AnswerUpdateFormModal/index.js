@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Modal } from '../../../context/Modal';
 import AnswerUpdate from './AnswerUpdate';
-
+import './AnswerUpdate.css'
 
 
 function AnswerUpdateFormModal({answer}) {
@@ -9,7 +9,7 @@ function AnswerUpdateFormModal({answer}) {
 
     return (
       <>
-         <div onClick={() => setShowModal(true)}><i class="fa-regular fa-pen-to-square"></i>&nbsp;Edit Answer</div>
+         <div id='editansbtn' onClick={() => setShowModal(true)}><i class="fa-regular fa-pen-to-square"></i>&nbsp;Edit answer</div>
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>
             <div onClick={() => setShowModal(false)}><i class="fa-solid fa-x"></i></div>

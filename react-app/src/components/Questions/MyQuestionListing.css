@@ -8,6 +8,7 @@
     min-height: 95vh;
     background-color: #F1F2F2;
     margin-bottom: 20px;
+    padding-bottom: 20px;
 }
 
 .myquestionlisting-top{
@@ -15,7 +16,7 @@
     padding: 10px;
     border: 1px solid rgba(128, 128, 128, 0.4);
     height: fit-content;
-    width: 600px;
+    width: 550px;
     background-color: white;
 }
 
@@ -23,7 +24,7 @@
     padding: 10px;
     border: 1px solid rgba(128, 128, 128, 0.4);
     height: fit-content;
-    width: 600px;
+    width: 550px;
     background-color: white;
     margin-top: 20px;
     display: flex;
