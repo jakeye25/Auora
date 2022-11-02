@@ -32,28 +32,28 @@ function MyQuestionListings() {
         <>
             <div id='myquestionlist-container'>
 
-                {questionfilter.length === 0 ? (<h1>You have not questions posted so far</h1>) : (
+                {questionfilter.length === 0 ? (<h1 className="myquestionlisting-top">You have not questions posted so far</h1>) : (
 
                     <div>
-                        <h1>You have {questionfilter?.length} questions</h1>
+                        <h1 className="myquestionlisting-top">You have {questionfilter?.length} questions</h1>
                         {questionfilter.map((question, i) => (
-                            <div key={i}>
-                                <div className="my_question_listing_innerbox">
-                                    <div className="my_question_listing_nav">
-                                        <NavLink to={`/questions/${question?.id}`}>
+                            <div key={i} className="my_question_listing_innerbox">
 
-                                        <div className="my_question_listing_name">{question?.questioncontent}</div>
+                                    <div className="my_question_listing_nav">
+                                        <NavLink className='my_question_listing_link' to={`/questions/${question?.id}`}>
+
+                                        {question?.questioncontent}
                                         </NavLink>
+                                        <div className="my_question_listing_len">{question?.answers?.length} answers</div>
                                     </div>
-                                    <div>{question?.answers?.length} Answers</div>
-                                    <div id="my_question_listing_btn_container">
+                                    <div className="my_question_listing_btn_container">
                                         {/* <Link id="userquestioneditbtn" to={`/questions/${question?.id}/edit`}>
                                             Edit question
                                         </Link> */}
                                         <QuestionUpdateFormModal question={question} />
                                         <QuestionDeleteFormModal question={question} />
                                     </div>
-                                </div>
+
                             </div>
                         ))}
                     </div>
