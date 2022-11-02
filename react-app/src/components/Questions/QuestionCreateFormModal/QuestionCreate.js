@@ -63,9 +63,11 @@ function QuestionCreate({ setShowModal }) {
   }
   return (
     <div className="create_question_main">
-      <div onClick={() => setShowModal(false)}><i class="fa-solid fa-x"></i></div>
-      <div className="create_question_div">
-        <h1>Add Question</h1>
+      <div className="create-question-top">
+        <div onClick={() => setShowModal(false)}><i class="fa-solid fa-x"></i></div>
+        <div className="create-question-top-title">Add Question</div>
+      </div>
+
         <form className="create_question_form" onSubmit={onSubmit}>
 
           <div className="create_question_input">
@@ -84,9 +86,7 @@ function QuestionCreate({ setShowModal }) {
           </div>
 
           <div className="create_question_input">
-            <div className="create_question_text_box">
-              <div>Topic</div>
-            </div>
+
             <div>
               <select
                 required
@@ -95,11 +95,11 @@ function QuestionCreate({ setShowModal }) {
                 onChange={(event) => settopicId(event.target.value)}
                 className="create_question_input_inner"
               >
-                <option value="" disabled>
+                <option className="create_question_input_inner" value="" disabled>
                   Select a topic
                 </option>
                 {topicsObjArr?.map((topic) => (
-                  <option key={topic?.id} value={topic?.id}>
+                  <option className="create_question_input_inner" key={topic?.id} value={topic?.id}>
                     {topic?.name}
                   </option>
                 ))}
@@ -108,9 +108,7 @@ function QuestionCreate({ setShowModal }) {
           </div>
 
           <div className="create_question_input">
-            <div className="create_question_text_box">
-              <div>Image</div>
-            </div>
+
             <div>
               <input
                 type="text"
@@ -134,28 +132,26 @@ function QuestionCreate({ setShowModal }) {
             <div className="create_question_empty"></div>
           )}
           <div className="create_question_footer">
-            <div className="create_question_footer2">
-              <div>
+
+
                 <button
                   className="create_question_cancel"
-                  onClick={(event) => history.push("/home")}
+                  onClick={() => setShowModal(false)}
                 >
                   Cancel
                 </button>
-              </div>
-            </div>
-            <div className="create_question_rightside">
+
               <button
                 className="create_question_button"
                 type="submit"
                 disabled={validations.length > 0}
               >
-                Create Question
+                Add Question
               </button>
-            </div>
+
           </div>
         </form>
-      </div>
+
     </div>
   )
 
