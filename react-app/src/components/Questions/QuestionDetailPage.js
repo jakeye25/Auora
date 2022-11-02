@@ -41,6 +41,10 @@ function QuestionDetailPage() {
             <div id="qdetail-indcontainer">
                 <div className="qdetail-title">{question?.questioncontent}</div>
                 <div>{question?.answers?.length}&nbsp;answers</div>
+                <img
+                src={question?.questionimage}
+                alt=''
+                ></img>
                 {question?.userId != user?.id && useranswered?.length == 0 &&
                 <div className="qdetail-anscontainer">
                     <img
