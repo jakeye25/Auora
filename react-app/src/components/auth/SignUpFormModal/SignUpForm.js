@@ -67,6 +67,7 @@ const SignUpForm = ({setShowModal}) => {
             placeholder='What would you like to be called?'
               type='text'
               name='username'
+              className='signupinput'
               onChange={updateUsername}
               value={username}
             ></input>
@@ -77,6 +78,7 @@ const SignUpForm = ({setShowModal}) => {
             placeholder='Your email'
               type='text'
               name='email'
+              className='signupinput'
               onChange={updateEmail}
               value={email}
             ></input>
@@ -87,6 +89,7 @@ const SignUpForm = ({setShowModal}) => {
               placeholder='Your avatar url(optional)'
               type='text'
               name='avatar'
+              className='signupinput'
               onChange={updateAvatar? updateAvatar : 'https://www.kindpng.com/picc/m/421-4212275_transparent-default-avatar-png-avatar-img-png-download.png'}
               value={avatar}
             ></input>
@@ -97,6 +100,7 @@ const SignUpForm = ({setShowModal}) => {
             placeholder='Please enter your password'
               type='password'
               name='password'
+              className='signupinput'
               onChange={updatePassword}
               value={password}
             ></input>

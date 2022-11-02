@@ -17,20 +17,42 @@
     padding-bottom: 8px;
 }
 
+.signupform-item label{
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 18px;
+    color: #282829;
+    margin-bottom: 5px;
+}
+
+.signupinput{
+    height: 40px;
+    border: 1px solid rgba(128, 128, 128, 0.2);
+}
+
+.signupinput:hover{
+    border: 1px solid rgba(28, 25, 180, 0.5);
+}
+
+::placeholder{
+    color:rgba(128, 128, 128, 0.7);
+}
+
+
 #signupbtn-container{
     display: flex;
     justify-content: flex-end;
-    padding-top: 5px;
+    padding-top: 10px;
 }
 
 .fa-solid.fa-x{
     cursor: pointer;
-    padding: 15px;
+    padding: 12px;
     border-radius: 500px;
 }
 
 .fa-solid.fa-x:hover{
-    background-color: rgba(128, 128, 128, 0.2);
+    background-color: rgba(128, 128, 128, 0.1);
 }
 
 .signuperror{
