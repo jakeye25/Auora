@@ -50,8 +50,12 @@ function MyQuestionListings() {
                                         {/* <Link id="userquestioneditbtn" to={`/questions/${question?.id}/edit`}>
                                             Edit question
                                         </Link> */}
-                                        <QuestionUpdateFormModal question={question} />
-                                        <QuestionDeleteFormModal question={question} />
+                                        <div className="my_question_listing_btn">
+                                            <QuestionUpdateFormModal question={question} />
+                                        </div>
+                                        <div className="my_question_listing_btn">
+                                            <QuestionDeleteFormModal question={question} />
+                                        </div>
                                     </div>
 
                             </div>

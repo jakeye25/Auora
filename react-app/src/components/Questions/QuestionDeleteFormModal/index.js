@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Modal } from '../../../context/Modal';
 import QuestionDelete from './QuestionDelete';
-
+import './QuestionDelete.css'
 
 
 function QuestionDeleteFormModal({question}) {
@@ -9,10 +9,10 @@ function QuestionDeleteFormModal({question}) {
 
     return (
       <>
-         <div onClick={() => setShowModal(true)}>Delete Question</div>
+         <div id='del-quesbtn' onClick={() => setShowModal(true)}>Delete</div>
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>
-            
+
             <QuestionDelete question={question} setShowModal={setShowModal}/>
           </Modal>
         )}
