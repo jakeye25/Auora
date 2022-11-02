@@ -22,7 +22,7 @@ function MyAnswerListings() {
     console.log('myanswer', answerfilter)
 
     useEffect(() => {
-        // dispatch(thunkGetAllProduct())
+
         dispatch(thunkGetCurrentAnswer())
     }, [dispatch])
 
