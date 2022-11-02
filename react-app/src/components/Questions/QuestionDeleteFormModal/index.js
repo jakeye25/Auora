@@ -9,7 +9,7 @@ function QuestionDeleteFormModal({question}) {
 
     return (
       <>
-         <div id='del-quesbtn' onClick={() => setShowModal(true)}>Delete</div>
+         <div id='del-quesbtn' onClick={() => setShowModal(true)}><i class="fa-regular fa-trash-can"></i>&nbsp;Delete question</div>
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>
 
