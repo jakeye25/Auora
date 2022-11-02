@@ -12,7 +12,7 @@ function QuestionDelete({question, setShowModal}) {
 
     const onClick = async (event) => {
         await dispatch(thunkDeleteQuestion(question.id))
-        history.push('/home')
+        
     }
 
     return (
