@@ -41,7 +41,7 @@
 #loginpage-middle{
     display: flex;
     flex-direction: row;
-    margin-bottom: 15px;
+
 }
 
 #loginpage-middleleft{
@@ -51,7 +51,7 @@
     justify-content: space-around;
     align-items: center;
     justify-items: center;
-    height:20em;
+    height:18em;
     border-right: 1px solid rgba(128, 128, 128, 0.5);
     margin-left: 1.5em;
     padding-right: 1.5em;
@@ -92,6 +92,28 @@
     align-items: center;
     text-align: center;
     padding-top: 3px;
+}
+
+#loginsecondlinetext{
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 21px;
+    color: #636466;
+    margin-bottom: 20px;
+}
+
+#loginpage-middlelefttext{
+    width: 300px;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 18px;
+    color: #939598;
+    padding-left: 20px;
+
+}
+
+#loginpage-bottom{
+    border-radius: 3px;
 }
 
 .more_info_text{

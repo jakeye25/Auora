@@ -85,12 +85,29 @@
 
 }
 
+.qlist-indquestion a:hover{
+    text-decoration: underline;
+}
+
 .qlist-indquestion-2ndcontainer{
     padding-top: 20px;
     padding-bottom: 5px;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 18px;
+    color: #939598;
 }
 
 .qlist-indquestion-3rdcontainer{
     display: flex;
     justify-content: space-between;
+}
+
+.qlist-questioncontent{
+
+
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+    color: #282829;
 }

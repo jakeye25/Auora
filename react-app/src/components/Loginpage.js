@@ -15,11 +15,11 @@ const LoginPage = () => {
                         src='https://www.kindpng.com/picc/m/462-4620573_quora-quora-logo-hd-png-download.png'
                         alt='logo'></img> */}
                         <div id='loginpage-logodiv'>Auora</div>
-                        <h3>A place to share knowledge and better understand the world</h3>
+                        <div id='loginsecondlinetext' >A place to share knowledge and better understand the world</div>
                     </div>
                     <div id='loginpage-middle'>
                         <div id='loginpage-middleleft'>
-                            <div>By continuing you indicate that you agree to Auora’s Terms of Service and Privacy Policy.</div>
+                            <div id='loginpage-middlelefttext'>By continuing you indicate that you agree to Auora’s Terms of Service and Privacy Policy.</div>
                             <Demouser/>
                             <SignupFormModal/>
                         </div>

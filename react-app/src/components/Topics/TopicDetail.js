@@ -34,43 +34,46 @@ function TopicDetail() {
 
 
     return(
-        <div id="indtopic-container">
+        <div className="eachtopic-container">
             <div className="indtopic-topiclist-container">
                 <TopicList/>
             </div>
-            <div>
-                <img
-                src={indTopic?.topicimage}
-                alt='pic'></img>
-                <div>{indTopic?.name}</div>
-            </div>
-            {indTopicques &&
+            <div className="indtopic-middle-container">
+                <div className="indtopic-middle-container-top">
+                    <img
+                    src={indTopic?.topicimage}
+                    alt='pic'></img>
+                    <div className="indtopic-topname">Welcome to the {indTopic?.name} world!</div>
+                </div>
+                {indTopicques &&
                     indTopicques?.map((topic) => (
-                    <div key = {topic.id} className='indtopic-container'>
+                    <div key = {topic.id} className='indtopicquestion-container'>
                         <NavLink className='topiclink'
                         to = {`/questions/${topic?.id}`}
                         >
-                            <div className="topicname">
+                            <div className="indtopicquestioncontent">
                                 {topic?.questioncontent}
                             </div>
                         </NavLink>
                         <NavLink className='topiclink'
                         to = {`/questions/${topic?.id}`}
                         >
-                            <div className="topicname">
+                            <div className="indtopicanswercount">
                                 {topic?.answers.length} answers
                             </div>
                         </NavLink>
                         {topic?.questionimage &&(<NavLink className='topiclink'
                         to = {`/questions/${topic?.id}`}
                         >
-                            <img src={topic?.questionimage}
+                            <img className="indtopicimage"
+                            src={topic?.questionimage}
                             alt='pic'></img>
 
 
                         </NavLink>)}
                         </div>
                 ))}
+            </div>
         </div>
     )
 

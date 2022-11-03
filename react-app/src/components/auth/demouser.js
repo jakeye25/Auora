@@ -1,7 +1,7 @@
 import React from "react";
 import { login } from "../../store/session";
 import { useDispatch } from "react-redux";
-
+import './DemoUser.css'
 
 export default function Demouser() {
     const dispatch = useDispatch()
@@ -16,7 +16,7 @@ export default function Demouser() {
 
     return (
         <form onSubmit={handleSubmit}>
-          <button className="login__demouser" type="submit">Continue as Demo User</button>
+          <div id="demobtn" className="login__demouser" type="submit"><i class="fa-regular fa-face-smile fa-lg"></i> &nbsp; Continue as Demo User</div>
         </form>
       );
 }

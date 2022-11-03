@@ -1,5 +1,17 @@
 #signuptrigger{
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    border-radius: 20px;
+    padding: 10px;
+    width: 280px;
+    text-align: center;
+    justify-content: center;
     cursor: pointer;
+}
+
+#signuptrigger:hover{
+    background-color: rgba(128, 128, 128, 0.1);
 }
 
 #signupform-container{
