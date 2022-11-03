@@ -30,7 +30,7 @@ function MyAnswerListings() {
 
     return (
         <div id="myanswer-container">
-                {answerfilter.length === 0 ? (<h1 className="myanswerlisting-top">You have no answer so far</h1>) : (
+                {answerfilter.length === 0 ? (<h1 className="myanswerlisting-top">You have not answer a question so far</h1>) : (
                     <div>
                         <h1 className="myanswerlisting-top">You have {answerfilter?.length} answers</h1>
                         {answerfilter.map((answer, i) => (

@@ -32,7 +32,7 @@ function MyQuestionListings() {
         <>
             <div id='myquestionlist-container'>
 
-                {questionfilter.length === 0 ? (<h1 className="myquestionlisting-top">You have not questions posted so far</h1>) : (
+                {questionfilter.length === 0 ? (<h1 className="myquestionlisting-top">You have no question posted so far</h1>) : (
 
                     <div>
                         <h1 className="myquestionlisting-top">You have {questionfilter?.length} questions</h1>

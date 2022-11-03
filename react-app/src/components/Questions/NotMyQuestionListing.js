@@ -76,7 +76,7 @@ function NotMyQuestionListings() {
                         ))}
                     </div>
 
-                ) : (<h1 className="myquestionlisting-top">You have no products to sell so far</h1>)
+                ) : (<h1 className="myquestionlisting-top">No questions to answer so far</h1>)
             }
             </div>
 
