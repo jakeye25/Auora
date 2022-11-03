@@ -13,7 +13,7 @@
     margin-top: 20px;
     display: flex;
     flex-direction: column;
-    padding: 10px;
+    padding: 10px 20px;
     background-color: white;
     border: 1px solid rgba(128, 128, 128, 0.4);
     height: fit-content;
@@ -42,7 +42,7 @@
 .qdetail-indanswer-user{
     display: flex;
     align-items: center;
-    padding: 10px;
+    padding: 10px 20px;
 
 }
 
@@ -53,7 +53,7 @@
 }
 
 .qdetail-indanswer-content{
-    padding: 10px;
+    padding: 10px 20px;
     text-overflow: ellipsis;
     word-break: break-word;
     white-space: pre-wrap;
@@ -78,4 +78,11 @@
     height: 70px;
     border: 1px solid rgba(128, 128, 128, 0.3);
 
+}
+
+.qdetail-indanswer-image{
+    max-width: 500px;
+    height: auto;
+    padding-left: 20px;
+    margin-bottom: 20px;
 }

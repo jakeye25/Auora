@@ -57,8 +57,8 @@ function QuestionDetailPage() {
                 </div>
                 }
             </div>
-                {answerArr &&
-                answerArr.map((ele) => (
+                {ansArr &&
+                ansArr.map((ele) => (
                     <div className="qdetail-indanswer" key={ele.id}>
                         <div className="qdetail-indanswer-user" >
                             <img
@@ -68,6 +68,9 @@ function QuestionDetailPage() {
                             <div>&nbsp;&nbsp;{ele?.username}</div>
                         </div>
                         <div className="qdetail-indanswer-content">{ele?.answercontent}</div>
+                        <img className="qdetail-indanswer-image"
+                        src={ele?.answerimage}
+                        alt='pic'></img>
                     </div>
                 ))}
 
