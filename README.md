@@ -46,10 +46,10 @@ Auora is a web-application clone inspired by [Quora](https://www.quora.com/), th
 # Features Direction
 
 Login Page
-<img scr="./react-app/public/FeatureImages/Login_Page.PNG" />
+<img src="./react-app/public/FeatureImages/Login_Page.PNG" />
 
 Home Page
-<img scr="./react-app/public/FeatureImages/Home_Page.PNG" />
+<img src="./react-app/public/FeatureImages/Home_Page.PNG" />
 
 
 # Future Focus
