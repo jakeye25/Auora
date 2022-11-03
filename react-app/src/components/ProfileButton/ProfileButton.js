@@ -27,9 +27,10 @@ function ProfileButton({ user }) {
 
       return(
         <>
-            <div className="profile_button" onClick={openMenu}>
-                <i className="fas fa-user-circle fa-2x" />
-            </div>
+            {/* <div className="profile_button" onClick={openMenu}> */}
+                <img className="profile_button" onClick={openMenu} src={user?.avatar}
+                alt='pic'></img>
+            {/* </div> */}
             {showMenu &&  (
             <div className="profile-dropdown">
 

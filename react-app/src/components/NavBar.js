@@ -16,15 +16,17 @@ const NavBar = () => {
     <nav id='navbar-container'>
 
           <NavLink to='/home' exact={true} activeClassName='active'>
-            Auora
+            <img
+            src='https://user-images.githubusercontent.com/77218939/199653992-2418c7c2-000d-4fcb-a662-a1055468dba6.png'
+            alt='pic'></img>
           </NavLink>
 
           <NavLink to='/home' exact={true} activeClassName='active'>
-            <i class="fa-solid fa-house"></i>
+            <i class="fa-solid fa-house fa-xl"></i>
           </NavLink>
 
           <NavLink to='/answers' exact={true} activeClassName='active'>
-            <i class="fa-regular fa-pen-to-square"></i>
+            <i class="fa-regular fa-pen-to-square fa-xl"></i>
           </NavLink>
 
           {/* <NavLink to='/users' exact={true} activeClassName='active'>
