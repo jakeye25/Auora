@@ -27,8 +27,9 @@
 }
 
 #loginpage-logo {
-    width: 10em;
-    height: 4em;
+    padding-top: 10px;
+    width: 150px;
+    height: 50px;
 }
 
 #loginpage-top{

@@ -11,10 +11,10 @@ const LoginPage = () => {
             <body id='loginbody'>
                 <div id='login_container'>
                     <div id='loginpage-top'>
-                        {/* <img id='loginpage-logo'
-                        src='https://www.kindpng.com/picc/m/462-4620573_quora-quora-logo-hd-png-download.png'
-                        alt='logo'></img> */}
-                        <div id='loginpage-logodiv'>Auora</div>
+                        <img id='loginpage-logo'
+                        src='https://user-images.githubusercontent.com/77218939/199653992-2418c7c2-000d-4fcb-a662-a1055468dba6.png'
+                        alt='logo'></img>
+                        {/* <div id='loginpage-logodiv'>Auora</div> */}
                         <div id='loginsecondlinetext' >A place to share knowledge and better understand the world</div>
                     </div>
                     <div id='loginpage-middle'>

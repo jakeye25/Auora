@@ -16,7 +16,7 @@ export default function Demouser() {
 
     return (
         <form onSubmit={handleSubmit}>
-          <div id="demobtn" className="login__demouser" type="submit"><i class="fa-regular fa-face-smile fa-lg"></i> &nbsp; Continue as Demo User</div>
+          <button id="demobtn" className="login__demouser" type="submit"><i class="fa-regular fa-face-smile fa-lg"></i> &nbsp; Continue as Demo User</button>
         </form>
       );
 }

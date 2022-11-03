@@ -71,8 +71,8 @@ const LoginForm = () => {
                 <div key={ind} className='loginerror'>{error}</div>
                 ))}
               </div>
-                <div id='login-btn'>
-                  <button type='submit'>Login</button>
+                <div id='login-btndiv'>
+                  <button id='login-btn' type='submit'>Login</button>
                 </div>
               </div>
             </form>
