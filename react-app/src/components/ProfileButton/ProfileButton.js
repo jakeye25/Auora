@@ -34,16 +34,21 @@ function ProfileButton({ user }) {
             {showMenu &&  (
             <div className="profile-dropdown">
 
-            <div className="menu-item1">&nbsp;<i className="fas fa-user-circle fa-lg" /> &nbsp;Hi, {user.username}</div>
+              <div className="menu-item1">
+                <img className="profile-dropdown-pic"
+                src={user?.avatar}
+                alt='pic'></img>
+                <div className="profile-dropdown-name">{user?.username}</div>
+              </div>
 
-            <Link  className="menu-item-link" to={`/myquestions`}><i className="fa-regular fa-rectangle-list fa-lg"></i> &nbsp;My Questions</Link>
+              <Link  className="menu-item-link" to={`/myquestions`}><i className="fa-regular fa-rectangle-list fa-lg"></i> &nbsp;My Questions</Link>
 
 
-            <Link className="menu-item-link" to={`/myanswers`}><i className="fa-regular fa-star fa-lg"></i> &nbsp;My Answers</Link>
+              <Link className="menu-item-link" to={`/myanswers`}><i className="fa-regular fa-star fa-lg"></i> &nbsp;My Answers</Link>
 
-            <div className="menu-item"  >
-                <LogoutButton/>
-            </div>
+
+              <LogoutButton/>
+
 
             </div>
         )
