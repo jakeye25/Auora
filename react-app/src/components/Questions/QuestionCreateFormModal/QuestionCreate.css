@@ -92,3 +92,13 @@
 .create_question_error{
     color: red;
 }
+
+.navaddquestion{
+    padding: 5px 13px;
+    border-radius: 15px;
+    cursor: pointer;
+    background-color: rgba(0, 119, 255, 0.7);
+    font-size: 13px;
+    font-weight: 500;
+    color: #ffffff;
+}
