@@ -40,8 +40,8 @@ function QuestionDetailPage() {
         <div id="qdetail-container">
             <div id="qdetail-indcontainer">
                 <div className="qdetail-title">{question?.questioncontent}</div>
-                <div>{question?.answers?.length}&nbsp;answers</div>
-                <img
+                <div className="qdetail-anscount">{question?.answers?.length}&nbsp;answers</div>
+                <img className="qdetail-image"
                 src={question?.questionimage}
                 alt=''
                 ></img>
@@ -68,9 +68,9 @@ function QuestionDetailPage() {
                             <div>&nbsp;&nbsp;{ele?.username}</div>
                         </div>
                         <div className="qdetail-indanswer-content">{ele?.answercontent}</div>
-                        <img className="qdetail-indanswer-image"
+                        {ele?.answerimage &&(<img className="qdetail-indanswer-image"
                         src={ele?.answerimage}
-                        alt='pic'></img>
+                        alt='pic'></img>)}
                     </div>
                 ))}
 

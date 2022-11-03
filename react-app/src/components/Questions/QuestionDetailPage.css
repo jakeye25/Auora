@@ -32,6 +32,16 @@
     white-space: pre-wrap;
 }
 
+.qdetail-anscount{
+    margin-bottom: 20px;
+}
+
+.qdetail-image{
+    max-width: 500px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
 .qdetail-indanswer{
     margin-top: 20px;
     background-color: white;
