@@ -65,7 +65,7 @@ function QuestionUpdate({question, setShowModal}) {
 
         if (updatedQuestion) {
         //   history.push(`/products/${updatedProduct.id}`);
-          history.push('/home')
+
           setShowModal(false)
         }
       };

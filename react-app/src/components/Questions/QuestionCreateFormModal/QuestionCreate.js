@@ -55,7 +55,7 @@ function QuestionCreate({ setShowModal }) {
     let createdQuestion = await dispatch(thunkCreateQuestion(payload))
 
     if (createdQuestion) {
-      history.push('/home');
+
       setShowModal(false)
 
     }

@@ -93,7 +93,8 @@
 }
 
 .myanswerimg{
-    object-fit:none;
+    max-width: 500px;
+    height: auto;
 }
 
 .myanswer-content{

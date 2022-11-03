@@ -41,7 +41,7 @@ function AnswerCreate({ question, setShowModal }) {
         let createdAnswer = await dispatch(thunkCreateAnswer(payload))
 
         if (createdAnswer) {
-            history.push('/home');
+   
             setShowModal(false)
 
         }
