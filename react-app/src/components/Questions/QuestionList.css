@@ -26,13 +26,18 @@
 #qlist-middle-container-top{
     margin-top: 30px;
     display: flex;
-    align-items: center;
+    /* align-items: center; */
+    flex-direction: column;
     /* justify-content: space-between; */
     background-color: white;
-    padding: 6px 4px 6px 4px;
+    padding: 10px 20px;
     border: 1px solid rgba(128, 128, 128, 0.3);
     border-radius: 3px;
 }
+.qlist-middle-container-top-up{
+    display: flex;
+}
+
 .qlist-avatar{
     width: 50px;
     height: 50px;
@@ -41,20 +46,16 @@
     border: 1px solid rgba(128, 128, 128, 0.3);
 }
 
-#qlist-middle-container-top span{
-    color: rgba(128, 128, 128, 0.3);
-    padding-left: 80px;
+
+.qlist-middle-container-top-down{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
-.qlist-middle-container-topitem{
-    display: flex;
-    justify-items: center;
-    align-items: center;
-    padding-left: 100px;
-    cursor: pointer;
-    font-weight: 500;
-    font-size: 13px;
-    color: #636466;
+.qlist-middle-container-top-down span{
+    color: rgba(128, 128, 128, 0.8);
 }
 
 #qlist-middle-container-toplink{
@@ -62,9 +63,13 @@
     font-weight: 500;
     font-size: 13px;
     color: #636466;
-    
+    padding: 5px 30px;
+    border-radius: 20px;
 }
 
+#qlist-middle-container-toplink:hover{
+    background-color: rgba(128, 128, 128, 0.2);
+}
 
 #qlist-middle-container-middle{
     padding-top: 20px;

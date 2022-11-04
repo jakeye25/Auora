@@ -9,6 +9,7 @@ import './QuestionList.css'
 
 import AnswerCreateFormModal from "../Answers/AnswerCreateFormModal";
 import { thunkGetAllQuestionAnswer } from "../../store/answer";
+import QuestionCreateBarFormModal from "./QuestionCreateFormModal/QuestionCreateBar";
 
 
 
@@ -40,20 +41,25 @@ function QuestionList() {
                 </div>
                 <div id="qlist-middle-container">
                     <div id="qlist-middle-container-top">
-                        <img
-                        className="qlist-avatar"
-                        src={user?.avatar}
-                        alt='pic'
-                        onError={e => { e.currentTarget.src = "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png"; }}
-                        ></img>
-                        <div className="qlist-middle-container-topitem">
-                            <QuestionCreateFormModal />
+                        <div className="qlist-middle-container-top-up">
+                            <img
+                            className="qlist-avatar"
+                            src={user?.avatar}
+                            alt='pic'
+                            onError={e => { e.currentTarget.src = "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png"; }}
+                            ></img>
+                            <QuestionCreateBarFormModal/>
                         </div>
-                        <span>|</span>
-                        <div className="qlist-middle-container-topitem" >
+                        {/* <div className="qlist-middle-container-topitem"> */}
+                        <div className="qlist-middle-container-top-down">
+                            <QuestionCreateFormModal />
+                        {/* </div> */}
+                            <span>|</span>
+                        {/* <div className="qlist-middle-container-topitem" > */}
                             <NavLink id="qlist-middle-container-toplink" to={`/answers`}>
-                            <i class="fa-regular fa-pen-to-square"></i>&nbsp;Answer
+                                <i class="fa-regular fa-pen-to-square fa-lg"></i> &nbsp;Answer
                             </NavLink>
+                        {/* </div> */}
                         </div>
                     </div>
                     <div id='qlist-middle-container-middle'>

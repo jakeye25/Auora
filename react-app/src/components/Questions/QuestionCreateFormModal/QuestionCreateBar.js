@@ -4,12 +4,14 @@ import QuestionCreate from './QuestionCreate';
 import './QuestionCreate.css'
 
 
-function QuestionCreateFormModal() {
+function QuestionCreateBarFormModal() {
     const [showModal, setShowModal] = useState(false);
 
     return (
       <>
-         <div className='askicon' onClick={() => setShowModal(true)}><i class="fa-solid fa-clipboard-question fa-lg"></i> &nbsp;Ask</div>
+         <div className='askbar' onClick={() => setShowModal(true)}>
+            <div className='askbar-innertext'>What do you want to ask?</div>
+         </div>
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>
 
@@ -20,4 +22,4 @@ function QuestionCreateFormModal() {
     );
   }
 
-  export default QuestionCreateFormModal;
+  export default QuestionCreateBarFormModal;

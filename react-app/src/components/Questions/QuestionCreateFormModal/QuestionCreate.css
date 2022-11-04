@@ -102,3 +102,49 @@
     font-weight: 500;
     color: #ffffff;
 }
+
+
+.askbar{
+    box-sizing: border-box;
+    padding: 0px;
+    border-radius: 1000px;
+    background-color: #f7f7f8;
+    outline: none;
+    border: 1px solid #dee0e1;
+    align-self: stretch;
+    flex: 1 1 0%;
+    margin-left: 20px;
+    text-align:justify;
+    padding-top: 13px;
+    cursor: pointer;
+    color: #939598;
+    font-size: 15px;
+    line-height: 21px;
+    font-weight: 400;
+    /* transition-property: #f7f7f8;
+    transition-duration: 150ms;
+    transition-timing-function: ease-in-out; */
+}
+
+.askbar:hover{
+    background-color: #f1f2f2; ;
+}
+
+.askbar-innertext{
+    box-sizing: border-box;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.askicon{
+    font-size: 13px;
+    color: #636466;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 5px 40px;
+    border-radius: 20px;
+}
+
+.askicon:hover{
+    background-color: rgba(128, 128, 128, 0.2);
+}
