@@ -115,9 +115,21 @@
 
 #loginpage-bottom{
     border-radius: 3px;
+    padding: 10px;
 }
+
+
 
 .more_info_text{
     text-decoration: none;
+    font-weight: 700;
+    line-height: 20px;
+    font-size: 15px;
+    color: rgba(0, 68, 255, 0.5);
+}
 
+.about{
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 20px;
 }

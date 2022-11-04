@@ -29,10 +29,10 @@ const LoginPage = () => {
                         </div>
                     </div>
                     <div id='loginpage-bottom'>
-                        <div>About</div>
+                        <div className='about'>About</div>
 
                         <div>
-                            <i className="fa-brands fa-linkedin">&nbsp;</i>
+                            <i className="fa-brands fa-linkedin fa-lg">&nbsp;</i>
                             <a
                             className="more_info_text"
                             href="https://www.linkedin.com/in/jake-ye-a2365250/"
@@ -43,7 +43,7 @@ const LoginPage = () => {
                             </a>
                         </div>
                         <div>
-                            <i className="fa-brands fa-square-github">&nbsp;</i>
+                            <i className="fa-brands fa-square-github fa-lg">&nbsp;</i>
                             <a
                             className="more_info_text"
                             href="https://github.com/jakeye25"
