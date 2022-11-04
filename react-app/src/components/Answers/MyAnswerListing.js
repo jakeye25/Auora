@@ -30,7 +30,7 @@ function MyAnswerListings() {
 
     return (
         <div id="myanswer-container">
-                {answerfilter.length === 0 ? (<h1 className="myanswerlisting-top">You have not answer a question so far</h1>) : (
+                {answerfilter.length === 0 ? (<h1 className="myanswerlisting-top">You have not answered a question so far</h1>) : (
                     <div>
                         <h1 className="myanswerlisting-top">You have {answerfilter?.length} answers</h1>
                         {answerfilter.map((answer, i) => (
@@ -49,7 +49,7 @@ function MyAnswerListings() {
                                             <img
                                             src={answer?.avatar}
                                             alt='pic'
-                                            onError={e => { e.currentTarget.src = "https://filestore.community.support.microsoft.com/api/images/ext?url=https%3A%2F%2Fanswersstaticfilecdnv2.azureedge.net%2Fstatic%2Fimages%2Fimage-not-found.jpg"; }}
+                                            onError={e => { e.currentTarget.src = "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png"; }}
                                             ></img>
                                             <div className="my_answer_listing_profile-right">
                                                 <div>{user?.username}</div>

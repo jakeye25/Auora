@@ -87,6 +87,7 @@
 .indtopicimage{
     margin-left: 20px;
     margin-bottom: 20px;
-    width: 500px;
+    width: 550px;
     height: auto;
+    object-fit: contain;
 }
