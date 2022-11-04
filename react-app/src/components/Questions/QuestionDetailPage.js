@@ -18,18 +18,18 @@ function QuestionDetailPage() {
     const question = useSelector((state) => state.question[id])
     const answer = useSelector((state) => state.answer)
     let answerArr =  question?.answers
-    console.log('question', question)
-    console.log('user', user)
-    console.log('answer', answer)
+    // console.log('question', question)
+    // console.log('user', user)
+    // console.log('answer', answer)
     let ansArr = Object.values(answer)
-    console.log('ansArr', ansArr)
+    // console.log('ansArr', ansArr)
     let useranswered = ansArr.filter((ele) => ele?.userId === user?.id)
-    console.log('userans', useranswered)
+    // console.log('userans', useranswered)
 
 
 
 
-    // if(!user) history.push('/')
+    if(!user) history.push('/')
 
     useEffect(() => {
         dispatch(thunkGetOneQuestion(id));

@@ -4,7 +4,7 @@
     display: flex;
     background-color: #F1F2F2;
     padding-bottom: 20px;
-    min-height: 95vh;
+    min-height: 100vh;
 }
 
 
@@ -12,6 +12,7 @@
     width: 30%;
     padding-top: 30px;
     padding-right: 30px;
+    margin-bottom: 20px;
 }
 
 .indtopic-middle-container{

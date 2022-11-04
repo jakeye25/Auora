@@ -11,20 +11,23 @@ function TopicDetail() {
     const topics = useSelector((state) => state.topic)
     const dispatch = useDispatch()
     const {topicName} = useParams()
+    const history = useHistory()
+    const user = useSelector((state) => state.session.user)
 
     useEffect(() => {
         dispatch(thunkGetAllTopic())
     },[dispatch])
 
     let alltopics = Object.values(topics)
-    console.log("topics ", alltopics)
+    // console.log("topics ", alltopics)
 
     let topicArr = alltopics.filter(element => element.name==topicName)
-    console.log('topicarr', topicArr)
+    // console.log('topicarr', topicArr)
 
     let indTopic = topicArr[0]
     let indTopicques = topicArr[0]?.questions
 
+    if(!user) history.push('/')
 
     if(!indTopicques){
         return(
