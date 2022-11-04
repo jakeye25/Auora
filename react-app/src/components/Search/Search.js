@@ -7,6 +7,14 @@ function Searchbar() {
     const questions = useSelector((state) => state.question)
     const answers = useSelector((state) => state.answer)
 
+    const questionsArr = Object.values(questions)
+    const answers
+
+    return(
+        <div>
+
+        </div>
+    )
 
 
 }
