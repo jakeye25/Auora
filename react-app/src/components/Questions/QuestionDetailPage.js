@@ -40,7 +40,7 @@ function QuestionDetailPage() {
         <div id="qdetail-container">
             <div id="qdetail-indcontainer">
                 <div className="qdetail-title">{question?.questioncontent}</div>
-                <div className="qdetail-anscount">{question?.answers?.length}&nbsp;answers</div>
+                <div className="qdetail-anscount">{ansArr?.length}&nbsp;answers</div>
                 {question?.questionimage && <img className="qdetail-image"
                 src={question?.questionimage}
                 alt='pic'
