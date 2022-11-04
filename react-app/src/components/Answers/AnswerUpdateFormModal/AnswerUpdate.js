@@ -26,7 +26,8 @@ function AnswerUpdate({answer, setShowModal}) {
             (!answerimage.includes("jpg") &&
                 !answerimage.includes("png") &&
                 !answerimage.includes("jpeg") &&
-                !answerimage.includes("svg"))
+                !answerimage.includes("svg")) ||
+                (!answerimage.includes("https") && !answerimage.includes("http"))
         )
             errors.push("Please enter a valid url image");
         setValidations(errors)

@@ -40,7 +40,8 @@ function QuestionUpdate({question, setShowModal}) {
             (!questionimage.includes("jpg") &&
             !questionimage.includes("png") &&
             !questionimage.includes("jpeg") &&
-            !questionimage.includes("svg"))
+            !questionimage.includes("svg")) ||
+            (!questionimage.includes("https") && !questionimage.includes("http"))
             )
             errors.push("Please enter a valid url image");
         setValidations(errors)

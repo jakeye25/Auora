@@ -23,7 +23,8 @@ function AnswerCreate({ question, setShowModal }) {
             (!answerimage.includes("jpg") &&
                 !answerimage.includes("png") &&
                 !answerimage.includes("jpeg") &&
-                !answerimage.includes("svg"))
+                !answerimage.includes("svg")) ||
+                (!answerimage.includes("https") && !answerimage.includes("http"))
         )
             errors.push("Please enter a valid url image");
         setValidations(errors)
@@ -41,7 +42,7 @@ function AnswerCreate({ question, setShowModal }) {
         let createdAnswer = await dispatch(thunkCreateAnswer(payload))
 
         if (createdAnswer) {
-   
+
             setShowModal(false)
 
         }
