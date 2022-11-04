@@ -41,11 +41,11 @@ function QuestionDetailPage() {
             <div id="qdetail-indcontainer">
                 <div className="qdetail-title">{question?.questioncontent}</div>
                 <div className="qdetail-anscount">{question?.answers?.length}&nbsp;answers</div>
-                <img className="qdetail-image"
+                {question?.questionimage && <img className="qdetail-image"
                 src={question?.questionimage}
                 alt='pic'
                 onError={e => { e.currentTarget.src = "https://filestore.community.support.microsoft.com/api/images/ext?url=https%3A%2F%2Fanswersstaticfilecdnv2.azureedge.net%2Fstatic%2Fimages%2Fimage-not-found.jpg"; }}
-                ></img>
+                ></img>}
                 {question?.userId != user?.id && useranswered?.length == 0 &&
                 <div className="qdetail-anscontainer">
                     <img
