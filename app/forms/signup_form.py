@@ -13,8 +13,8 @@ def user_exists(form, field):
 def username_length(form, field):
     # Checking if username is longer than 3
     username = field.data
-    if len(username) < 3:
-        raise ValidationError('Username must be more than 3 characters.')
+    if len(username) < 3 or len(username) >40:
+        raise ValidationError('Username must be 3-40 characters long.')
 
 
 def username_exists(form, field):
@@ -28,18 +28,18 @@ def validate_email(form, field):
     email = field.data
     #  if not img[-3:] == 'jpg' and (not img[-3:] == 'png') and img[-4:] != 'jpeg' and img[-4:] != 'webp' and img[-3:] != 'gif' and img[-3:] != 'svg':
     if '@' not in email or  (not email[-4:] == '.com') and (not email[-4:] =='.net') and (not email[-3:]=='.io'):
-        raise ValidationError("Invalid email address")
+        raise ValidationError("Invalid email address.")
 
 def imageURL_validation(form, field):
     img = field.data
     if not img[-3:] == 'jpg' and (not img[-3:] == 'png') and img[-4:] != 'jpeg' and img[-4:] != 'webp' and img[-3:] != 'gif' and img[-3:] != 'svg':
 
-        raise ValidationError("Input must be a valid Image Url")
+        raise ValidationError("Input must be a valid Image Url.")
 
 def password_length(form, field):
     password = field.data
-    if len(password) < 6:
-        raise ValidationError("Password must be more than 6 characters")
+    if len(password) < 6 or len(password)>14:
+        raise ValidationError("Password must be between 6 characters to 14 characters.")
 
 class SignUpForm(FlaskForm):
     username = StringField(
