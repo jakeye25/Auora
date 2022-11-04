@@ -43,13 +43,15 @@ function QuestionDetailPage() {
                 <div className="qdetail-anscount">{question?.answers?.length}&nbsp;answers</div>
                 <img className="qdetail-image"
                 src={question?.questionimage}
-                alt=''
+                alt='pic'
+                onError={e => { e.currentTarget.src = "https://filestore.community.support.microsoft.com/api/images/ext?url=https%3A%2F%2Fanswersstaticfilecdnv2.azureedge.net%2Fstatic%2Fimages%2Fimage-not-found.jpg"; }}
                 ></img>
                 {question?.userId != user?.id && useranswered?.length == 0 &&
                 <div className="qdetail-anscontainer">
                     <img
                     src={user?.avatar}
                     alt='pic'
+                    onError={e => { e.currentTarget.src = "https://filestore.community.support.microsoft.com/api/images/ext?url=https%3A%2F%2Fanswersstaticfilecdnv2.azureedge.net%2Fstatic%2Fimages%2Fimage-not-found.jpg"; }}
                     ></img>
                     <div>{user?.username}, can you answer this question?</div>
                     <div>People are searching for a better answer to this question.</div>
@@ -64,13 +66,16 @@ function QuestionDetailPage() {
                             <img
                             src={ele?.avatar}
                             alt="pic"
+                            onError={e => { e.currentTarget.src = "https://filestore.community.support.microsoft.com/api/images/ext?url=https%3A%2F%2Fanswersstaticfilecdnv2.azureedge.net%2Fstatic%2Fimages%2Fimage-not-found.jpg"; }}
                             ></img>
                             <div>&nbsp;&nbsp;{ele?.username}</div>
                         </div>
                         <div className="qdetail-indanswer-content">{ele?.answercontent}</div>
                         {ele?.answerimage &&(<img className="qdetail-indanswer-image"
                         src={ele?.answerimage}
-                        alt='pic'></img>)}
+                        alt='pic'
+                        onError={e => { e.currentTarget.src = "https://filestore.community.support.microsoft.com/api/images/ext?url=https%3A%2F%2Fanswersstaticfilecdnv2.azureedge.net%2Fstatic%2Fimages%2Fimage-not-found.jpg"; }}
+                        ></img>)}
                     </div>
                 ))}
 

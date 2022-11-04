@@ -55,7 +55,9 @@ function AnswerCreate({ question, setShowModal }) {
             <div className="createanswer-profile">
                 <img
                 src={user?.avatar}
-                alt='pic'></img>
+                alt='pic'
+                onError={e => { e.currentTarget.src = "https://filestore.community.support.microsoft.com/api/images/ext?url=https%3A%2F%2Fanswersstaticfilecdnv2.azureedge.net%2Fstatic%2Fimages%2Fimage-not-found.jpg"; }}
+                ></img>
                 <div>{user?.username}</div>
             </div>
             <div className="createanswer-question">{question?.questioncontent}</div>

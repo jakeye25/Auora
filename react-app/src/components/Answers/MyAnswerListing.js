@@ -49,6 +49,7 @@ function MyAnswerListings() {
                                             <img
                                             src={answer?.avatar}
                                             alt='pic'
+                                            onError={e => { e.currentTarget.src = "https://filestore.community.support.microsoft.com/api/images/ext?url=https%3A%2F%2Fanswersstaticfilecdnv2.azureedge.net%2Fstatic%2Fimages%2Fimage-not-found.jpg"; }}
                                             ></img>
                                             <div className="my_answer_listing_profile-right">
                                                 <div>{user?.username}</div>
@@ -64,7 +65,9 @@ function MyAnswerListings() {
                                     {answer.answerimage ? <div><img
                                         className="myanswerimg"
                                         src={answer?.answerimage}
-                                        alt="img"></img></div> : <div></div>}
+                                        alt="img"
+                                        onError={e => { e.currentTarget.src = "https://filestore.community.support.microsoft.com/api/images/ext?url=https%3A%2F%2Fanswersstaticfilecdnv2.azureedge.net%2Fstatic%2Fimages%2Fimage-not-found.jpg"; }}
+                                        ></img></div> : <div></div>}
 
                             </div>
                         ))}

@@ -19,7 +19,9 @@ const NavBar = () => {
           <NavLink to='/home' exact={true} >
             <img
             src='https://user-images.githubusercontent.com/77218939/199653992-2418c7c2-000d-4fcb-a662-a1055468dba6.png'
-            alt='pic'></img>
+            alt='pic'
+            onError={e => { e.currentTarget.src = "https://filestore.community.support.microsoft.com/api/images/ext?url=https%3A%2F%2Fanswersstaticfilecdnv2.azureedge.net%2Fstatic%2Fimages%2Fimage-not-found.jpg"; }}
+            ></img>
           </NavLink>
 
           <NavLink to='/home' exact={true} >

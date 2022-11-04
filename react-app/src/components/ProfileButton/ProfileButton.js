@@ -29,7 +29,9 @@ function ProfileButton({ user }) {
         <>
             {/* <div className="profile_button" onClick={openMenu}> */}
                 <img className="profile_button" onClick={openMenu} src={user?.avatar}
-                alt='pic'></img>
+                alt='pic'
+                onError={e => { e.currentTarget.src = "https://filestore.community.support.microsoft.com/api/images/ext?url=https%3A%2F%2Fanswersstaticfilecdnv2.azureedge.net%2Fstatic%2Fimages%2Fimage-not-found.jpg"; }}
+                ></img>
             {/* </div> */}
             {showMenu &&  (
             <div className="profile-dropdown">
@@ -37,7 +39,9 @@ function ProfileButton({ user }) {
               <div className="menu-item1">
                 <img className="profile-dropdown-pic"
                 src={user?.avatar}
-                alt='pic'></img>
+                alt='pic'
+                onError={e => { e.currentTarget.src = "https://filestore.community.support.microsoft.com/api/images/ext?url=https%3A%2F%2Fanswersstaticfilecdnv2.azureedge.net%2Fstatic%2Fimages%2Fimage-not-found.jpg"; }}
+                ></img>
                 <div className="profile-dropdown-name">{user?.username}</div>
               </div>
 

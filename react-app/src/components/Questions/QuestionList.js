@@ -44,6 +44,7 @@ function QuestionList() {
                         className="qlist-avatar"
                         src={user?.avatar}
                         alt='pic'
+                        onError={e => { e.currentTarget.src = "https://filestore.community.support.microsoft.com/api/images/ext?url=https%3A%2F%2Fanswersstaticfilecdnv2.azureedge.net%2Fstatic%2Fimages%2Fimage-not-found.jpg"; }}
                         ></img>
                         <div className="qlist-middle-container-topitem">
                             <QuestionCreateFormModal />
@@ -77,7 +78,9 @@ function QuestionList() {
                                     {question.questionimage ? <img
                                         className="qlist-questionimg"
                                         src={question?.questionimage}
-                                        alt="img"></img> : <div></div>}
+                                        alt="img"
+                                        onError={e => { e.currentTarget.src = "https://filestore.community.support.microsoft.com/api/images/ext?url=https%3A%2F%2Fanswersstaticfilecdnv2.azureedge.net%2Fstatic%2Fimages%2Fimage-not-found.jpg"; }}
+                                        ></img> : <div></div>}
                                     {/* <div><QuestionUpdate question={question} /></div>
                                     <div><QuestionDelete question={question} /></div> */}
                                 </div>
