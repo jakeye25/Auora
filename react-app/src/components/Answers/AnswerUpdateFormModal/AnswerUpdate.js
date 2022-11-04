@@ -23,11 +23,11 @@ function AnswerUpdate({answer, setShowModal}) {
             errors.push('Please enter a valid Answer')
         }
         if (answerimage &&
-            (!answerimage.includes("jpg") &&
+            ((!answerimage.includes("jpg") &&
                 !answerimage.includes("png") &&
                 !answerimage.includes("jpeg") &&
                 !answerimage.includes("svg")) ||
-                (!answerimage.includes("https") && !answerimage.includes("http"))
+                (!answerimage.includes("https") && !answerimage.includes("http")))
         )
             errors.push("Please enter a valid url image");
         setValidations(errors)
