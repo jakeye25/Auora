@@ -48,7 +48,14 @@ function Searchbar() {
 
     return(
         <div className='searchbar'>
-
+            <div><i className="fa-solid fa-magnifying-glass fa-lg "></i> &nbsp;</div>
+            <input
+            type='text'
+            className='searchinput'
+            placeholder='Search Auora'
+            onChange={(e) => setSearchWord(e.target.value)}
+            value={searchWord}
+            ></input>
         </div>
     )
 
