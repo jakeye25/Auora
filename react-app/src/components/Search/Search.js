@@ -47,16 +47,35 @@ function Searchbar() {
     }, [questions])
 
     return(
-        <div className='searchbar'>
-            <div><i className="fa-solid fa-magnifying-glass fa-lg "></i> &nbsp;</div>
-            <input
-            type='text'
-            className='searchinput'
-            placeholder='Search Auora'
-            onChange={(e) => setSearchWord(e.target.value)}
-            value={searchWord}
-            ></input>
-        </div>
+        <>
+            <div className='searchbar'>
+                <div><i className="fa-solid fa-magnifying-glass fa-lg "></i> &nbsp;</div>
+                <input
+                type='text'
+                className='searchinput'
+                placeholder='Search Auora'
+                onChange={(e) => setSearchWord(e.target.value)}
+                value={searchWord}
+                ></input>
+            </div>
+            {(showDropdown && searchResult.length >0) && (
+                <div>
+                    { searchResult.map((question) => (
+                        <NavLink to={`/question/${question.id}`} onClick={() => setSearchWord("")}>
+                            question:&nbsp;{question?.questioncontent}
+                        </NavLink>
+                    ))
+
+                    }
+                </div>
+            )}
+
+            {(showDropdown && !searchResult.length) && (
+                <div className='search_dropdown'>
+                    <div>We couldn't find any results for "{searchWord}"</div>
+                </div>
+            )}
+        </>
     )
 
 
