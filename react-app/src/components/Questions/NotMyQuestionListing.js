@@ -1,10 +1,10 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { Link, NavLink, useHistory } from "react-router-dom";
-import { thunkGetAllQuestion, thunkGetCurrentQuestion } from "../../store/question";
+import { NavLink, useHistory } from "react-router-dom";
+import { thunkGetAllQuestion } from "../../store/question";
 
 import { thunkGetAllQuestionAnswer } from "../../store/answer";
-import AnswerCreateFormModal from "../Answers/AnswerCreateFormModal";
+
 import './MyQuestionListing.css'
 
 

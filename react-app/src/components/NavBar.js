@@ -6,7 +6,9 @@ import LogoutButton from './auth/LogoutButton';
 import './NavBar.css'
 import ProfileButton from './ProfileButton/ProfileButton';
 
+
 import NavQuestionCreateFormModal from './Questions/QuestionCreateFormModal/index copy';
+import Searchbar from './Search/Search';
 
 const NavBar = () => {
     const history = useHistory()
@@ -32,6 +34,9 @@ const NavBar = () => {
             <i class="fa-regular fa-pen-to-square fa-xl"></i>
           </NavLink>
 
+          <div>
+            <Searchbar />
+          </div>
           {/* <NavLink to='/users' exact={true} activeClassName='active'>
             Users
           </NavLink> */}

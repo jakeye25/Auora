@@ -18,8 +18,8 @@ function Searchbar() {
 
     const results = (word) =>{
         const str =[];
-        for (let i =0; i<questions.length; i++){
-          let question = questions[i];
+        for (let i =0; i<questionsArr.length; i++){
+          let question = questionsArr[i];
           if (question.questioncontent.toLowerCase().includes(word.toLowerCase())
           ){
             str.push(question)
@@ -44,7 +44,7 @@ function Searchbar() {
 
     useEffect(()=>{
 
-    }, [questions])
+    }, [questionsArr])
 
     return(
         <>
