@@ -3,6 +3,7 @@ import {NavLink} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import { thunkGetAllQuestion } from '../../store/question';
 import './Search.css'
+import { thunkGetAllQuestionAnswer } from '../../store/answer';
 
 function Searchbar() {
     const dispatch = useDispatch();
@@ -11,21 +12,31 @@ function Searchbar() {
 
     const questionsArr = Object.values(questions)
     const answersArr = Object.values(answers)
-
+    console.log('qquestionarr', questionsArr)
+    console.log('aarr', answersArr)
     const [searchWord, setSearchWord] = useState('')
     const [showDropdown, setShowDropdown] = useState(false);
     const[searchResult, setSearchResult] =useState([]);
 
     const results = (word) =>{
-        const str =[];
+        const str1 =[];
+
         for (let i =0; i<questionsArr.length; i++){
           let question = questionsArr[i];
           if (question.questioncontent.toLowerCase().includes(word.toLowerCase())
           ){
-            str.push(question)
+            str1.push(`Question: ${question?.questioncontent}`)
           }
         }
-        return str
+        // for (let i =0; i<answersArr.length; i++){
+        //     let answer = answersArr[i];
+        //     if (answer.answercontent.toLowerCase().includes(word.toLowerCase())
+        //     ){
+        //       str2.push(`answer: ${answer?.answercontent}`)
+        //     }
+        //   }
+        //   let str3 = str1.concat(str2)
+        return str1
     }
 
     useEffect(() => {
@@ -40,11 +51,12 @@ function Searchbar() {
 
     useEffect(() => {
         dispatch(thunkGetAllQuestion())
+        dispatch(thunkGetAllQuestionAnswer())
     }, [dispatch])
 
     useEffect(()=>{
 
-    }, [questionsArr])
+    }, [questionsArr, answersArr])
 
     return(
         <>
@@ -62,7 +74,7 @@ function Searchbar() {
                 <div className='search_dropdown'>
                     { searchResult.map((question) => (
                         <NavLink to={`/question/${question.id}`} onClick={() => setSearchWord("")}>
-                            question:&nbsp;{question?.questioncontent}
+                            {question}
                         </NavLink>
                     ))
 
