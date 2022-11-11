@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react';
 import {NavLink} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import { thunkGetAllQuestion } from '../../store/question';
-
+import './Search.css'
 
 function Searchbar() {
     const dispatch = useDispatch();
@@ -49,17 +49,17 @@ function Searchbar() {
     return(
         <>
             <div className='searchbar'>
-                <div><i className="fa-solid fa-magnifying-glass fa-lg "></i> &nbsp;</div>
+                <div className='search_btn'><i className="fa-solid fa-magnifying-glass"></i> &nbsp;</div>
                 <input
                 type='text'
                 className='searchinput'
                 placeholder='Search Auora'
                 onChange={(e) => setSearchWord(e.target.value)}
                 value={searchWord}
-                ></input>
+                />
             </div>
             {(showDropdown && searchResult.length >0) && (
-                <div>
+                <div className='search_dropdown'>
                     { searchResult.map((question) => (
                         <NavLink to={`/question/${question.id}`} onClick={() => setSearchWord("")}>
                             question:&nbsp;{question?.questioncontent}
