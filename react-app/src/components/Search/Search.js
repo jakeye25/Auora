@@ -4,39 +4,45 @@ import {useDispatch, useSelector} from 'react-redux';
 import { thunkGetAllQuestion } from '../../store/question';
 import './Search.css'
 import { thunkGetAllQuestionAnswer } from '../../store/answer';
+import { thunkGetAllTopic } from '../../store/topic';
 
 function Searchbar() {
     const dispatch = useDispatch();
     const questions = useSelector((state) => state.question)
     const answers = useSelector((state) => state.answer)
+    const topics= useSelector((state) => state.topic)
 
     const questionsArr = Object.values(questions)
     const answersArr = Object.values(answers)
+    const topicsArr = Object.values(topics)
+
     console.log('qquestionarr', questionsArr)
     console.log('aarr', answersArr)
+    console.log('topicarr', topicsArr)
+
     const [searchWord, setSearchWord] = useState('')
     const [showDropdown, setShowDropdown] = useState(false);
     const[searchResult, setSearchResult] =useState([]);
 
     const results = (word) =>{
         const str1 =[];
-
+        const str2=[]
         for (let i =0; i<questionsArr.length; i++){
           let question = questionsArr[i];
           if (question.questioncontent.toLowerCase().includes(word.toLowerCase())
           ){
-            str1.push(`Question: ${question?.questioncontent}`)
+            str1.push(question)
           }
         }
-        // for (let i =0; i<answersArr.length; i++){
-        //     let answer = answersArr[i];
-        //     if (answer.answercontent.toLowerCase().includes(word.toLowerCase())
-        //     ){
-        //       str2.push(`answer: ${answer?.answercontent}`)
-        //     }
-        //   }
-        //   let str3 = str1.concat(str2)
-        return str1
+        for (let i =0; i<topicsArr.length; i++){
+            let topic = topicsArr[i];
+            if (topic.name.toLowerCase().includes(word.toLowerCase())
+            ){
+              str2.push(topic)
+            }
+          }
+          let str3 = str1.concat(str2)
+        return str3
     }
 
     useEffect(() => {
@@ -51,7 +57,8 @@ function Searchbar() {
 
     useEffect(() => {
         dispatch(thunkGetAllQuestion())
-        dispatch(thunkGetAllQuestionAnswer())
+        dispatch(thunkGetAllTopic())
+        // dispatch(thunkGetAllQuestionAnswer())
     }, [dispatch])
 
     useEffect(()=>{
@@ -72,10 +79,12 @@ function Searchbar() {
             </div>
             {(showDropdown && searchResult.length >0) && (
                 <div className='search_dropdown'>
-                    { searchResult.map((question) => (
-                        <NavLink to={`/question/${question.id}`} onClick={() => setSearchWord("")}>
-                            {question}
-                        </NavLink>
+                    { searchResult.map((ele) => (
+                         ele?.name ? (
+                            <NavLink to={`/topics/${ele?.name}`} onClick={() => setSearchWord("")}>Topic: {ele?.name}</NavLink>) :
+                        (<NavLink to={`/questions/${ele?.id}`} onClick={() => setSearchWord("")}>
+                            Question: {ele?.questioncontent}
+                        </NavLink>)
                     ))
 
                     }
