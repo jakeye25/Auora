@@ -41,7 +41,7 @@ function Searchbar() {
               str2.push(topic)
             }
           }
-          let str3 = str1.concat(str2)
+          let str3 = str1.slice(0,3).concat(str2.slice(0,2))
         return str3
     }
 
@@ -63,7 +63,7 @@ function Searchbar() {
 
     useEffect(()=>{
 
-    }, [questionsArr, answersArr])
+    }, [questionsArr, topicsArr])
 
     return(
         <>
@@ -81,9 +81,9 @@ function Searchbar() {
                 <div className='search_dropdown'>
                     { searchResult.map((ele) => (
                          ele?.name ? (
-                            <NavLink to={`/topics/${ele?.name}`} onClick={() => setSearchWord("")}>Topic: {ele?.name}</NavLink>) :
-                        (<NavLink to={`/questions/${ele?.id}`} onClick={() => setSearchWord("")}>
-                            Question: {ele?.questioncontent}
+                            <NavLink className='dropdowm-item' to={`/topics/${ele?.name}`} onClick={() => setSearchWord("")}>Topic: {ele?.name}</NavLink>) :
+                        (<NavLink className='dropdowm-item' to={`/questions/${ele?.id}`} onClick={() => setSearchWord("")}>
+                            {ele?.questioncontent}
                         </NavLink>)
                     ))
 
