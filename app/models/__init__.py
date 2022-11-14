@@ -5,3 +5,5 @@ from .question import Question
 from .answer import Answer
 from .topic import Topic
 #will add upvote
+from .follow import follows
+from .upvotequestion import upvotesquestion
