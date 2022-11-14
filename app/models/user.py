@@ -16,7 +16,16 @@ class User(db.Model, UserMixin):
     questions = db.relationship('Question', back_populates='user', cascade='all,delete')
     answers = db.relationship('Answer', back_populates='user', cascade='all,delete')
 
+    followers = db.relationship(
+        "User",
+        secondary=follows,
+        primaryjoin=(follows.c.follower_id == id),
+        secondaryjoin=(follows.c.followed_id == id),
+        backref=db.backref("following", lazy="dynamic"),
+        lazy="dynamic"
+    )
 
+    upvote_questions = db.relationship('Question', secondary=upvotesquestion, back_populates='upvotesquestion')
 
     @property
     def password(self):
@@ -34,5 +43,7 @@ class User(db.Model, UserMixin):
             'id': self.id,
             'username': self.username,
             'email': self.email,
-            'avatar': self.avatar
+            'avatar': self.avatar,
+            'followers': [{'id':user.id, 'username':user.username, 'avatar':user.avatar} for user in self.followers],
+            'following': [{'id':user.id, 'username':user.username, 'avatar':user.avatar} for user in self.following]
         }
