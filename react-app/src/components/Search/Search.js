@@ -93,7 +93,7 @@ function Searchbar() {
 
             {(showDropdown && !searchResult.length) && (
                 <div className='search_dropdown'>
-                    <div>We couldn't find any results for "{searchWord}"</div>
+                    <div className='searchnotfound'>We couldn't find any results for "{searchWord}"</div>
                 </div>
             )}
         </>
