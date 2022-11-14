@@ -1,5 +1,7 @@
 from .db import db
 from sqlalchemy.types  import DateTime, Date
+from .upvotequestion import upvotesquestion
+
 
 class Question(db.Model):
     __tablename__ = 'questions'
@@ -16,7 +18,7 @@ class Question(db.Model):
     topic = db.relationship('Topic', back_populates='questions')
     user = db.relationship('User', back_populates='questions')
 
-
+    question_upvotes = db.relationship('User', secondary=upvotesquestion, back_populates='user_upvotes')
 
     def to_dict(self):
         return {
@@ -29,5 +31,6 @@ class Question(db.Model):
             'updatedAt':self.updatedAt,
             'answers': [answer.to_dict() for answer in self.answers],
             'username': self.user.username if self.user else None,
-            'avatar': self.user.avatar if self.user else None
+            'avatar': self.user.avatar if self.user else None,
+            "upvotes_question": [user.id for user in self.question_upvotes]
         }

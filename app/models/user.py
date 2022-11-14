@@ -25,7 +25,7 @@ class User(db.Model, UserMixin):
         lazy="dynamic"
     )
 
-    upvote_questions = db.relationship('Question', secondary=upvotesquestion, back_populates='upvotesquestion')
+    user_upvotes = db.relationship('Question', secondary=upvotesquestion, back_populates='question_upvotes')
 
     @property
     def password(self):
