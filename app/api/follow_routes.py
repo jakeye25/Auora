@@ -6,10 +6,10 @@ from app.api.auth_routes import validation_errors_to_error_messages
 
 follow_routes = Blueprint('follows', __name__)
 
-@follow_routes.route('/follows/<int:id>', methods=['PUT'])
+@follow_routes.route('/users/<int:id>', methods=['PUT'])
 @login_required
 def follow_unfollow_user(id):
-    
+
     user = User.query.get_or_404(id)
 
     if current_user not in user.followers:

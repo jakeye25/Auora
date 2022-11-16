@@ -99,3 +99,19 @@ def delete_question(id):
     db.session.delete(delete_question)
     db.session.commit()
     return {"message":"Successfully deleted!"}
+
+
+@question_routes.route('/<int:id>/upvotes', methods = ["POST"])
+@login_required
+def upvote_question(id):
+
+    question = Question.query.get_or_404(id)
+
+    if current_user not in question.question_upvotes:
+        question.question_upvotes.append(current_user)
+        db.session.commit()
+    else:
+        question.question_upvotes.remove(current_user)
+        db.session.commit()
+
+    return {'question': question.to_dict()}
