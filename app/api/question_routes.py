@@ -101,11 +101,14 @@ def delete_question(id):
     return {"message":"Successfully deleted!"}
 
 
-@question_routes.route('/<int:id>/upvotes', methods = ["POST"])
+@question_routes.route('/<int:id>/upvotes', methods = ["PUT"])
 @login_required
 def upvote_question(id):
 
-    question = Question.query.get_or_404(id)
+    question = Question.query.get(id)
+    
+    if question is None:
+        return {'message': "No such question"}
 
     if current_user not in question.question_upvotes:
         question.question_upvotes.append(current_user)

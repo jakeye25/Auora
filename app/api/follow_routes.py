@@ -10,7 +10,9 @@ follow_routes = Blueprint('follows', __name__)
 @login_required
 def follow_unfollow_user(id):
 
-    user = User.query.get_or_404(id)
+    user = User.query.get(id)
+    if user is None:
+        return {'message': "No such user"}
 
     if current_user not in user.followers:
         user.followers.append(current_user)
