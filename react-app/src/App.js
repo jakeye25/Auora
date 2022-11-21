@@ -16,6 +16,7 @@ import TopicDetail from './components/Topics/TopicDetail';
 import MyQuestionListings from './components/Questions/MyQuestionListing';
 import MyAnswerListings from './components/Answers/MyAnswerListing';
 import NotMyQuestionListings from './components/Questions/NotMyQuestionListing';
+import ProfilePage from './components/Profilepage/ProfilePage';
 
 
 
@@ -50,6 +51,9 @@ function App() {
         <Route exact path="/topics">
             <TopicList />
         </Route>
+        <Route exact path="/myprofile">
+            <ProfilePage />
+        </Route>
         <Route exact path="/myanswers">
             <MyAnswerListings />
         </Route>
@@ -66,12 +70,12 @@ function App() {
         {/* <Route path='/sign-up' exact={true}>
           <SignUpForm />
           </Route>
-        <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
-        </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
-        </ProtectedRoute>
+          <ProtectedRoute path='/users' exact={true} >
+            <UsersList/>
+          </ProtectedRoute>
+          <ProtectedRoute path='/users/:userId' exact={true} >
+            <User />
+          </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
           <h1>My Home Page</h1>
         </ProtectedRoute> */}
