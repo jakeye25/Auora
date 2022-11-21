@@ -100,13 +100,14 @@ def delete_question(id):
     db.session.commit()
     return {"message":"Successfully deleted!"}
 
+#like a question
 
 @question_routes.route('/<int:id>/upvotes', methods = ["PUT"])
 @login_required
 def upvote_question(id):
 
     question = Question.query.get(id)
-    
+
     if question is None:
         return {'message': "No such question"}
 

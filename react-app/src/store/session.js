@@ -2,6 +2,8 @@
 const SET_USER = 'session/SET_USER';
 const REMOVE_USER = 'session/REMOVE_USER';
 
+
+
 const setUser = (user) => ({
   type: SET_USER,
   payload: user
