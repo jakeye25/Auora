@@ -1,7 +1,7 @@
 // TYPES
 
 const getProfile = '/profile/getProfile'
-const updateProfile = '/question/updateProfile'
+const updateProfile = '/profile/updateProfile'
 
 // ACTION CREATORS
 const actionGetProfile = (profile) => {
@@ -54,9 +54,9 @@ const profileReducer = (state = initialState, action) => {
             newState = {};
             newState[action.profile.id] = action.profile
             return newState
-            case updateProfile:
-                newState[action.profile.id] = action.profile
-                return newState
+        case updateProfile:
+            newState[action.profile.id] = action.profile
+            return newState
         default:
             return state;
     }

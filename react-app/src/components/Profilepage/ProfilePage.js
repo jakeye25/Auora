@@ -4,6 +4,9 @@ import { useHistory, useParams } from "react-router-dom";
 
 import './ProfilePage.css'
 import { thunkGetProfile } from "../../store/profile";
+import ProfileUpdateFormModal from "./ProfileUpdateFormModal";
+
+
 
 function ProfilePage() {
     const { id } = useParams();
@@ -11,11 +14,13 @@ function ProfilePage() {
     const history = useHistory();
     const profile= useSelector((state) => state.profile)
     const currUser= useSelector((state) => state.session.user)
+    console.log("curruser=======",currUser)
     console.log("profile=======",profile)
     const profileArr= Object.values(profile)
     console.log("profileArr=======",profileArr)
     const currProfile = profileArr.find((e) => e.id)
     console.log("currprofile=======",currProfile)
+
     useEffect(() => {
         dispatch(thunkGetProfile(id));
     }, [dispatch, id])
@@ -40,10 +45,14 @@ function ProfilePage() {
                         <div>
                         &nbsp;{currProfile?.following? currProfile?.following?.length : "0" } following
                         </div>
+                        {currUser?.id===currProfile?.id && <div>
+                            <ProfileUpdateFormModal currProfile={currProfile} />
+                        </div>}
                     </div>
 
                 </div>
             </div>
+
         </div>
     )
 }
