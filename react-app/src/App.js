@@ -51,7 +51,7 @@ function App() {
         <Route exact path="/topics">
             <TopicList />
         </Route>
-        <Route exact path="/myprofile">
+        <Route exact path="/profiles/:id">
             <ProfilePage />
         </Route>
         <Route exact path="/myanswers">
