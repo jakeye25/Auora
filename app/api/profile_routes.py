@@ -3,7 +3,7 @@ from app.models import db, User
 from flask_login import login_required, current_user
 from app.api.auth_routes import validation_errors_to_error_messages
 from datetime import datetime
-from app.forms import SignUpForm
+from app.forms import ProfileForm
 
 now= datetime.now()
 
@@ -22,7 +22,7 @@ def profile(id):
 @login_required
 def update_profile(id):
     # print(id)
-    form = SignUpForm()
+    form = ProfileForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     edit_profile = User.query.get(id)
     # print(edit_product)
@@ -33,7 +33,6 @@ def update_profile(id):
 
     if form.validate_on_submit():
         edit_profile = User.query.get(id)
-        edit_profile.username = form.data['username']
         edit_profile.avatar = form.data['avatar']
         # edit_product.userId = current_user.id
         # edit_product.createdAt = now,
