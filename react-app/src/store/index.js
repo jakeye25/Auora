@@ -1,6 +1,7 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import answerReducer from './answer';
+import followReducer from './follow';
 import profileReducer from './profile';
 import questionReducer from './question';
 import session from './session'
@@ -11,7 +12,8 @@ const rootReducer = combineReducers({
   question: questionReducer,
   answer: answerReducer,
   topic: topicReducer,
-  profile: profileReducer
+  profile: profileReducer,
+  follow: followReducer
 });
 
 
