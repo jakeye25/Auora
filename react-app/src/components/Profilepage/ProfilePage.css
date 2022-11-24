@@ -1,0 +1,52 @@
+.profilecontainer{
+    padding-left: 25%;
+    padding-right: 22%;
+    margin-top: 50px;
+}
+
+.profile-top{
+    display: flex;
+}
+
+
+.profile-topimg{
+    width: 90px;
+    height: 90px;
+    border: 1px solid rgba(128,128,128,0.2);
+    border-radius: 500px;
+}
+
+.profile-topright{
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.profile-toprightup{
+    display: flex;
+    width: 500px;
+    justify-content: space-between;
+}
+
+.profile-topusername{
+    font-size: 27px;
+    line-height: 38px;
+    color: #282829;
+    font-weight: 700;
+}
+
+#edit-profilebtn{
+    font-size: 27px;
+    line-height: 38px;
+    color: #282829;
+    font-weight: 700;
+}
+
+#edit-profilebtn:hover{
+    cursor: pointer;
+}
+
+.profile-follow{
+    display: flex;
+}

@@ -11,7 +11,7 @@ function ProfileUpdateFormModal({currProfile}) {
     console.log("index", currProfile)
     return (
       <>
-         <div id='edit-profilebtn' onClick={() => setShowModal(true)}><i class="fa-regular fa-pen-to-square"></i>&nbsp;Edit Profile</div>
+         <div id='edit-profilebtn' onClick={() => setShowModal(true)}><i class="fa-regular fa-pen-to-square"></i></div>
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>
             <ProfileUpdate currProfile={currProfile} setShowModal={setShowModal}/>
