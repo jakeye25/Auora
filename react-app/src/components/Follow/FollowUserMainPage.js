@@ -3,10 +3,11 @@ import { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { thunkUserFollow, thunkUserUnfollow } from "../../store/follow";
 import { thunkGetProfile } from "../../store/profile";
-import './FollowUser.css'
+import { thunkGetAllQuestion } from "../../store/question";
+import './FollowUserMainPage.css'
 
-function FollowUser() {
-    const { id } = useParams()
+function FollowUserMainPage({question}) {
+    // const { id } = useParams()
     const dispatch = useDispatch()
     const profile= useSelector((state) => state.profile)
     const profileArr= Object.values(profile)
@@ -20,25 +21,25 @@ function FollowUser() {
 
 
     useEffect(() => {
-        currProfile?.followers.forEach((follower) => {
-
-          let followerId = follower.id;
+        question?.followers.forEach((followerId) => {
+          // console.log("testing useeffect",follower);
+          // let followerId = follower.id;
           if (currUser.id === followerId) {
             setFollowing(true);
           }
         });
-      }, [currProfile?.followers]);
+      }, [question?.followers]);
 
-      useEffect(() => {
-        dispatch(thunkGetProfile(id));
-    }, [dispatch, id])
+    //   useEffect(() => {
+    //     dispatch(thunkGetProfile(id));
+    // }, [dispatch, id])
 
     const handleFollow = async (e) => {
         e.preventDefault();
-        let followUser = await dispatch(thunkUserFollow(currProfile?.id));
+        let followUser = await dispatch(thunkUserFollow(question?.userId));
         if (followUser) {
 
-            dispatch(thunkGetProfile(currProfile?.id));
+            dispatch(thunkGetAllQuestion());
 
         }
         setFollowing(true);
@@ -46,10 +47,10 @@ function FollowUser() {
 
       const handleUnfollow = async (e) => {
         e.preventDefault();
-        let unfollowUser = await dispatch(thunkUserUnfollow(currProfile?.id));
+        let unfollowUser = await dispatch(thunkUserUnfollow(question?.userId));
         if (unfollowUser) {
 
-            dispatch(thunkGetProfile(currProfile?.id));
+            dispatch(thunkGetAllQuestion());
 
         }
         setFollowing(false);
@@ -60,12 +61,13 @@ function FollowUser() {
     return (
         <div>
             {following ? (
-        <div className="unfollowButton-profilepage" onClick={handleUnfollow}>
-         <i className="fa-solid fa-square-check fa-lg"></i> &nbsp; Following
+
+        <div className="unfollowButton-MainPage" onClick={handleUnfollow}>
+          Following
         </div>
       ) : (
-        <div className="followButton-profilepage" onClick={handleFollow}>
-         <i className="fa-regular fa-square-plus fa-lg"></i> &nbsp; Follow
+        <div className="followButton-MainPage" onClick={handleFollow}>
+          Follow
         </div>
       )}
 
@@ -74,4 +76,4 @@ function FollowUser() {
 
 }
 
-export default FollowUser;
+export default FollowUserMainPage;

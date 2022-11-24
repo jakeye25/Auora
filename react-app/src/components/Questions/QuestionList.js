@@ -9,6 +9,7 @@ import './QuestionList.css'
 import { thunkGetAllQuestionAnswer } from "../../store/answer";
 import QuestionCreateBarFormModal from "./QuestionCreateFormModal/QuestionCreateBar";
 import FollowUser from "../Follow/FollowUser";
+import FollowUserMainPage from "../Follow/FollowUserMainPage";
 
 
 
@@ -65,16 +66,20 @@ function QuestionList() {
                         {allquestions &&
                             allquestions.map((question) => (
                                 <div key={question?.id} className='qlist-indquestion'>
-
-                                    <NavLink className="qlist-indquestion-top" to={`/profiles/${question?.userId}`}>
-                                        <img
-                                            className="qlist-indquestion-top-avatar"
-                                            src={question?.avatar}
-                                            alt='pic'
-                                            onError={e => { e.currentTarget.src = "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png"; }}
-                                        ></img>
-                                        <div className="qlist-indquestion-top-username">{question?.username}</div>
-                                    </NavLink>
+                                    <div className="qlist-indquestion-top">
+                                        <NavLink className="qlist-indquestion-link" to={`/profiles/${question?.userId}`}>
+                                            <img
+                                                className="qlist-indquestion-top-avatar"
+                                                src={question?.avatar}
+                                                alt='pic'
+                                                onError={e => { e.currentTarget.src = "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png"; }}
+                                            ></img>
+                                        </NavLink>
+                                        <NavLink className="qlist-indquestion-link" to={`/profiles/${question?.userId}`}>
+                                            <div className="qlist-indquestion-top-username">{question?.username}</div>
+                                        </NavLink>
+                                        {user?.id === question?.userId ? <div></div> : <FollowUserMainPage question={question}/>}
+                                    </div>
                                     <NavLink
                                         to={`/questions/${question?.id}`}
                                     >

@@ -32,5 +32,6 @@ class Question(db.Model):
             'answers': [answer.to_dict() for answer in self.answers],
             'username': self.user.username if self.user else None,
             'avatar': self.user.avatar if self.user else None,
+            "followers": [user.id for user in self.user.followers],
             "question_upvotes": [user.id for user in self.question_upvotes]
         }
