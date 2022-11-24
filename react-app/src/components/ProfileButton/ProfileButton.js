@@ -42,7 +42,7 @@ function ProfileButton({ user }) {
                 alt='pic'
                 onError={e => { e.currentTarget.src = "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png"; }}
                 ></img>
-                <div className="profile-dropdown-name">{user?.username}</div>
+                <div className="profile-dropdown-name">{user?.username} <i className="fa-solid fa-chevron-right"></i></div>
               </NavLink>
 
               <Link  className="menu-item-link" to={`/myquestions`}><i className="fa-regular fa-rectangle-list fa-lg"></i> &nbsp;My Questions</Link>
