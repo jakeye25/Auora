@@ -4,7 +4,7 @@ import LogoutButton from "../auth/LogoutButton";
 import './ProfileButton.css'
 
 function ProfileButton({ user }) {
-
+    console.log('user', user)
     // const dispatch = useDispatch();
     const [showMenu, setShowMenu] = useState(false);
 
@@ -36,14 +36,14 @@ function ProfileButton({ user }) {
             {showMenu &&  (
             <div className="profile-dropdown">
 
-              <div className="menu-item1">
+              <NavLink className="menu-item1" to={`/profiles/${user.id}`}>
                 <img className="profile-dropdown-pic"
                 src={user?.avatar}
                 alt='pic'
                 onError={e => { e.currentTarget.src = "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png"; }}
                 ></img>
                 <div className="profile-dropdown-name">{user?.username}</div>
-              </div>
+              </NavLink>
 
               <Link  className="menu-item-link" to={`/myquestions`}><i className="fa-regular fa-rectangle-list fa-lg"></i> &nbsp;My Questions</Link>
 
