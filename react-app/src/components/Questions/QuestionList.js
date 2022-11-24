@@ -8,6 +8,7 @@ import './QuestionList.css'
 
 import { thunkGetAllQuestionAnswer } from "../../store/answer";
 import QuestionCreateBarFormModal from "./QuestionCreateFormModal/QuestionCreateBar";
+import FollowUser from "../Follow/FollowUser";
 
 
 
@@ -24,7 +25,7 @@ function QuestionList() {
     }
 
     let allquestions = Object.values(questions)
-
+    console.log("check question format", allquestions)
     useEffect(() => {
         dispatch(thunkGetAllQuestion())
         dispatch(thunkGetAllQuestionAnswer())
@@ -64,6 +65,16 @@ function QuestionList() {
                         {allquestions &&
                             allquestions.map((question) => (
                                 <div key={question?.id} className='qlist-indquestion'>
+
+                                    <NavLink className="qlist-indquestion-top" to={`/profiles/${question?.userId}`}>
+                                        <img
+                                            className="qlist-indquestion-top-avatar"
+                                            src={question?.avatar}
+                                            alt='pic'
+                                            onError={e => { e.currentTarget.src = "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png"; }}
+                                        ></img>
+                                        <div className="qlist-indquestion-top-username">{question?.username}</div>
+                                    </NavLink>
                                     <NavLink
                                         to={`/questions/${question?.id}`}
                                     >

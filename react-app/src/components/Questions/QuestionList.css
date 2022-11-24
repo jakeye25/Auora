@@ -124,3 +124,26 @@
     line-height: 22px;
     color: #282829;
 }
+
+.qlist-indquestion-top{
+    display: flex;
+    text-decoration-color: black;
+    align-items: center;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.qlist-indquestion-top-avatar{
+    width: 35px;
+    height: 35px;
+    border-radius: 500px;
+    border: 1px solid rgba(128, 128, 128, 0.2);
+}
+
+.qlist-indquestion-top-username{
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 18px;
+    color: #282829;
+    padding-left: 30px;
+}
