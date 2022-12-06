@@ -1,7 +1,9 @@
 
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useHistory } from 'react-router-dom';
+import { thunkGetAllQuestionAnswer } from '../store/answer';
+import { thunkGetAllQuestion } from '../store/question';
 import LogoutButton from './auth/LogoutButton';
 import './NavBar.css'
 import ProfileButton from './ProfileButton/ProfileButton';
@@ -12,7 +14,15 @@ import Searchbar from './Search/Search';
 
 const NavBar = () => {
     const history = useHistory()
+    const dispatch = useDispatch()
     const user=useSelector((state) => state.session.user)
+    const answers = useSelector((state) => state.answer)
+    const questions = useSelector((state) => state.question)
+
+    useEffect(() => {
+      dispatch(thunkGetAllQuestion())
+      dispatch(thunkGetAllQuestionAnswer())
+  }, [dispatch, answers])
 
     if(!user) history.push('/')
   return (

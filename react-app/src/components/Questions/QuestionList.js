@@ -30,7 +30,7 @@ function QuestionList() {
     useEffect(() => {
         dispatch(thunkGetAllQuestion())
         dispatch(thunkGetAllQuestionAnswer())
-    }, [dispatch, answers])
+    }, [dispatch, answers, user])
 
     return (
         <>

@@ -14,7 +14,7 @@ function FollowUserMainPage({question}) {
     const currProfile = profileArr.find((e) => e.id)
     // console.log("followprofile", currProfile)
     // console.log("followingprofile", currProfile?.following)
-    console.log("followerprofile", currProfile?.followers)
+    // console.log("followerprofile", currProfile?.followers)
     const currUser = useSelector((state) => state.session.user)
     // console.log("checkcurruser", currUser?.id)
     const [following, setFollowing] = useState(false)
@@ -36,7 +36,8 @@ function FollowUserMainPage({question}) {
 
     const handleFollow = async (e) => {
         e.preventDefault();
-        let followUser = await dispatch(thunkUserFollow(question?.userId));
+        let followUser = await dispatch(thunkUserFollow(question?.userId))
+        .then(dispatch(thunkGetAllQuestion()));
         if (followUser) {
 
             dispatch(thunkGetAllQuestion());
@@ -47,7 +48,8 @@ function FollowUserMainPage({question}) {
 
       const handleUnfollow = async (e) => {
         e.preventDefault();
-        let unfollowUser = await dispatch(thunkUserUnfollow(question?.userId));
+        let unfollowUser = await dispatch(thunkUserUnfollow(question?.userId))
+        .then(dispatch(thunkGetAllQuestion()));
         if (unfollowUser) {
 
             dispatch(thunkGetAllQuestion());

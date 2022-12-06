@@ -4,6 +4,8 @@ import { useHistory, useParams } from "react-router-dom";
 import { thunkUserFollow, thunkUserUnfollow } from "../../store/follow";
 import { thunkGetProfile } from "../../store/profile";
 import './FollowUser.css'
+import { thunkGetAllQuestion } from "../../store/question";
+
 
 function FollowUser() {
     const { id } = useParams()
@@ -13,7 +15,7 @@ function FollowUser() {
     const currProfile = profileArr.find((e) => e.id)
     // console.log("followprofile", currProfile)
     // console.log("followingprofile", currProfile?.following)
-    console.log("followerprofile", currProfile?.followers)
+    // console.log("followerprofile", currProfile?.followers)
     const currUser = useSelector((state) => state.session.user)
     // console.log("checkcurruser", currUser?.id)
     const [following, setFollowing] = useState(false)
@@ -35,7 +37,9 @@ function FollowUser() {
 
     const handleFollow = async (e) => {
         e.preventDefault();
-        let followUser = await dispatch(thunkUserFollow(currProfile?.id));
+        let followUser = await dispatch(thunkUserFollow(currProfile?.id))
+        .then(dispatch(thunkGetProfile(currProfile?.id)))
+        .then(dispatch(thunkGetAllQuestion()));
         if (followUser) {
 
             dispatch(thunkGetProfile(currProfile?.id));
@@ -46,7 +50,9 @@ function FollowUser() {
 
       const handleUnfollow = async (e) => {
         e.preventDefault();
-        let unfollowUser = await dispatch(thunkUserUnfollow(currProfile?.id));
+        let unfollowUser = await dispatch(thunkUserUnfollow(currProfile?.id))
+        .then(dispatch(thunkGetProfile(currProfile?.id)))
+        .then(dispatch(thunkGetAllQuestion()));
         if (unfollowUser) {
 
             dispatch(thunkGetProfile(currProfile?.id));
