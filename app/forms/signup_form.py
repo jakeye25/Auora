@@ -30,11 +30,11 @@ def validate_email(form, field):
     if '@' not in email or  (not email[-4:] == '.com') and (not email[-4:] =='.net') and (not email[-3:]=='.io'):
         raise ValidationError("Invalid email address.")
 
-def imageURL_validation(form, field):
-    img = field.data
-    if not img[-3:] == 'jpg' and (not img[-3:] == 'png') and img[-4:] != 'jpeg' and img[-4:] != 'webp' and img[-3:] != 'gif' and img[-3:] != 'svg':
+# def imageURL_validation(form, field):
+#     img = field.data
+#     if not img[-3:] == 'jpg' and (not img[-3:] == 'png') and img[-4:] != 'jpeg' and img[-4:] != 'webp' and img[-3:] != 'gif' and img[-3:] != 'svg':
 
-        raise ValidationError("Input must be a valid Image Url.")
+#         raise ValidationError("Input must be a valid Image Url.")
 
 def password_length(form, field):
     password = field.data
@@ -46,4 +46,4 @@ class SignUpForm(FlaskForm):
         'username', validators=[DataRequired(), username_exists, username_length])
     email = StringField('email', validators=[DataRequired(), user_exists, validate_email])
     password = StringField('password', validators=[DataRequired(), password_length])
-    avatar = StringField('avatar', validators=[Optional() ,imageURL_validation])
+    avatar = StringField('avatar', validators=[Optional()])

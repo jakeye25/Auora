@@ -19,14 +19,23 @@ const SignUpForm = ({setShowModal}) => {
 
   const onSignUp = async (e) => {
     e.preventDefault();
+
+    const formData = new FormData()
+
+        formData.append('username', username)
+        formData.append('email', email)
+        formData.append('password', password)
+
+        if (avatar) formData.append('avatar', avatar)
+      const data = await dispatch(signUp(formData));
     // if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, email, password, avatar));
+      // const data = await dispatch(signUp(username, email, password, avatar));
       if (data) {
         setErrors(data)
       } else {
         history.push('/home')
-      // }
-    }
+      }
+    // }
   };
 
   const updateUsername = (e) => {
@@ -37,9 +46,13 @@ const SignUpForm = ({setShowModal}) => {
     setEmail(e.target.value);
   };
 
-  const updateAvatar = (e) => {
-    setAvatar(e.target.value);
-  };
+  // const updateAvatar = (e) => {
+  //   setAvatar(e.target.value);
+  // };
+  const addAvatar = (e) => {
+    const file = e.target.files[0]
+    setAvatar(file)
+  }
 
   const updatePassword = (e) => {
     setPassword(e.target.value);
@@ -84,7 +97,7 @@ const SignUpForm = ({setShowModal}) => {
             ></input>
           </div>
           <div className='signupform-item'>
-            <label>Avatar</label>
+            {/* <label>Avatar</label>
             <input
               placeholder='Your avatar url(optional)'
               type='text'
@@ -92,7 +105,23 @@ const SignUpForm = ({setShowModal}) => {
               className='signupinput'
               onChange={updateAvatar? updateAvatar : 'https://www.kindpng.com/picc/m/421-4212275_transparent-default-avatar-png-avatar-img-png-download.png'}
               value={avatar}
-            ></input>
+            ></input> */}
+            <label htmlFor="image-upload" className="custom-file-upload"><i class="fa-regular fa-image fa-xl"></i></label>
+              <input
+                // type="text"
+                // placeholder="Add an image url (optional)"
+                // name="questionimage"
+                // value={questionimage}
+                // className="create_question_input_inner"
+                // onChange={(event) => setQuestionimage(event.target.value)}
+                type="file"
+                accept="image/*"
+                name="avatar"
+                id="image-upload"
+                // value={previewImage}
+                className="create_product_input_inner"
+                onChange={addAvatar}
+              ></input>
           </div>
           <div className='signupform-item'>
             <label>Password</label>

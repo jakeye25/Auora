@@ -5,6 +5,8 @@ from app.api.auth_routes import validation_errors_to_error_messages
 from datetime import datetime
 from app.forms import QuestionForm
 
+from app.s3_aws import (upload_file_to_s3, allowed_file, get_unique_filename)
+
 now= datetime.now()
 
 question_routes = Blueprint('questions', __name__)
@@ -36,13 +38,38 @@ def currentuser_question():
 #create a question
 @question_routes.route('/new', methods=["POST"])
 @login_required
-def add_product():
+def add_question():
+    # print('**********************', dir(request))
+    # print("----------------------------------------------------", dir(request.files))
+    # print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$", dir(request.form.get))
+
+    # if "questionimage" not in request.files:
+        # return {"errors": "image required"}, 400
+        # url = "https://a0.muscache.com/im/pictures/60d85131-b43f-4edb-8051-28c0e6bd377a.jpg?im_w=720"
+    #     pass
+    # else:
+
+    # image = request.files["questionimage"]
+    # print("&&&&&&&&&&&&&&&&&&&&&&&&&&", image)
+    # if not allowed_file(image.filename):
+    #     return {"errors": "file type not permitted"}, 400
+
+    # image.filename = get_unique_filename(image.filename)
+
+    # upload = upload_file_to_s3(image)
+    # print("upload######################", upload)
+    # if "url" not in upload:
+    #     return upload, 400
+
+    # url = upload["url"]
+
     form = QuestionForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         new_question = Question(
             questioncontent = form.data['questioncontent'],
             questionimage = form.data['questionimage'],
+            # questionimage = url,
             userId = current_user.id,
             topicId = form.data['topicId'],
             createdAt = now,

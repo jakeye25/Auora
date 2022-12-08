@@ -102,6 +102,20 @@ export const thunkCreateQuestion = (payload) => async dispatch => {
     }
 }
 
+// export const thunkCreateQuestion = (formData) => async dispatch => {
+//     console.log("createquestion", formData)
+//     const response = await fetch('/api/questions/new', {
+//         method: 'POST',
+//         // headers: { 'Content-Type': 'application/json' },
+//         body: formData
+//     })
+//     if (response.ok) {
+//         const data = await response.json()
+//         dispatch(actionCreateQustion(data))
+//         return data
+//     }
+// }
+
 export const thunkUpdateQuestion = (payload) => async dispatch => {
     const response = await fetch(`/api/questions/${payload.id}/edit`, {
         method: "PUT",
