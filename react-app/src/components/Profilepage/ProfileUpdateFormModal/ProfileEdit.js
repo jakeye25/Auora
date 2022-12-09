@@ -9,7 +9,7 @@ function ProfileUpdate({ currProfile, setShowModal }) {
 
     const dispatch = useDispatch();
 
-    const [avatar, setAvatar] = useState()
+    const [avatar, setAvatar] = useState(currProfile?.avatar)
     const [validations, setValidations] = useState([])
     console.log("updateprofile---currprofile", currProfile)
     let profileId = currProfile.id

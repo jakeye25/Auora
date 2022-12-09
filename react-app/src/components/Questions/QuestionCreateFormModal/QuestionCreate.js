@@ -122,29 +122,25 @@ function QuestionCreate({ setShowModal }) {
               ))}
             </select>
           </div>
-          <div className="create_question_input">
-            <div>
-              <input
-                type="text"
-                placeholder="Add an image url (optional)"
-                name="questionimage"
-                value={questionimage}
-                className="create_question_input_inner"
-                onChange={(event) => setQuestionimage(event.target.value)}
-              // type="file"
-              // accept="image/*"
-              // name="questionimage"
-              // id="image-upload"
-              // className="create_product_input_inner"
-              // onChange={addImage}
-              ></input>
-            </div>
-          </div>
+
         </div>
-
         <div className="create_question_input">
-
-
+          <div>
+            <input
+              type="text"
+              placeholder="Add an image url (optional)"
+              name="questionimage"
+              value={questionimage}
+              className="create_question_input_inner"
+              onChange={(event) => setQuestionimage(event.target.value)}
+            // type="file"
+            // accept="image/*"
+            // name="questionimage"
+            // id="image-upload"
+            // className="create_product_input_inner"
+            // onChange={addImage}
+            ></input>
+          </div>
         </div>
         {validations.length > 0 ? (
           <div className="create_question_empty">
