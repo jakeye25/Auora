@@ -64,7 +64,7 @@ def sign_up():
     """
     if "avatar" not in request.files:
         # return {"errors": "image required"}, 400
-        url = "https://www.kindpng.com/picc/m/421-4212275_transparent-default-avatar-png-avatar-img-png-download.png"
+        url = "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png"
     #     pass
     else:
 

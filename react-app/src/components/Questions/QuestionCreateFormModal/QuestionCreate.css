@@ -149,13 +149,14 @@
     background-color: rgba(128, 128, 128, 0.2);
 }
 
-/* input[type="file"] {
+input[type="file"] {
     display: none;
-} */
+}
 
 .custom-file-upload {
     /* border: 1px solid #ccc; */
     display: inline-block;
+    align-items: center;
     padding: 6px 12px;
     cursor: pointer;
 }
