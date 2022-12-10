@@ -34,6 +34,8 @@ def update_profile(id):
     if form.validate_on_submit():
         edit_profile = User.query.get(id)
         edit_profile.avatar = form.data['avatar']
+        edit_profile.bio = form.data['bio']
+        edit_profile.description = form.data['description']
         # edit_product.userId = current_user.id
         # edit_product.createdAt = now,
         edit_profile.updatedAt = now

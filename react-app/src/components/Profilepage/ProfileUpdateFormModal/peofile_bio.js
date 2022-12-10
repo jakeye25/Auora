@@ -6,12 +6,12 @@ import './ProfileEdit.css'
 
 
 
-function ProfileUpdateFormModal({currProfile}) {
+function ProfileUpdateFormModal_bio({currProfile}) {
     const [showModal, setShowModal] = useState(false);
-    // console.log("index", currProfile)
+    console.log("index", currProfile)
     return (
       <>
-         <div id='edit-profilebtn' onClick={() => setShowModal(true)}><i class="fa-regular fa-pen-to-square"></i></div>
+         <div id='edit-profilebtn' onClick={() => setShowModal(true)}>Add profile credential</div>
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>
             <ProfileUpdate currProfile={currProfile} setShowModal={setShowModal}/>
@@ -21,4 +21,4 @@ function ProfileUpdateFormModal({currProfile}) {
     );
   }
 
-  export default ProfileUpdateFormModal;
+  export default ProfileUpdateFormModal_bio;

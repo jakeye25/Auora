@@ -11,7 +11,21 @@ def imageURL_validation(form, field):
 
         raise ValidationError("Input must be a valid Image Url.")
 
+def bio_validation(form, field):
+    bio = field.data
+    if len(bio) > 60:
+
+        raise ValidationError("Bio must be no more than 60 characters")
+
+def description_validation(form, field):
+    description = field.data
+    if len(description) > 255:
+
+        raise ValidationError("Desscription must be no more than 255 characters")
+
 
 class ProfileForm(FlaskForm):
 
-    avatar = StringField('avatar', validators=[Optional() ,imageURL_validation])
+    avatar = StringField('avatar', validators=[Optional(), imageURL_validation])
+    bio = StringField('bio', validators=[Optional(), bio_validation])
+    description = StringField('description', validators=[Optional(), description_validation])

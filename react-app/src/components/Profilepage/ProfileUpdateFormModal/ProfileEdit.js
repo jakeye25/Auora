@@ -10,6 +10,8 @@ function ProfileUpdate({ currProfile, setShowModal }) {
     const dispatch = useDispatch();
 
     const [avatar, setAvatar] = useState(currProfile?.avatar)
+    const [bio, setBio] = useState(currProfile?.bio)
+    const [description, setDescription] = useState(currProfile?.description)
     const [validations, setValidations] = useState([])
     console.log("updateprofile---currprofile", currProfile)
     let profileId = currProfile.id
@@ -33,7 +35,8 @@ function ProfileUpdate({ currProfile, setShowModal }) {
         // setSubmit(!submit);
         const payload = {
             id: profileId,
-
+            bio,
+            description,
             avatar,
 
         };
@@ -54,43 +57,35 @@ function ProfileUpdate({ currProfile, setShowModal }) {
             </div>
 
             <form className="create_question_form" onSubmit={onSubmit}>
-{/*
                 <div className="create_question_input">
 
                     <div>
                         <input
                             type="text"
-                            placeholder="Start your question with 'What', 'How', 'Why', etc."
-                            name="questioncontent"
-                            value={questioncontent}
+                            placeholder="librarian in New York, reads constantly"
+                            name="bio"
+                            // maxLength='60'
+                            value={bio}
                             className="create_question_input_inner"
-                            onChange={(event) => setQuestioncontent(event.target.value)}
-                            required
+                            onChange={(event) => setBio(event.target.value)}
+
                         ></input>
                     </div>
                 </div>
-
                 <div className="create_question_input">
 
                     <div>
-                        <select
-                            required
-                            name="TopicId"
-                            value={topicId}
-                            onChange={(event) => settopicId(event.target.value)}
+                        <textarea
+                            type="text"
+                            placeholder="Write a description about yourself"
+                            name="description"
+                            // maxLength='255'
+                            value={description}
                             className="create_question_input_inner"
-                        >
-                            <option className="create_question_input_inner" value="" disabled>
-                                Select a topic
-                            </option>
-                            {topicsObjArr?.map((topic) => (
-                                <option className="create_question_input_inner" key={topic?.id} value={topic?.id}>
-                                    {topic?.name}
-                                </option>
-                            ))}
-                        </select>
+                            onChange={(event) => setDescription(event.target.value)}
+                        ></textarea>
                     </div>
-                </div> */}
+                </div>
 
                 <div className="create_question_input">
 

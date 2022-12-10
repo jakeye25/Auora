@@ -4,25 +4,25 @@ from app.models import db, User
 # Adds a demo user, you can add other users here if you want
 def seed_users():
     demo = User(
-        username='Demo', email='demo@aa.io', password='password', avatar='http://s3.amazonaws.com/37assets/svn/765-default-avatar.png')
+        username='Demo', email='demo@aa.io', password='password', avatar='http://s3.amazonaws.com/37assets/svn/765-default-avatar.png', bio='', description='')
     marnie = User(
-        username='marnie', email='marnie@aa.io', password='password', avatar='http://s3.amazonaws.com/37assets/svn/765-default-avatar.png')
+        username='marnie', email='marnie@aa.io', password='password', avatar='http://s3.amazonaws.com/37assets/svn/765-default-avatar.png', bio='', description='')
     bobbie = User(
-        username='bobbie', email='bobbie@aa.io', password='password', avatar='http://s3.amazonaws.com/37assets/svn/765-default-avatar.png')
+        username='bobbie', email='bobbie@aa.io', password='password', avatar='http://s3.amazonaws.com/37assets/svn/765-default-avatar.png', bio='', description='')
     jimgreen = User(
-        username='jimgreen', email='jimgreen@aa.io', password='password', avatar='http://s3.amazonaws.com/37assets/svn/765-default-avatar.png')
+        username='jimgreen', email='jimgreen@aa.io', password='password', avatar='http://s3.amazonaws.com/37assets/svn/765-default-avatar.png', bio='', description='')
     meimei = User(
-        username='meimeihan', email='meimeihan@aa.io', password='password', avatar='http://s3.amazonaws.com/37assets/svn/765-default-avatar.png')
+        username='meimeihan', email='meimeihan@aa.io', password='password', avatar='http://s3.amazonaws.com/37assets/svn/765-default-avatar.png', bio='', description='')
     doodle = User(
-        username='doodle', email='doodle@aa.io', password='password', avatar='http://s3.amazonaws.com/37assets/svn/765-default-avatar.png')
+        username='doodle', email='doodle@aa.io', password='password', avatar='http://s3.amazonaws.com/37assets/svn/765-default-avatar.png', bio='', description='')
     goofy = User(
-        username='goofy', email='goofy@aa.io', password='password', avatar='http://s3.amazonaws.com/37assets/svn/765-default-avatar.png')
+        username='goofy', email='goofy@aa.io', password='password', avatar='http://s3.amazonaws.com/37assets/svn/765-default-avatar.png', bio='', description='')
     charlie = User(
-        username='charlie', email='charlie@aa.io', password='password', avatar='http://s3.amazonaws.com/37assets/svn/765-default-avatar.png')
+        username='charlie', email='charlie@aa.io', password='password', avatar='http://s3.amazonaws.com/37assets/svn/765-default-avatar.png', bio='', description='')
     william = User(
-        username='william', email='william@aa.io', password='password', avatar='http://s3.amazonaws.com/37assets/svn/765-default-avatar.png')
+        username='william', email='william@aa.io', password='password', avatar='http://s3.amazonaws.com/37assets/svn/765-default-avatar.png', bio='', description='')
     glenny = User(
-        username='glenny', email='glenny@aa.io', password='password', avatar='http://s3.amazonaws.com/37assets/svn/765-default-avatar.png')
+        username='glenny', email='glenny@aa.io', password='password', avatar='http://s3.amazonaws.com/37assets/svn/765-default-avatar.png', bio='', description='')
 
     db.session.add(demo)
     db.session.add(marnie)

@@ -90,7 +90,9 @@ def sign_up():
             email=form.data['email'],
             password=form.data['password'],
             # avatar=form.data['avatar']
-            avatar=url
+            avatar=url,
+            bio='',
+            description=''
         )
         db.session.add(user)
         db.session.commit()
