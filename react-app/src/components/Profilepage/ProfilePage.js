@@ -12,6 +12,8 @@ import { thunkGetCurrentQuestion } from "../../store/question";
 import { thunkGetCurrentAnswer } from "../../store/answer";
 import AnswerUpdateFormModal from "../Answers/AnswerUpdateFormModal";
 import AnswerDeleteFormModal from "../Answers/AnswerDeleteFormModal";
+import QuestionUpdateFormModal from "../Questions/QuestionEditFormModal";
+import QuestionDeleteFormModal from "../Questions/QuestionDeleteFormModal";
 
 
 
@@ -86,9 +88,21 @@ function ProfilePage() {
             : <div><ProfileUpdateFormModal_description currProfile={currProfile}/></div>}
             <div className="profile-bottom">
                 <nav>
-                    <div>
+                    <NavLink to ={`/profiles/${id}`}>
                         Profile
-                    </div>
+                    </NavLink>
+                    <NavLink to ={`/profiles/${id}/answers`}>
+                        {currAnswers?.length ? currAnswers?.length : '0'}&nbsp;{(currAnswers?.length == 0 ||currAnswers?.length == 0) ? 'Answer' : 'Answers'}
+                    </NavLink>
+                    <NavLink to ={`/profiles/${id}/questions`}>
+                    {currQuestions?.length ? currQuestions?.length : '0'}&nbsp;{(currQuestions?.length == 0 ||currQuestions?.length == 0) ? 'Question' : 'Questions'}
+                    </NavLink>
+                    <NavLink to ={`/profiles/${id}/followers`}>
+                        Followers
+                    </NavLink>
+                    <NavLink to ={`/profiles/${id}/following`}>
+                        Following
+                    </NavLink>
                 </nav>
                 <div>Profile</div>
                 <div className="profile-bottom-content-container">
@@ -126,7 +140,7 @@ function ProfilePage() {
                                         <div className="myanswer-content">{answer?.answercontent}</div>
                             </div>
                         ))}
-                        {questionfilter.map((question, i) => (
+                        {currQuestions.map((question, i) => (
                             <div key={i} className="my_question_listing_innerbox">
 
                                     <div className="my_question_listing_nav">

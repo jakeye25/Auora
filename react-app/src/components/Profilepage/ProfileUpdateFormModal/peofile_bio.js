@@ -11,7 +11,7 @@ function ProfileUpdateFormModal_bio({currProfile}) {
     console.log("index", currProfile)
     return (
       <>
-         <div id='edit-profilebtn' onClick={() => setShowModal(true)}>Add profile credential</div>
+         <div className='profile-updatebtn' onClick={() => setShowModal(true)}>Add profile credential</div>
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>
             <ProfileUpdate currProfile={currProfile} setShowModal={setShowModal}/>
