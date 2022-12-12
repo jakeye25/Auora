@@ -13,9 +13,18 @@ function ProfileUpdate({ currProfile, setShowModal }) {
     const [bio, setBio] = useState(currProfile?.bio)
     const [description, setDescription] = useState(currProfile?.description)
     const [validations, setValidations] = useState([])
-    console.log("updateprofile---currprofile", currProfile)
+    // console.log("updateprofile---currprofile", currProfile)
     let profileId = currProfile.id
-    console.log("profileId", profileId)
+    // console.log("profileId", profileId)
+    const [bioChar, setBioChar] = useState(0);
+    useEffect(() => {
+      setBioChar(bio.length);
+    }, [bio]);
+
+    const [descriptionChar, setDescriptionChar] = useState(0);
+    useEffect(() => {
+      setDescriptionChar(description.length);
+    }, [description]);
 
     useEffect(() => {
         const errors = []
@@ -64,12 +73,13 @@ function ProfileUpdate({ currProfile, setShowModal }) {
                             type="text"
                             placeholder="librarian in New York, reads constantly"
                             name="bio"
-                            // maxLength='60'
+                            maxLength='60'
                             value={bio}
-                            className="create_question_input_inner"
+                            className="edit_profile_input_bio"
                             onChange={(event) => setBio(event.target.value)}
 
                         ></input>
+                        <div className="edit_profile_input_biochar">{60-bioChar}</div>
                     </div>
                 </div>
                 <div className="create_question_input">
@@ -79,11 +89,12 @@ function ProfileUpdate({ currProfile, setShowModal }) {
                             type="text"
                             placeholder="Write a description about yourself"
                             name="description"
-                            // maxLength='255'
+                            maxLength='255'
                             value={description}
-                            className="create_question_input_inner"
+                            className="edit_profile_input_des"
                             onChange={(event) => setDescription(event.target.value)}
                         ></textarea>
+                        <div className="edit_profile_input_deschar">{255-descriptionChar}</div>
                     </div>
                 </div>
 
