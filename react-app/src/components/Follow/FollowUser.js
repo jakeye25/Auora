@@ -19,7 +19,7 @@ function FollowUser() {
     const currUser = useSelector((state) => state.session.user)
     // console.log("checkcurruser", currUser?.id)
     const [following, setFollowing] = useState(false)
-
+//
 
     useEffect(() => {
         currProfile?.followers.forEach((follower) => {
