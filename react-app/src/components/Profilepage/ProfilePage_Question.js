@@ -28,7 +28,7 @@ function ProfilePage_Questions() {
     const profileArr= Object.values(profile)
     const currProfile = profileArr.find((e) => e.id)
     // console.log("profileArr=======",profileArr)
-    console.log("currprofile=======",currProfile)
+    // console.log("currprofile=======",currProfile)
 
     const questions= useSelector((state) => state.question)
     const answers= useSelector((state) => state.answer)
@@ -39,8 +39,8 @@ function ProfilePage_Questions() {
     // console.log("answersArr", answersArr)
     const currQuestions = questionsArr.filter(e => e.userId == id)
     const currAnswers= answersArr.filter(e => e.userId == id)
-    console.log("currQuestions",currQuestions)
-    console.log("currAnswers",currAnswers)
+    // console.log("currQuestions",currQuestions)
+    // console.log("currAnswers",currAnswers)
 
 
     useEffect(() => {

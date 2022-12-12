@@ -18,43 +18,49 @@ function FollowUserMainPage({question}) {
     const currUser = useSelector((state) => state.session.user)
     // console.log("checkcurruser", currUser?.id)
     const [following, setFollowing] = useState(false)
-
+  console.log("checking follow main page question structure___________",question)
 
     useEffect(() => {
         question?.followers.forEach((followerId) => {
           // console.log("testing useeffect",follower);
           // let followerId = follower.id;
+          // console.log("==============profilemainpage", followerId)
+          // console.log("++++++++++++==profilemainpage__________", currUser.id === followerId)
           if (currUser.id === followerId) {
             setFollowing(true);
           }
         });
       }, [question?.followers]);
 
-    //   useEffect(() => {
-    //     dispatch(thunkGetProfile(id));
-    // }, [dispatch, id])
+      useEffect(() => {
+        dispatch(thunkGetProfile(question?.userId));
+    }, [dispatch, question?.userId])
 
     const handleFollow = async (e) => {
         e.preventDefault();
         let followUser = await dispatch(thunkUserFollow(question?.userId))
-        .then(dispatch(thunkGetAllQuestion()));
-        // if (followUser) {
+        .then(dispatch(thunkGetAllQuestion()))
+        .then(dispatch(thunkGetProfile(question?.userId)))
+        .then(setFollowing(true))
+        if (followUser) {
 
-        //     dispatch(thunkGetAllQuestion());
+            dispatch(thunkGetAllQuestion());
 
-        // }
+        }
         setFollowing(true);
       };
 
       const handleUnfollow = async (e) => {
         e.preventDefault();
         let unfollowUser = await dispatch(thunkUserUnfollow(question?.userId))
-        .then(dispatch(thunkGetAllQuestion()));
-        // if (unfollowUser) {
+        .then(dispatch(thunkGetAllQuestion()))
+        .then(setFollowing(false))
+        .then(dispatch(thunkGetProfile(question?.userId)))
+        if (unfollowUser) {
 
-        //     dispatch(thunkGetAllQuestion());
+            dispatch(thunkGetAllQuestion());
 
-        // }
+        }
         setFollowing(false);
       };
 

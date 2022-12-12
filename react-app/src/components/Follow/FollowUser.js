@@ -13,7 +13,7 @@ function FollowUser() {
     const profile= useSelector((state) => state.profile)
     const profileArr= Object.values(profile)
     const currProfile = profileArr.find((e) => e.id)
-    // console.log("followprofile", currProfile)
+    console.log("followprofile", currProfile)
     // console.log("followingprofile", currProfile?.following)
     // console.log("followerprofile", currProfile?.followers)
     const currUser = useSelector((state) => state.session.user)
@@ -29,7 +29,7 @@ function FollowUser() {
             setFollowing(true);
           }
         });
-      }, [currProfile?.followers]);
+      }, [currProfile?.followers, id]);
 
       useEffect(() => {
         dispatch(thunkGetProfile(id));
