@@ -8,7 +8,7 @@ export default function Demouser() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const email = "demo@aa.io";
+        const email = "david@aa.io";
         const password = "password";
         return dispatch(login( email, password ))
 

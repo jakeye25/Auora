@@ -3,14 +3,14 @@ from app.models import db, User
 
 # Adds a demo user, you can add other users here if you want
 def seed_users():
-    demo = User(
-        username='Demo', email='demo@aa.io', password='password', avatar='http://s3.amazonaws.com/37assets/svn/765-default-avatar.png', bio='', description='')
+    David = User(
+        username='David', email='david@aa.io', password='password', avatar='https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg', bio='App Academy educated Algo Enthusiast', description='Oh and follow pls! Hi! It appears you have stumbled upon my account!')
     marnie = User(
-        username='marnie', email='marnie@aa.io', password='password', avatar='http://s3.amazonaws.com/37assets/svn/765-default-avatar.png', bio='', description='')
+        username='marnie', email='marnie@aa.io', password='password', avatar='https://images.pexels.com/photos/735423/pexels-photo-735423.jpeg', bio='Self employed', description='How am I supposed to give you any descriptions? You want?', followers=[David])
     bobbie = User(
-        username='bobbie', email='bobbie@aa.io', password='password', avatar='http://s3.amazonaws.com/37assets/svn/765-default-avatar.png', bio='', description='')
+        username='bobbie', email='bobbie@aa.io', password='password', avatar='http://s3.amazonaws.com/37assets/svn/765-default-avatar.png', bio='I worked at an animal shelter and received advance training.', description='I have four cats of my own and worked at an animal shelter for six years until they closed down due to the coronavirus.', followers=[David])
     jimgreen = User(
-        username='jimgreen', email='jimgreen@aa.io', password='password', avatar='http://s3.amazonaws.com/37assets/svn/765-default-avatar.png', bio='', description='')
+        username='jimgreen', email='jimgreen@aa.io', password='password', avatar='http://s3.amazonaws.com/37assets/svn/765-default-avatar.png', bio='', description='', following=[David])
     meimei = User(
         username='meimeihan', email='meimeihan@aa.io', password='password', avatar='http://s3.amazonaws.com/37assets/svn/765-default-avatar.png', bio='', description='')
     doodle = User(
@@ -24,7 +24,7 @@ def seed_users():
     glenny = User(
         username='glenny', email='glenny@aa.io', password='password', avatar='http://s3.amazonaws.com/37assets/svn/765-default-avatar.png', bio='', description='')
 
-    db.session.add(demo)
+    db.session.add(David)
     db.session.add(marnie)
     db.session.add(bobbie)
     db.session.add(jimgreen)

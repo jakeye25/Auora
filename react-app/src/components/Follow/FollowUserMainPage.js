@@ -18,7 +18,7 @@ function FollowUserMainPage({question}) {
     const currUser = useSelector((state) => state.session.user)
     // console.log("checkcurruser", currUser?.id)
     const [following, setFollowing] = useState(false)
-  console.log("checking follow main page question structure___________",question)
+  // console.log("checking follow main page question structure___________",question)
 
     useEffect(() => {
         question?.followers.forEach((followerId) => {
@@ -26,7 +26,7 @@ function FollowUserMainPage({question}) {
           // let followerId = follower.id;
           // console.log("==============profilemainpage", followerId)
           // console.log("++++++++++++==profilemainpage__________", currUser.id === followerId)
-          if (currUser.id === followerId) {
+          if (currUser?.id === followerId) {
             setFollowing(true);
           }
         });
