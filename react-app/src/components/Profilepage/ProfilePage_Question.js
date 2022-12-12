@@ -93,13 +93,13 @@ function ProfilePage_Questions() {
             { ((currUser?.id==currProfile?.id) && (currProfile?.description.length === 0) ) &&<div className="profile-description-container"><ProfileUpdateFormModal_description currProfile={currProfile}/></div>}
             <div className="profile-bottom">
                 <div className="profile-nav">
-                    <NavLink to ={`/profiles/${id}`} className='profile-navlink-active'>
+                    <NavLink to ={`/profiles/${id}`} className='profile-navlink'>
                         Profile
                     </NavLink>
                     <NavLink to ={`/profiles/${id}/answers`} className='profile-navlink'>
                         {currAnswers?.length ? currAnswers?.length : '0'}&nbsp;{(currAnswers?.length == 0 ||currAnswers?.length == 0) ? 'Answer' : 'Answers'}
                     </NavLink>
-                    <NavLink to ={`/profiles/${id}/questions`} className='profile-navlink'>
+                    <NavLink to ={`/profiles/${id}/questions`} className='profile-navlink-active'>
                     {currQuestions?.length ? currQuestions?.length : '0'}&nbsp;{(currQuestions?.length == 0 ||currQuestions?.length == 0) ? 'Question' : 'Questions'}
                     </NavLink>
                     <NavLink to ={`/profiles/${id}/followers`} className='profile-navlink'>

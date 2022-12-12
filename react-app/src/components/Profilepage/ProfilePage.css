@@ -148,3 +148,29 @@
     flex-direction: column;
     justify-content: space-between;
 }
+
+.profile-follow-container{
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    color: #282829;
+
+}
+
+.profile-follow-container:hover{
+    text-decoration: underline;
+}
+
+.followavatar{
+    width: 60px;
+    border: 1px solid rgba(128, 128, 128, 0.5);
+    border-radius: 500px;
+    margin-right: 20px;
+}
+
+.followusername{
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 21px;
+    color: #282829;
+}
