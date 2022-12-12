@@ -25,7 +25,6 @@ def question(id):
         return {'message': "No such question"}
     return question.to_dict()
 
-
 #get current user question
 @question_routes.route("/current")
 @login_required

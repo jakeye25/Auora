@@ -3,13 +3,13 @@ import { useEffect } from "react";
 import { NavLink, useHistory, useParams } from "react-router-dom";
 
 import './ProfilePage.css'
-import { thunkGetProfile } from "../../store/profile";
+import { thunkGetProfile} from "../../store/profile";
 import ProfileUpdateFormModal from "./ProfileUpdateFormModal";
 import FollowUser from "../Follow/FollowUser";
 import ProfileUpdateFormModal_description from "./ProfileUpdateFormModal/profile_description";
 import ProfileUpdateFormModal_bio from "./ProfileUpdateFormModal/peofile_bio";
-import { thunkGetCurrentQuestion } from "../../store/question";
-import { thunkGetCurrentAnswer } from "../../store/answer";
+import { thunkGetCurrentQuestion, thunkGetProfileQuestions } from "../../store/question";
+import { thunkGetCurrentAnswer, thunkGetProfileAnswers } from "../../store/answer";
 import AnswerUpdateFormModal from "../Answers/AnswerUpdateFormModal";
 import AnswerDeleteFormModal from "../Answers/AnswerDeleteFormModal";
 import QuestionUpdateFormModal from "../Questions/QuestionEditFormModal";
@@ -45,8 +45,13 @@ function ProfilePage() {
 
     useEffect(() => {
         dispatch(thunkGetProfile(id));
+        if( currUser.id == id) {
         dispatch(thunkGetCurrentQuestion())
-        dispatch(thunkGetCurrentAnswer())
+        dispatch(thunkGetCurrentAnswer())}
+        else {
+        dispatch(thunkGetProfileQuestions(id))
+        dispatch(thunkGetProfileAnswers(id))
+        }
     }, [dispatch, id])
 
     return(
@@ -67,8 +72,8 @@ function ProfilePage() {
                             <ProfileUpdateFormModal currProfile={currProfile} />
                         </div>}
                     </div>
-                    {currProfile?.bio ? <div>{currProfile?.bio}</div>
-                    : <div><ProfileUpdateFormModal_bio currProfile={currProfile}/></div>}
+                    {currProfile?.bio && <div className="profile-bio">{currProfile?.bio}</div>}
+                    { ((currUser?.id==currProfile?.id) && (currProfile?.bio.length === 0) ) &&<div><ProfileUpdateFormModal_bio currProfile={currProfile}/></div>}
                     <div className="profile-follow">
                         <div>
                             {currProfile?.followers? currProfile?.followers?.length : "0" } followers &nbsp;·
@@ -84,26 +89,26 @@ function ProfilePage() {
                     </div>}
                 </div>
             </div>
-            {currProfile?.description ? <div>{currProfile?.description}</div>
-            : <div><ProfileUpdateFormModal_description currProfile={currProfile}/></div>}
+            {currProfile?.description && <div className="profile-description-text">{currProfile?.description}</div>}
+            { ((currUser?.id==currProfile?.id) && (currProfile?.description.length === 0) ) &&<div className="profile-description-container"><ProfileUpdateFormModal_description currProfile={currProfile}/></div>}
             <div className="profile-bottom">
-                <nav>
-                    <NavLink to ={`/profiles/${id}`}>
+                <div className="profile-nav">
+                    <NavLink to ={`/profiles/${id}`} className='profile-navlink-active'>
                         Profile
                     </NavLink>
-                    <NavLink to ={`/profiles/${id}/answers`}>
+                    <NavLink to ={`/profiles/${id}/answers`} className='profile-navlink'>
                         {currAnswers?.length ? currAnswers?.length : '0'}&nbsp;{(currAnswers?.length == 0 ||currAnswers?.length == 0) ? 'Answer' : 'Answers'}
                     </NavLink>
-                    <NavLink to ={`/profiles/${id}/questions`}>
+                    <NavLink to ={`/profiles/${id}/questions`} className='profile-navlink'>
                     {currQuestions?.length ? currQuestions?.length : '0'}&nbsp;{(currQuestions?.length == 0 ||currQuestions?.length == 0) ? 'Question' : 'Questions'}
                     </NavLink>
-                    <NavLink to ={`/profiles/${id}/followers`}>
+                    <NavLink to ={`/profiles/${id}/followers`} className='profile-navlink'>
                         Followers
                     </NavLink>
-                    <NavLink to ={`/profiles/${id}/following`}>
+                    <NavLink to ={`/profiles/${id}/following`} className='profile-navlink'>
                         Following
                     </NavLink>
-                </nav>
+                </div>
                 <div>Profile</div>
                 <div className="profile-bottom-content-container">
                     {(currAnswers||currQuestions) ?
@@ -132,10 +137,10 @@ function ProfilePage() {
                                                 <div>{answer?.createdAt.slice(7, 16)}</div>
                                             </div>
                                         </div>
-                                        <div className="myanswer-btn">
+                                        {currUser?.id===currProfile?.id && <div className="myanswer-btn">
                                             <div><AnswerUpdateFormModal answer={answer}/></div>
                                             <div><AnswerDeleteFormModal answer={answer}/></div>
-                                        </div>
+                                        </div>}
                                     </div>
                                         <div className="myanswer-content">{answer?.answercontent}</div>
                             </div>
@@ -151,14 +156,14 @@ function ProfilePage() {
                                     </div>
                                     <div className="myquestion-bottom">
                                         <div className="my_question_listing_len">{question?.answers?.length} answers</div>
-                                        <div className="my_question_listing_btn_container">
+                                        {currUser?.id===currProfile?.id &&<div className="my_question_listing_btn_container">
                                             <div className="my_question_listing_btn">
                                                 <QuestionUpdateFormModal question={question} />
                                             </div>
                                             <div className="my_question_listing_btn">
                                                 <QuestionDeleteFormModal question={question} />
                                             </div>
-                                        </div>
+                                        </div>}
                                     </div>
                             </div>
                         ))}

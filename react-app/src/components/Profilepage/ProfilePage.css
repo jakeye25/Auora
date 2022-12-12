@@ -12,7 +12,7 @@
 .profile-topimg{
     width: 120px;
     height: 120px;
-    border: 1px solid rgba(128,128,128,0.2);
+    border: 1px solid rgba(128,128,128,0.4);
     border-radius: 500px;
 }
 
@@ -49,4 +49,62 @@
 
 .profile-follow{
     display: flex;
+}
+
+.profile-description-container{
+    margin-top: 20px;
+    margin-bottom: 40px;
+
+}
+
+.profile-description-text{
+    margin-top: 20px;
+    margin-bottom: 40px;
+    color: #636466;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 21px;
+}
+
+.profile-bio{
+    color: #282829;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+}
+
+.profile-nav{
+    display: flex;
+    justify-content: space-between;
+    width: 650px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(128,128,128,0.4);
+}
+
+.profile-navlink{
+    text-decoration: none;
+    padding: 10px 20px;
+    color: rgba(128, 128, 128, 0.5);
+    line-height: 18px;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.profile-navlink-active{
+    text-decoration: none;
+    padding: 10px 20px;
+    color: #b92b27;
+    line-height: 18px;
+    font-size: 15px;
+    font-weight: 500;
+    border-bottom: 2px solid #b92b27;
+}
+
+.profile-navlink:hover{
+    background-color: rgba(128, 128, 128, 0.3);
+    color: rgba(128, 128, 128, 1);
+}
+
+.profile-bottom{
+    margin-top: 40px;
 }

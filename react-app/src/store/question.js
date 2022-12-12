@@ -6,7 +6,7 @@ const getCurrentQuestion = '/question/getCurrentQuestion'
 const getOneQuestion = '/question/getOneQuestion'
 const updateQuestion = '/question/updateQuestion'
 const deleteQuestion = '/question/deleteQuestion'
-
+const getProfileQuestions = '/question/getProfileQuestions'
 // ACTION CREATORS
 
 const actionCreateQustion = (question) => {
@@ -44,10 +44,19 @@ const actionUpdateQuestion = (question) => {
     }
 }
 
+
+
 const actionDeleteQuestion = (id) => {
     return {
         type: deleteQuestion,
         id
+    }
+}
+
+const actionGetProfileQuestions = (question) => {
+    return {
+        type: getProfileQuestions,
+        question
     }
 }
 
@@ -140,6 +149,20 @@ export const thunkDeleteQuestion = (id) => async dispatch => {
     }
 }
 
+export const thunkGetProfileQuestions = (id) => async dispatch => {
+
+    const response = await fetch(`/api/profiles/${id}/questions`, {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+    });
+
+    if (response.ok) {
+        const data = await response.json()
+        // console.log("check profile question res", data)
+        dispatch(actionGetProfileQuestions(data))
+    }
+}
+
 
 const initialState = {}
 
@@ -172,6 +195,12 @@ const questionReducer = (state = initialState, action) => {
         case deleteQuestion:
             delete newState[action.id]
             return newState
+        case getProfileQuestions:
+            newState = {};
+            action.question.questions.forEach((question) => {
+                newState[question.id] = question;
+            });
+            return newState;
         default:
             return state;
     }

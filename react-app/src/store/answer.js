@@ -5,7 +5,7 @@ const getAllQuestionAnswer = '/answer/getAllQuestionAnswer'
 const getCurrentAnswer = '/answer/getCurrentAnswer'
 const updateAnswer = '/answer/updateAnswer'
 const deleteAnswer = '/answer/deleteAnswer'
-
+const getProfileAnswers = '/answer/getProfileAnswers'
 // ACTION CREATORS
 
 const actionCreateAnswer = (answer) => {
@@ -43,17 +43,24 @@ const actionDeleteAnswer = (id) => {
     }
 }
 
+const actionGetProfileAnswers = (answer) => {
+    return {
+        type: getProfileAnswers,
+        answer
+    }
+}
+
 // THUNKS
 
 
 export const thunkCreateAnswer = (payload) => async dispatch => {
     const response = await fetch(`/api/answers/questions/${payload.questionId}`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload)
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
     });
 
-    if(response.ok) {
+    if (response.ok) {
         const data = await response.json()
         dispatch(actionCreateAnswer(data))
         return data
@@ -63,7 +70,7 @@ export const thunkCreateAnswer = (payload) => async dispatch => {
 
 export const thunkGetAllQuestionAnswer = (id) => async dispatch => {
     const response = await fetch(`/api/answers/questions/${id}`, {
-      method: "GET",
+        method: "GET",
     });
     // console.log(id)
 
@@ -109,9 +116,22 @@ export const thunkDeleteAnswer = (id) => async dispatch => {
     }
 }
 
+
+export const thunkGetProfileAnswers = (id) => async dispatch => {
+    const response = await fetch(`/api/profiles/${id}/answers`, {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+    });
+
+    if (response.ok) {
+        const data = await response.json()
+        dispatch(actionGetProfileAnswers(data))
+    }
+}
+
 const initialState = {}
 const answerReducer = (state = initialState, action) => {
-    let newState = {...state}
+    let newState = { ...state }
     switch (action.type) {
         case createAnswer:
             newState[action.answer.id] = action.answer
@@ -134,6 +154,12 @@ const answerReducer = (state = initialState, action) => {
         case deleteAnswer:
             delete newState[action.id]
             return newState
+        case getProfileAnswers:
+            newState = {};
+            action.answer.answers.forEach((answer) => {
+                newState[answer.id] = answer;
+            });
+            return newState;
         default:
             return state
     }

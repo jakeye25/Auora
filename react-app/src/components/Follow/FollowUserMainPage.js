@@ -38,11 +38,11 @@ function FollowUserMainPage({question}) {
         e.preventDefault();
         let followUser = await dispatch(thunkUserFollow(question?.userId))
         .then(dispatch(thunkGetAllQuestion()));
-        if (followUser) {
+        // if (followUser) {
 
-            dispatch(thunkGetAllQuestion());
+        //     dispatch(thunkGetAllQuestion());
 
-        }
+        // }
         setFollowing(true);
       };
 
@@ -50,11 +50,11 @@ function FollowUserMainPage({question}) {
         e.preventDefault();
         let unfollowUser = await dispatch(thunkUserUnfollow(question?.userId))
         .then(dispatch(thunkGetAllQuestion()));
-        if (unfollowUser) {
+        // if (unfollowUser) {
 
-            dispatch(thunkGetAllQuestion());
+        //     dispatch(thunkGetAllQuestion());
 
-        }
+        // }
         setFollowing(false);
       };
 

@@ -1,6 +1,7 @@
 // TYPES
 
 const getProfile = '/profile/getProfile'
+
 const updateProfile = '/profile/updateProfile'
 
 // ACTION CREATORS
@@ -10,6 +11,8 @@ const actionGetProfile = (profile) => {
         profile
     }
 }
+
+
 
 const actionUpdateProfile = (profile) => {
     return {
@@ -30,6 +33,9 @@ export const thunkGetProfile = (id) => async dispatch => {
         dispatch(actionGetProfile(data))
     }
 }
+
+
+
 
 export const thunkUpdateProfile = (payload) => async dispatch => {
     const response = await fetch(`/api/profiles/${payload.id}/edit`, {
@@ -54,6 +60,7 @@ const profileReducer = (state = initialState, action) => {
             newState = {};
             newState[action.profile.id] = action.profile
             return newState
+
         case updateProfile:
             newState[action.profile.id] = action.profile
             return newState

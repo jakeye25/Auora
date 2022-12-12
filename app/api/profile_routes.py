@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, session, request
-from app.models import db, User
+from app.models import db, User, Question, Answer
 from flask_login import login_required, current_user
 from app.api.auth_routes import validation_errors_to_error_messages
 from datetime import datetime
@@ -15,6 +15,22 @@ def profile(id):
     if profile is None:
         return {'message': "No such profile"}
     return profile.to_dict()
+
+#get one user's question
+@profile_routes.route('/<int:id>/questions')
+def profile_questions(id):
+    questions = Question.query.filter(Question.userId == id)
+    if questions is None:
+        return {'message': "No such question for the user"}
+    return {'questions': [question.to_dict() for question in questions]}
+
+#get one user's answer
+@profile_routes.route("/<int:id>/answers")
+def profile_answers(id):
+    answers = Answer.query.filter(Answer.userId == id)
+    if answers is None:
+        return {'message': "No such question for the user"}
+    return {'answers': [answer.to_dict() for answer in answers]}
 
 
 #update profile
