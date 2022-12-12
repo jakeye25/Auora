@@ -124,7 +124,7 @@ function ProfilePage_Followers() {
                                             className="profile-follow-container"
                                             to={`/profiles/${follower?.id}`}>
                                             <img
-                                            className="followavatar"
+                                                className="followavatar"
                                                 src={follower?.avatar}
                                                 alt='pic'
                                                 onError={e => { e.currentTarget.src = "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png"; }}
@@ -135,7 +135,14 @@ function ProfilePage_Followers() {
                                 </div>
                             ))}
                         </div>}
-                { currFollowers? <div></div> : <div>{currProfile?.username}&nbsp;don't have any activities yet.</div>}
+                    {currFollowers.length != 0 ? <div></div> : <div className="profile-notfound">
+                        <img src="https://qsf.fs.quoracdn.net/-4-ans_frontend_assets.images.empty_states.dormant_lightmode.png-26-c4532c98034818a0.png"
+                            alt="pic"
+                            className="profile-notfound-img"
+                            onError={e => { e.currentTarget.src = "https://qsf.fs.quoracdn.net/-4-ans_frontend_assets.images.empty_states.dormant_lightmode.png-26-c4532c98034818a0.png"; }}
+                        ></img>
+                        <div className="profile-notfound-text">{currProfile?.username}&nbsp;doesn't have followers yet.</div>
+                    </div>}
                 </div>
             </div>
         </div>

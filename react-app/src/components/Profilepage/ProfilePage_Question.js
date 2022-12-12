@@ -111,7 +111,7 @@ function ProfilePage_Questions() {
                 </div>
                 <div className="profile-bottom-2ndlayer">{currQuestions?.length}&nbsp; {(currQuestions?.length == 0 || currQuestions?.length == 1) ? 'Question' : 'Questions'}</div>
                 <div className="profile-bottom-content-container">
-                    {(currQuestions) ?
+                    {(currQuestions) &&
                     <div>
                         {currQuestions.map((question, i) => (
                             <div key={i} className="my_question_listing_innerbox-profile">
@@ -135,8 +135,15 @@ function ProfilePage_Questions() {
                                     </div>
                             </div>
                         ))}
-                    </div>
-                : <div>You don't have any activities yet.</div>}
+                    </div>}
+                    { currQuestions.length != 0 ? <div></div> : <div className="profile-notfound">
+                    <img src="https://qsf.fs.quoracdn.net/-4-ans_frontend_assets.images.empty_states.dormant_lightmode.png-26-c4532c98034818a0.png"
+                    alt="pic"
+                    className="profile-notfound-img"
+                    onError={e => { e.currentTarget.src = "https://qsf.fs.quoracdn.net/-4-ans_frontend_assets.images.empty_states.dormant_lightmode.png-26-c4532c98034818a0.png"; }}
+                    ></img>
+                    <div className="profile-notfound-text">{currProfile?.username}&nbsp;hasn't asked any questions yet.</div>
+                    </div>}
                 </div>
             </div>
         </div>

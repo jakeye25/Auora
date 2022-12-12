@@ -111,7 +111,7 @@ function ProfilePage_Answer() {
                 </div>
                 <div className="profile-bottom-2ndlayer">{currAnswers?.length}&nbsp; {(currAnswers?.length == 0 || currAnswers?.length == 1) ? 'Answer' : 'Answers'}</div>
                 <div className="profile-bottom-content-container">
-                    {(currAnswers) ?
+                    {(currAnswers) &&
                     <div>
                         {currAnswers.map((answer, i) => (
 
@@ -145,8 +145,15 @@ function ProfilePage_Answer() {
                                         <div className="myanswer-content">{answer?.answercontent}</div>
                             </div>
                         ))}
-                    </div>
-                : <div>You don't have any activities yet.</div>}
+                    </div>}
+                    { currAnswers.length != 0 ? <div></div> : <div className="profile-notfound">
+                    <img src="https://qsf.fs.quoracdn.net/-4-ans_frontend_assets.images.empty_states.dormant_lightmode.png-26-c4532c98034818a0.png"
+                    alt="pic"
+                    className="profile-notfound-img"
+                    onError={e => { e.currentTarget.src = "https://qsf.fs.quoracdn.net/-4-ans_frontend_assets.images.empty_states.dormant_lightmode.png-26-c4532c98034818a0.png"; }}
+                    ></img>
+                    <div className="profile-notfound-text">{currProfile?.username}&nbsp;hasn't answered any questions yet.</div>
+                    </div>}
                 </div>
             </div>
         </div>

@@ -41,7 +41,8 @@ function ProfilePage_Following() {
     const currAnswers = answersArr.filter(e => e.userId == id)
     // console.log("currQuestions",currQuestions)
     // console.log("currAnswers",currAnswers)
-    console.log("currprofile followers", currProfile.followers)
+    console.log("currprofile followers==============", currProfile.followers)
+    console.log("currprofile following+++++++++++++++++++", currProfile.following)
     const currFollowing = currProfile?.following
 
     useEffect(() => {
@@ -111,7 +112,7 @@ function ProfilePage_Following() {
                         Following
                     </NavLink>
                 </div>
-                <div className="profile-bottom-2ndlayer">Following</div>
+                <div className="profile-bottom-2ndlayer">{currFollowing?.length}&nbsp; {(currFollowing?.length == 0 || currFollowing?.length == 1) ? 'Following' : 'Followings'}</div>
                 <div className="profile-bottom-content-container">
                     {currFollowing &&
                         <div>
@@ -135,7 +136,14 @@ function ProfilePage_Following() {
                                 </div>
                             ))}
                         </div>}
-                { currFollowing? <div></div> : <div>{currProfile?.username}&nbsp;don't have any activities yet.</div>}
+                { currFollowing.length != 0 ? <div></div> : <div className="profile-notfound">
+                    <img src="https://qsf.fs.quoracdn.net/-4-ans_frontend_assets.images.empty_states.dormant_lightmode.png-26-c4532c98034818a0.png"
+                    alt="pic"
+                    className="profile-notfound-img"
+                    onError={e => { e.currentTarget.src = "https://qsf.fs.quoracdn.net/-4-ans_frontend_assets.images.empty_states.dormant_lightmode.png-26-c4532c98034818a0.png"; }}
+                    ></img>
+                    <div className="profile-notfound-text">{currProfile?.username}&nbsp;isn't following any users yet.</div>
+                    </div>}
                 </div>
             </div>
         </div>
