@@ -95,3 +95,14 @@
 .menu-item-link:hover{
     background-color: rgba(243, 245, 245, 0.7);
 }
+
+.profile-dropdown-bio{
+    text-overflow: ellipsis;
+    word-break: break-word;
+    white-space: pre-wrap;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 18px;
+    color: #282829;
+    
+}
