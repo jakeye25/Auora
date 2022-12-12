@@ -17,7 +17,7 @@ import QuestionDeleteFormModal from "../Questions/QuestionDeleteFormModal";
 
 
 
-function ProfilePage() {
+function ProfilePage_Questions() {
     const { id } = useParams();
     const dispatch = useDispatch();
     const history = useHistory();
@@ -111,40 +111,8 @@ function ProfilePage() {
                 </div>
                 <div className="profile-bottom-2ndlayer">Profile</div>
                 <div className="profile-bottom-content-container">
-                    {(currAnswers||currQuestions) ?
+                    {(currQuestions) ?
                     <div>
-                        {currAnswers.map((answer, i) => (
-
-                            <div key={i} className="my_answer_listing_innerbox">
-
-                                    <div className="my_answer_listing_nav">
-                                        <NavLink
-                                        className='my_answer_listing_link'
-                                        to={`/questions/${answer?.questionId}`}>
-
-                                        {answer?.question}
-                                        </NavLink>
-                                    </div>
-                                    <div className="myanswers-userbtn-container">
-                                        <div className="my_answer_listing_profile">
-                                            <img
-                                            src={answer?.avatar}
-                                            alt='pic'
-                                            onError={e => { e.currentTarget.src = "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png"; }}
-                                            ></img>
-                                            <div className="my_answer_listing_profile-right">
-                                                <div>{currUser?.username}</div>
-                                                <div>{answer?.createdAt.slice(7, 16)}</div>
-                                            </div>
-                                        </div>
-                                        {currUser?.id===currProfile?.id && <div className="myanswer-btn">
-                                            <div><AnswerUpdateFormModal answer={answer}/></div>
-                                            <div><AnswerDeleteFormModal answer={answer}/></div>
-                                        </div>}
-                                    </div>
-                                        <div className="myanswer-content">{answer?.answercontent}</div>
-                            </div>
-                        ))}
                         {currQuestions.map((question, i) => (
                             <div key={i} className="my_question_listing_innerbox">
 
@@ -175,4 +143,4 @@ function ProfilePage() {
     )
 }
 
-export default ProfilePage
+export default ProfilePage_Questions

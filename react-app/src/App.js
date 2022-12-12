@@ -17,6 +17,9 @@ import MyQuestionListings from './components/Questions/MyQuestionListing';
 import MyAnswerListings from './components/Answers/MyAnswerListing';
 import NotMyQuestionListings from './components/Questions/NotMyQuestionListing';
 import ProfilePage from './components/Profilepage/ProfilePage';
+import ProfilePage_Answer from './components/Profilepage/ProfilePage_Answer';
+import ProfilePage_Questions from './components/Profilepage/ProfilePage_Question';
+
 
 
 
@@ -50,6 +53,12 @@ function App() {
         </Route>
         <Route exact path="/topics">
             <TopicList />
+        </Route>
+        <Route exact path="/profiles/:id/questions">
+            <ProfilePage_Questions />
+        </Route>
+        <Route exact path="/profiles/:id/answers">
+            <ProfilePage_Answer />
         </Route>
         <Route exact path="/profiles/:id">
             <ProfilePage />

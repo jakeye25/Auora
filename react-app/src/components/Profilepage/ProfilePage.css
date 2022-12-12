@@ -93,11 +93,11 @@
 .profile-navlink-active{
     text-decoration: none;
     padding: 10px 20px;
-    color: #b92b27;
+    color: rgba(25, 90, 255, 0.9);
     line-height: 18px;
     font-size: 15px;
     font-weight: 500;
-    border-bottom: 2px solid #b92b27;
+    border-bottom: 2px solid rgba(25, 90, 255, 0.9);
 }
 
 .profile-navlink:hover{
@@ -107,4 +107,14 @@
 
 .profile-bottom{
     margin-top: 40px;
+}
+
+.profile-bottom-2ndlayer{
+    margin-bottom: 20px;
+    width: 650px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 21px;
+    color: #282829;
 }

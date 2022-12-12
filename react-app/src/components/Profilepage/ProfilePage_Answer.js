@@ -17,7 +17,7 @@ import QuestionDeleteFormModal from "../Questions/QuestionDeleteFormModal";
 
 
 
-function ProfilePage() {
+function ProfilePage_Answer() {
     const { id } = useParams();
     const dispatch = useDispatch();
     const history = useHistory();
@@ -93,10 +93,10 @@ function ProfilePage() {
             { ((currUser?.id==currProfile?.id) && (currProfile?.description.length === 0) ) &&<div className="profile-description-container"><ProfileUpdateFormModal_description currProfile={currProfile}/></div>}
             <div className="profile-bottom">
                 <div className="profile-nav">
-                    <NavLink to ={`/profiles/${id}`} className='profile-navlink-active'>
+                    <NavLink to ={`/profiles/${id}`} className='profile-navlink'>
                         Profile
                     </NavLink>
-                    <NavLink to ={`/profiles/${id}/answers`} className='profile-navlink'>
+                    <NavLink to ={`/profiles/${id}/answers`} className='profile-navlink-active'>
                         {currAnswers?.length ? currAnswers?.length : '0'}&nbsp;{(currAnswers?.length == 0 ||currAnswers?.length == 0) ? 'Answer' : 'Answers'}
                     </NavLink>
                     <NavLink to ={`/profiles/${id}/questions`} className='profile-navlink'>
@@ -111,7 +111,7 @@ function ProfilePage() {
                 </div>
                 <div className="profile-bottom-2ndlayer">Profile</div>
                 <div className="profile-bottom-content-container">
-                    {(currAnswers||currQuestions) ?
+                    {(currAnswers) ?
                     <div>
                         {currAnswers.map((answer, i) => (
 
@@ -145,28 +145,6 @@ function ProfilePage() {
                                         <div className="myanswer-content">{answer?.answercontent}</div>
                             </div>
                         ))}
-                        {currQuestions.map((question, i) => (
-                            <div key={i} className="my_question_listing_innerbox">
-
-                                    <div className="my_question_listing_nav">
-                                        <NavLink className='my_question_listing_link' to={`/questions/${question?.id}`}>
-
-                                        {question?.questioncontent}
-                                        </NavLink>
-                                    </div>
-                                    <div className="myquestion-bottom">
-                                        <div className="my_question_listing_len">{question?.answers?.length} answers</div>
-                                        {currUser?.id===currProfile?.id &&<div className="my_question_listing_btn_container">
-                                            <div className="my_question_listing_btn">
-                                                <QuestionUpdateFormModal question={question} />
-                                            </div>
-                                            <div className="my_question_listing_btn">
-                                                <QuestionDeleteFormModal question={question} />
-                                            </div>
-                                        </div>}
-                                    </div>
-                            </div>
-                        ))}
                     </div>
                 : <div>You don't have any activities yet.</div>}
                 </div>
@@ -175,4 +153,4 @@ function ProfilePage() {
     )
 }
 
-export default ProfilePage
+export default ProfilePage_Answer
