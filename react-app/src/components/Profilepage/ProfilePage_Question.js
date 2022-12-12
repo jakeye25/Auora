@@ -109,7 +109,7 @@ function ProfilePage_Questions() {
                         Following
                     </NavLink>
                 </div>
-                <div className="profile-bottom-2ndlayer">Profile</div>
+                <div className="profile-bottom-2ndlayer">{currQuestions?.length}&nbsp; {(currQuestions?.length == 0 || currQuestions?.length == 1) ? 'Question' : 'Questions'}</div>
                 <div className="profile-bottom-content-container">
                     {(currQuestions) ?
                     <div>

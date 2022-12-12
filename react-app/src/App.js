@@ -20,6 +20,7 @@ import ProfilePage from './components/Profilepage/ProfilePage';
 import ProfilePage_Answer from './components/Profilepage/ProfilePage_Answer';
 import ProfilePage_Questions from './components/Profilepage/ProfilePage_Question';
 import ProfilePage_Followers from './components/Profilepage/ProfilePage_Follower';
+import ProfilePage_Following from './components/Profilepage/ProfilePage_Following';
 
 
 
@@ -60,6 +61,9 @@ function App() {
         </Route>
         <Route exact path="/profiles/:id/followers">
             <ProfilePage_Followers />
+        </Route>
+        <Route exact path="/profiles/:id/following">
+            <ProfilePage_Following />
         </Route>
         <Route exact path="/profiles/:id/answers">
             <ProfilePage_Answer />

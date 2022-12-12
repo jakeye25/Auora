@@ -17,7 +17,7 @@ import QuestionDeleteFormModal from "../Questions/QuestionDeleteFormModal";
 
 
 
-function ProfilePage_Followers() {
+function ProfilePage_Following() {
     const { id } = useParams();
     const dispatch = useDispatch();
     const history = useHistory();
@@ -42,7 +42,7 @@ function ProfilePage_Followers() {
     // console.log("currQuestions",currQuestions)
     // console.log("currAnswers",currAnswers)
     console.log("currprofile followers", currProfile.followers)
-    const currFollowers = currProfile?.followers
+    const currFollowing = currProfile?.following
 
     useEffect(() => {
         dispatch(thunkGetProfile(id));
@@ -104,18 +104,18 @@ function ProfilePage_Followers() {
                     <NavLink to={`/profiles/${id}/questions`} className='profile-navlink'>
                         {currQuestions?.length ? currQuestions?.length : '0'}&nbsp;{(currQuestions?.length == 0 || currQuestions?.length == 0) ? 'Question' : 'Questions'}
                     </NavLink>
-                    <NavLink to={`/profiles/${id}/followers`} className='profile-navlink-active'>
+                    <NavLink to={`/profiles/${id}/followers`} className='profile-navlink'>
                         Followers
                     </NavLink>
-                    <NavLink to={`/profiles/${id}/following`} className='profile-navlink'>
+                    <NavLink to={`/profiles/${id}/following`} className='profile-navlink-active'>
                         Following
                     </NavLink>
                 </div>
-                <div className="profile-bottom-2ndlayer">{currFollowers?.length}&nbsp; {(currFollowers?.length == 0 || currFollowers?.length == 1) ? 'Follower' : 'Followers'}</div>
+                <div className="profile-bottom-2ndlayer">Following</div>
                 <div className="profile-bottom-content-container">
-                    {currFollowers &&
+                    {currFollowing &&
                         <div>
-                            {currFollowers.map((follower, i) => (
+                            {currFollowing.map((follower, i) => (
 
                                 <div key={i} className="my_answer_listing_innerbox-profile">
 
@@ -135,11 +135,11 @@ function ProfilePage_Followers() {
                                 </div>
                             ))}
                         </div>}
-                { currFollowers? <div></div> : <div>{currProfile?.username}&nbsp;don't have any activities yet.</div>}
+                { currFollowing? <div></div> : <div>{currProfile?.username}&nbsp;don't have any activities yet.</div>}
                 </div>
             </div>
         </div>
     )
 }
 
-export default ProfilePage_Followers
+export default ProfilePage_Following
