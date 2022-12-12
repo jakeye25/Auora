@@ -114,7 +114,7 @@ function ProfilePage_Questions() {
                     {(currQuestions) ?
                     <div>
                         {currQuestions.map((question, i) => (
-                            <div key={i} className="my_question_listing_innerbox">
+                            <div key={i} className="my_question_listing_innerbox-profile">
 
                                     <div className="my_question_listing_nav">
                                         <NavLink className='my_question_listing_link' to={`/questions/${question?.id}`}>

@@ -112,10 +112,10 @@ function ProfilePage() {
                 <div className="profile-bottom-2ndlayer">Profile</div>
                 <div className="profile-bottom-content-container">
                     {(currAnswers||currQuestions) ?
-                    <div>
+                    <div className="profile-bottom-3rdlayer">
                         {currAnswers.map((answer, i) => (
 
-                            <div key={i} className="my_answer_listing_innerbox">
+                            <div key={i} className="my_answer_listing_innerbox-profile">
 
                                     <div className="my_answer_listing_nav">
                                         <NavLink
@@ -146,7 +146,7 @@ function ProfilePage() {
                             </div>
                         ))}
                         {currQuestions.map((question, i) => (
-                            <div key={i} className="my_question_listing_innerbox">
+                            <div key={i} className="my_question_listing_innerbox-profile">
 
                                     <div className="my_question_listing_nav">
                                         <NavLink className='my_question_listing_link' to={`/questions/${question?.id}`}>

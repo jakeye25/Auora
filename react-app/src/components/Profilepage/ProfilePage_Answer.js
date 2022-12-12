@@ -115,7 +115,7 @@ function ProfilePage_Answer() {
                     <div>
                         {currAnswers.map((answer, i) => (
 
-                            <div key={i} className="my_answer_listing_innerbox">
+                            <div key={i} className="my_answer_listing_innerbox-profile">
 
                                     <div className="my_answer_listing_nav">
                                         <NavLink
