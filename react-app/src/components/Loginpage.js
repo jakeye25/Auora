@@ -54,7 +54,7 @@ const LoginPage = () => {
                             </a>
                         </div>
                         <div>
-                            <i className="fa-regular fa-folder fa-lg">&nbsp;</i>
+                            <i className="fa-regular fa-folder-open fa-lg">&nbsp;</i>
                             <a
                             className="more_info_text"
                             href="https://jakeye25.github.io/"
