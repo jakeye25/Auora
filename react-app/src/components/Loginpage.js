@@ -57,11 +57,11 @@ const LoginPage = () => {
                             <i className="fa-regular fa-folder fa-lg">&nbsp;</i>
                             <a
                             className="more_info_text"
-                            href="https://github.com/jakeye25"
+                            href="https://jakeye25.github.io/"
                             target="_blank"
                             rel="noopener noreferrer"
                             >
-                            Github
+                            Portfolio
                             </a>
                         </div>
 
